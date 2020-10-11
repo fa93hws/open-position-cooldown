@@ -7,6 +7,7 @@ on:
   release:
     types:
       - published
+      - edited
 
 jobs:
   ci-test:
@@ -37,8 +38,6 @@ jobs:
       #     token: ${{ secrets.CODE_COV_TOKEN }}
       #     file: ./coverage/**/*
       #     flags: unittests
-      - name: print
-        run: echo ${{ github.event_name }}
       - name: Run webpack
         run: npm run build
       - name: Deploy 🚀
