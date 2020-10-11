@@ -38,7 +38,7 @@ jobs:
         run: npm run build
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@3.6.2
-        if: contains(github.ref, 'release-')
+        if: startsWith(github.ref, 'refs/heads/release-')
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages
