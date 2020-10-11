@@ -41,7 +41,7 @@ const webpackConfig = ({ mode }: { mode: Mode }): Configuration => ({
         ],
       },
       {
-        test: /\.(png)$/i,
+        test: /\.png$/i,
         use: [
           {
             loader: 'file-loader',
@@ -50,6 +50,10 @@ const webpackConfig = ({ mode }: { mode: Mode }): Configuration => ({
             },
           },
         ],
+      },
+      {
+        test: /\.svg$/,
+        loader: 'svg-inline-loader',
       },
     ],
   },

@@ -3,6 +3,7 @@ export const theme = {
   colors: {
     text: '#000',
     background: '#fff',
+    white: '#fff',
     primary: '#07c',
     secondary: '#30c',
     muted: '#f6f6f9',
@@ -26,6 +27,7 @@ export const theme = {
   },
   space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
   sizes: {
+    icon: 24,
     avatar: 48,
   },
   radii: {
@@ -107,3 +109,5 @@ export const theme = {
     },
   },
 };
+
+export type Theme = typeof theme;
