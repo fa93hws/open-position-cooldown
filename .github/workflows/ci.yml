@@ -4,6 +4,7 @@ on:
   push:
     paths-ignore:
       - '**.md'
+  release:
 
 jobs:
   ci-test:
@@ -19,7 +20,7 @@ jobs:
           key: ${{ runner.OS }}-npm-${{ hashFiles('package-lock.json') }}
           restore-keys: ${{ runner.OS }}-npm-
       - name: Run npm
-        run: npm ci
+        run: npm install
       - name: Run Eslint
         run: npm run lint
       - name: Check code style
@@ -34,3 +35,16 @@ jobs:
       #     token: ${{ secrets.CODE_COV_TOKEN }}
       #     file: ./coverage/**/*
       #     flags: unittests
+      - name: print
+        run: echo ${{ github.event_name }}
+      - name: Run webpack
+        run: npm run build
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@3.6.2
+        if: ${{ github.event_name == 'release' }}
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: target
+          CLEAN: true
+          SINGLE_COMMIT: true
