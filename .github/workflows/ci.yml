@@ -1,0 +1,36 @@
+name: CI
+
+on:
+  push:
+    paths-ignore:
+      - '**.md'
+
+jobs:
+  ci-test:
+    name: CI-Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: Find NPM Cache
+        uses: actions/cache@v1
+        with:
+          path: node_modules
+          key: ${{ runner.OS }}-npm-${{ hashFiles('package-lock.json') }}
+          restore-keys: ${{ runner.OS }}-npm-
+      - name: Run npm
+        run: npm ci
+      - name: Run Eslint
+        run: npm run lint
+      - name: Check code style
+        run: npm run format
+      - name: Run typecheck
+        run: npm run lint:ts
+      # - name: Run unit test
+      #   run: npm run test -- --coverage
+      # - name: Report test coverage to codecov
+      #   uses: codecov/codecov-action@v1
+      #   with:
+      #     token: ${{ secrets.CODE_COV_TOKEN }}
+      #     file: ./coverage/**/*
+      #     flags: unittests
