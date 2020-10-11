@@ -3,8 +3,14 @@ import { Flex, Link } from 'rebass';
 import { Github, Weibo, Code, IconType } from '../resources/icons';
 
 const IconLink = (props: { Icon: IconType; href: string }) => (
-  <Link size="icon" p="0px" href={props.href} target="__blank">
-    <props.Icon size="icon" fill="white" />
+  <Link
+    size="icon"
+    p="0px"
+    href={props.href}
+    target="__blank"
+    style={{ fill: 'white' }}
+  >
+    <props.Icon />
   </Link>
 );
 

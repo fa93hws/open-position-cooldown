@@ -68,6 +68,10 @@ export const theme = {
     },
     link: {
       color: 'primary',
+      transition: 'opacity 0.3s',
+      '&:hover': {
+        opacity: 0.5,
+      },
     },
     nav: {
       fontSize: 1,
