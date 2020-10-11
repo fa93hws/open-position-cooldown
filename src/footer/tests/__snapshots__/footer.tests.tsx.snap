@@ -5,7 +5,7 @@ exports[`Footer renders it 1`] = `
   class="css-tyqq70"
 >
   <a
-    class="css-554njt"
+    class="css-1b61pal"
     href="https://weibo.com/hinanawi"
     style="fill:white"
     target="__blank"
@@ -13,7 +13,7 @@ exports[`Footer renders it 1`] = `
     <i />
   </a>
   <a
-    class="css-554njt"
+    class="css-1b61pal"
     href="https://github.com/fa93hws/"
     style="fill:white"
     target="__blank"
@@ -21,7 +21,7 @@ exports[`Footer renders it 1`] = `
     <i />
   </a>
   <a
-    class="css-554njt"
+    class="css-1b61pal"
     href="https://github.com/fa93hws/open-position-cooldown"
     style="fill:white"
     target="__blank"
