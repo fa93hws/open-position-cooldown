@@ -1,0 +1,8 @@
+*.css.d.ts
+node_modules
+coverage
+target
+.gitattributes
+*.snap
+.eslintignore
+.prettierignore
