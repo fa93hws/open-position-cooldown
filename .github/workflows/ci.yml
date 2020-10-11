@@ -16,6 +16,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v1
+        with:
+          lfs: true
       - name: Find NPM Cache
         uses: actions/cache@v1
         with:
@@ -30,14 +32,14 @@ jobs:
         run: npm run format
       - name: Run typecheck
         run: npm run lint:ts
-      # - name: Run unit test
-      #   run: npm run test -- --coverage
-      # - name: Report test coverage to codecov
-      #   uses: codecov/codecov-action@v1
-      #   with:
-      #     token: ${{ secrets.CODE_COV_TOKEN }}
-      #     file: ./coverage/**/*
-      #     flags: unittests
+      - name: Run unit test
+        run: npm run test -- --coverage
+      - name: Report test coverage to codecov
+        uses: codecov/codecov-action@v1
+        with:
+          token: ${{ secrets.CODE_COV_TOKEN }}
+          file: ./coverage/**/*
+          flags: unittests
       - name: Run webpack
         run: npm run build
       - name: Deploy 🚀

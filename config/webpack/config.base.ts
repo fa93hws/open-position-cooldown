@@ -12,6 +12,7 @@ const webpackConfig = ({ mode }: { mode: Mode }): Configuration => ({
   entry: join(repoDir, 'src', 'index.tsx'),
   output: {
     path: join(repoDir, 'target'),
+    publicPath: '',
     filename: `static/js/[name].[contenthash:8].js`,
     chunkFilename: `static/js/[name].[contenthash:8].js`,
   },
@@ -36,6 +37,17 @@ const webpackConfig = ({ mode }: { mode: Mode }): Configuration => ({
           {
             loader: 'css-loader',
             options: getCssLoaderOption(mode),
+          },
+        ],
+      },
+      {
+        test: /\.(png)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              outputPath: 'assets',
+            },
           },
         ],
       },
