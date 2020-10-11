@@ -25,7 +25,7 @@ jobs:
           key: ${{ runner.OS }}-npm-${{ hashFiles('package-lock.json') }}
           restore-keys: ${{ runner.OS }}-npm-
       - name: Run npm
-        run: npm install
+        run: npm ci
       - name: Run Eslint
         run: npm run lint
       - name: Check code style
