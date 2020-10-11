@@ -36,3 +36,10 @@ jobs:
       #     flags: unittests
       - name: Run webpack
         run: npm run build
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@3.6.2
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: target
+          CLEAN: true
