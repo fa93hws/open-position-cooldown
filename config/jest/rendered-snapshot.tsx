@@ -1,12 +1,17 @@
 import { render } from 'enzyme';
-import { ReactElement } from 'react';
+import * as React from 'react';
+import { ThemeProvider } from 'emotion-theming';
+
+import { theme } from '../../src/theme';
 
 export function toMatchRenderedSnapshot(
   this: jest.MatcherUtils,
-  jsx: ReactElement<unknown>,
+  jsx: React.ReactElement<unknown>,
 ): { message(): string; pass: boolean } {
   try {
-    expect(render(jsx)).toMatchSnapshot();
+    expect(
+      render(<ThemeProvider theme={theme}>{jsx}</ThemeProvider>),
+    ).toMatchSnapshot();
 
     return {
       message: () => 'expected JSX not to match snapshot',

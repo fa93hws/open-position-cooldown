@@ -5,7 +5,7 @@ module.exports = {
   coverageDirectory: 'coverage',
   setupFilesAfterEnv: ['<rootDir>/config/jest/setup.ts'],
   moduleNameMapper: {
-    '.css$': 'identity-obj-proxy',
+    '\\.css$': 'identity-obj-proxy',
   },
   snapshotSerializers: ['enzyme-to-json/serializer', 'jest-serializer-html'],
   globals: {
