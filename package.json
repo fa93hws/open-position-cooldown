@@ -62,8 +62,8 @@
     "format": "prettier --check **/*",
     "lint": "eslint \"{config,src}/**/*.ts{,x}\"",
     "lint:ts": "tsc --noEmit --project ./tsconfig.check.json",
-    "build": "webpack --config config/webpack/webpack-config.js",
-    "dev": "webpack serve --config config/webpack/webpack-config.js"
+    "build": "webpack --config config/webpack/config.prod.js",
+    "dev": "webpack serve --config config/webpack/config.dev.js"
   },
   "repository": {
     "type": "git",

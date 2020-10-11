@@ -1,15 +1,17 @@
-import { resolve, join } from 'path';
+import { join } from 'path';
 import { Configuration } from 'webpack';
 import * as HtmlWebpackPlugin from 'html-webpack-plugin';
 import * as MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
-const frontendDir = resolve(__dirname, '..', '..');
+import { Mode } from './webpack-mode';
+import { repoDir } from '../paths';
+import { getCssLoaderOption } from './css-loader-option';
 
-export const webpackConfig: Configuration = {
-  mode: 'development',
-  entry: join(frontendDir, 'src', 'index.tsx'),
+const webpackConfig = ({ mode }: { mode: Mode }): Configuration => ({
+  mode,
+  entry: join(repoDir, 'src', 'index.tsx'),
   output: {
-    path: join(frontendDir, 'target'),
+    path: join(repoDir, 'target'),
     filename: `static/js/[name].[contenthash:8].js`,
     chunkFilename: `static/js/[name].[contenthash:8].js`,
   },
@@ -28,36 +30,27 @@ export const webpackConfig: Configuration = {
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
-            options: { hmr: true },
+            options: { hmr: mode === Mode.DEV },
           },
           'css-modules-typescript-loader',
           {
             loader: 'css-loader',
-            options: {
-              modules: {
-                mode: 'local',
-                localIdentContext: resolve(frontendDir, 'src'),
-                localIdentName: '[path][name]__[local]',
-                exportLocalsConvention: 'camelCase',
-              },
-              importLoaders: 0,
-              sourceMap: true,
-            },
+            options: getCssLoaderOption(mode),
           },
         ],
       },
     ],
   },
   devtool: 'source-map',
-  devServer: {
-    historyApiFallback: true,
-    inline: true,
-    hot: true,
-    port: 8081,
-    proxy: {
-      '/api/v1': 'http://localhost:3000',
-    },
-  },
+  devServer:
+    mode === Mode.DEV
+      ? {
+          historyApiFallback: true,
+          inline: true,
+          hot: true,
+          port: 8081,
+        }
+      : undefined,
   plugins: [
     new HtmlWebpackPlugin({ template: 'index.html' }),
     new MiniCssExtractPlugin({
@@ -66,4 +59,8 @@ export const webpackConfig: Configuration = {
       // https://github.com/DefinitelyTyped/DefinitelyTyped/pull/48659
     }) as any,
   ],
-};
+  optimization: mode === Mode.PROD ? { minimize: true } : undefined,
+});
+
+export const webpackConfigDev = webpackConfig({ mode: Mode.DEV });
+export const webpackConfigProd = webpackConfig({ mode: Mode.PROD });

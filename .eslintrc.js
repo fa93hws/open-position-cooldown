@@ -42,6 +42,10 @@ module.exports = {
     '@typescript-eslint/no-unused-vars': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
+    'no-use-before-define': 'off',
+    '@typescript-eslint/no-use-before-define': ['error'],
+    'no-shadow': 'off',
+    '@typescript-eslint/no-shadow': ['error'],
 
     'import/extensions': 'off',
     'import/no-default-export': 'error',
@@ -59,8 +63,6 @@ module.exports = {
     'no-restricted-syntax': 'off',
 
     'react/display-name': 'off',
-    'no-use-before-define': 'off',
-    '@typescript-eslint/no-use-before-define': ['error'],
   },
   overrides: [
     {
