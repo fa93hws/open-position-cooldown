@@ -4,7 +4,7 @@ import { Github, Weibo, Code, IconType } from '../resources/icons';
 
 const IconLink = (props: { Icon: IconType; href: string }) => (
   <Link
-    size="icon"
+    size={['iconSmall', 'iconMedium']}
     p="0px"
     href={props.href}
     target="__blank"
