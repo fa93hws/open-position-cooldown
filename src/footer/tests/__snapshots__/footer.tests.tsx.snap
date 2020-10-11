@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer renders it 1`] = `
+<div
+  class="css-tyqq70"
+>
+  <a
+    class="css-1b61pal"
+    href="https://weibo.com/hinanawi"
+    style="fill:white"
+    target="__blank"
+  >
+    <i />
+  </a>
+  <a
+    class="css-1b61pal"
+    href="https://github.com/fa93hws/"
+    style="fill:white"
+    target="__blank"
+  >
+    <i />
+  </a>
+  <a
+    class="css-1b61pal"
+    href="https://github.com/fa93hws/open-position-cooldown"
+    style="fill:white"
+    target="__blank"
+  >
+    <i />
+  </a>
+</div>
+`;

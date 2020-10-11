@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Heading, Box, Flex } from 'rebass';
 
 export const Header = () => (
-  <Box height={[50, 70]} color="white" bg="primary">
+  <Box height={['50px', '70px']} color="white" bg="primary">
     <Flex
       paddingTop={[2, 3]}
       justifyContent="center"
