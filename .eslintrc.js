@@ -59,6 +59,8 @@ module.exports = {
     'no-restricted-syntax': 'off',
 
     'react/display-name': 'off',
+    'no-use-before-define': 'off',
+    '@typescript-eslint/no-use-before-define': ['error'],
   },
   overrides: [
     {

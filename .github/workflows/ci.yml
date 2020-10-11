@@ -34,3 +34,5 @@ jobs:
       #     token: ${{ secrets.CODE_COV_TOKEN }}
       #     file: ./coverage/**/*
       #     flags: unittests
+      - name: Run webpack
+        run: npm run build
