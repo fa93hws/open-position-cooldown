@@ -55,7 +55,8 @@
     "format": "prettier --check \"{config,src,tools}/**/*.ts{,x}\"",
     "lint": "eslint \"{config,src,tools}/**/*.ts{,x}\"",
     "lint:ts": "tsc --noEmit --project ./tsconfig.check.json",
-    "build": "node bin/build-page.js"
+    "build": "node bin/build-page.js",
+    "dev": "node bin/serve-page.js"
   },
   "repository": {
     "type": "git",

@@ -19,7 +19,7 @@ export function main() {
     outdir: buildArtifactFolder,
   });
   const buildResult = buildSync(options);
-  if (buildResult.warnings != null) {
+  if (buildResult.warnings.length > 0) {
     console.warn(yellow(buildResult.warnings));
   }
   if (buildResult.outputFiles == null || buildResult.outputFiles.length === 0) {

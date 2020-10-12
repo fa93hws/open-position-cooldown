@@ -12,6 +12,7 @@ function getSharedOption({ outdir }: { outdir: string }): BuildOptions {
       '.svg': 'text',
     },
     platform: 'browser',
+    bundle: true,
     write: false,
   };
 }
@@ -23,6 +24,15 @@ export function getProdOption(params: { outdir: string }) {
       'process.env.NODE_ENV': `"${BUILD_MODE.PROD}"`,
     },
     minify: true,
-    bundle: true,
+  };
+}
+
+export function getDevOption(params: { outdir: string }) {
+  return {
+    ...getSharedOption(params),
+    define: {
+      'process.env.NODE_ENV': `"${BUILD_MODE.DEV}"`,
+    },
+    sourcemap: true,
   };
 }
