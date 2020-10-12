@@ -2,21 +2,26 @@
 
 exports[`Header renders this 1`] = `
 <div
-  class="css-ykqc2g"
+  class="css-ftolpb"
 >
-  <div
-    class="css-16vahk"
+  <a
+    class="css-1b61pal"
+    href="/"
+    style="fill:white"
   >
-    <h2
-      class="css-1ny8w0d"
-    >
-      买股冷静期
-    </h2>
-    <h2
-      class="css-1y9t71s"
-    >
-      离婚居然要冷静期，买股票居然不用？真是不可思议
-    </h2>
-  </div>
+    <i />
+  </a>
+  <h2
+    class="css-1ny8w0d"
+  >
+    买股冷静期
+  </h2>
+  <a
+    class="css-1b61pal"
+    href="/about"
+    style="fill:white"
+  >
+    <i />
+  </a>
 </div>
 `;
