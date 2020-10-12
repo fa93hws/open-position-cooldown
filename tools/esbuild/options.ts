@@ -6,7 +6,6 @@ import { srcFolder } from '../paths';
 
 function getSharedOption({ outdir }: { outdir: string }): BuildOptions {
   return {
-    entryPoints: [path.join(srcFolder, 'index.tsx')],
     outdir,
     loader: {
       '.svg': 'text',
@@ -20,6 +19,7 @@ function getSharedOption({ outdir }: { outdir: string }): BuildOptions {
 export function getProdOption(params: { outdir: string }) {
   return {
     ...getSharedOption(params),
+    entryPoints: [path.join(srcFolder, 'index.tsx')],
     define: {
       'process.env.NODE_ENV': `"${BUILD_MODE.PROD}"`,
     },
@@ -27,11 +27,27 @@ export function getProdOption(params: { outdir: string }) {
   };
 }
 
+export function getPortNumber(): number {
+  const portString = process.env.PORT;
+  if (portString == null) {
+    throw new Error('port must be provided');
+  }
+  const portNum = parseInt(portString, 10);
+  if (portNum.toString() !== portString) {
+    throw new Error(
+      `parsed number is different from the input, input: ${portString}, parsed: ${portNum}`,
+    );
+  }
+  return portNum;
+}
+
 export function getDevOption(params: { outdir: string }) {
   return {
     ...getSharedOption(params),
+    entryPoints: [path.join(srcFolder, 'index.dev.tsx')],
     define: {
       'process.env.NODE_ENV': `"${BUILD_MODE.DEV}"`,
+      'process.env.PORT': getPortNumber().toString(),
     },
     sourcemap: true,
   };
