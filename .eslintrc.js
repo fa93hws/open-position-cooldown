@@ -71,5 +71,11 @@ module.exports = {
         'import/no-default-export': 'off',
       },
     },
+    {
+      files: ['tools/**/*.ts'],
+      rules: {
+        'no-console': 'off',
+      },
+    },
   ],
 };

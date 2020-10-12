@@ -4,6 +4,6 @@ body {
   height: 100vh;
 }
 
-:global(#root) {
+#root {
   height: 100%;
 }

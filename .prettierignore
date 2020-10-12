@@ -6,3 +6,6 @@ target
 *.snap
 .eslintignore
 .prettierignore
+public
+target
+*.svg
