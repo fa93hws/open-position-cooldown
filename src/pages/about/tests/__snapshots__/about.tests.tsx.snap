@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AboutPage renders it 1`] = `
+<div
+  class="css-4cffwv"
+>
+  <div
+    class="css-vurnku"
+  >
+    <h2
+      class="css-121t47l"
+    >
+      APP的目的:
+    </h2>
+    <div
+      class="css-14ksygj"
+    >
+      离婚居然要冷静期，买股票居然不用？真是不可思议。
+      <br />
+      买股票前先想想好吧，不猜涨跌，只应对。
+    </div>
+  </div>
+</div>
+`;
