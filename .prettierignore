@@ -6,3 +6,4 @@ target
 *.snap
 .eslintignore
 .prettierignore
+*.ejs
