@@ -19,11 +19,13 @@
     "@types/enzyme-adapter-react-16": "^1.0.6",
     "@types/jest": "^26.0.14",
     "@types/lodash": "^4.14.162",
+    "@types/mime": "^2.0.3",
     "@types/react": "^16.9.51",
     "@types/react-dom": "^16.9.8",
     "@types/react-router": "^5.1.8",
     "@types/react-router-dom": "^5.1.6",
     "@types/rebass": "^4.0.7",
+    "@types/socket.io": "^2.1.11",
     "@typescript-eslint/eslint-plugin": "^4.4.0",
     "@typescript-eslint/parser": "^4.4.0",
     "chalk": "^4.1.0",
@@ -45,7 +47,10 @@
     "jest-serializer-html": "^7.0.0",
     "jest-svg-transformer": "^1.0.0",
     "lodash": "^4.17.20",
+    "mime": "^2.4.6",
     "prettier": "^2.1.2",
+    "socket.io": "^2.3.0",
+    "socket.io-client": "^2.3.1",
     "ts-jest": "^26.4.1",
     "ts-node": "^9.0.0",
     "typescript": "^4.0.3"
@@ -56,7 +61,7 @@
     "lint": "eslint \"{config,src,tools}/**/*.ts{,x}\"",
     "lint:ts": "tsc --noEmit --project ./tsconfig.check.json",
     "build": "node bin/build-page.js",
-    "dev": "node bin/serve-page.js"
+    "dev": "PORT=8080 node bin/serve-page.js"
   },
   "repository": {
     "type": "git",
