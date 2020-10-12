@@ -52,8 +52,8 @@
   },
   "scripts": {
     "test": "jest --ci",
-    "format": "prettier --check **/*",
-    "lint": "eslint \"{config,src}/**/*.ts{,x}\"",
+    "format": "prettier --check \"{config,src,tools}/**/*.ts{,x}\"",
+    "lint": "eslint \"{config,src,tools}/**/*.ts{,x}\"",
     "lint:ts": "tsc --noEmit --project ./tsconfig.check.json",
     "build": "node bin/build-page.js"
   },
