@@ -4,6 +4,6 @@ import { AddButton } from '../add-button';
 
 describe('AddButton', () => {
   it('renders this', () => {
-    expect(<AddButton />).toMatchRenderedSnapshot();
+    expect(<AddButton onClick={jest.fn()} />).toMatchRenderedSnapshot();
   });
 });

@@ -9,6 +9,9 @@ describe('HomePage', () => {
         <i>icon!</i>
       </button>
     );
-    expect(<HomePage IconButton={IconButton} />).toMatchRenderedSnapshot();
+    const Sheet = () => <div>sheet!</div>;
+    expect(
+      <HomePage IconButton={IconButton} Sheet={Sheet} />,
+    ).toMatchRenderedSnapshot();
   });
 });

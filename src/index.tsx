@@ -15,7 +15,7 @@ const App = () => (
     <BrowserRouter basename={process.env.BASE_URL}>
       <Flex flexDirection="column" height="100%">
         <Header />
-        <Box flex="1" overflowY="auto">
+        <Box flex="1" overflowY="auto" as="main">
           <Pages />
         </Box>
         <Footer />
