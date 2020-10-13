@@ -12,7 +12,7 @@ import './global.css';
 
 const App = () => (
   <ThemeProvider theme={theme}>
-    <BrowserRouter>
+    <BrowserRouter basename="open-position-cooldown">
       <Flex flexDirection="column" height="100%">
         <Header />
         <Box flex="1" overflowY="auto" p={[3, 4]}>
