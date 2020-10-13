@@ -9,9 +9,9 @@ import { UnreachableException } from '../../src/utils/unreachable-exception';
 import { buildOutputFolder } from '../paths';
 
 export const enum ResultKind {
-  BAD,
-  NOT_FOUND,
-  STATIC_FILE,
+  BAD = 'BAD_REQUEST',
+  NOT_FOUND = 'NOT_FOUND',
+  STATIC_FILE = 'STATIC_FILE',
 }
 type RouteResult =
   | {
@@ -26,7 +26,20 @@ type RouteResult =
     };
 
 export class DevServerRouter {
-  constructor(private staticFolder: string) {}
+  private readonly staticFolder: string;
+
+  private readonly baseUrl: string | undefined;
+
+  constructor({
+    staticFolder,
+    baseUrl,
+  }: {
+    staticFolder: string;
+    baseUrl?: string;
+  }) {
+    this.staticFolder = staticFolder;
+    this.baseUrl = baseUrl;
+  }
 
   private returnStaticFile(file: string) {
     return {
@@ -35,11 +48,25 @@ export class DevServerRouter {
     };
   }
 
+  private trimBaseurl(reqUrl: string): string | undefined {
+    if (this.baseUrl == null) {
+      return reqUrl;
+    }
+    if (reqUrl.startsWith(`/${this.baseUrl}`)) {
+      return reqUrl.substr(this.baseUrl.length + 1);
+    }
+    return undefined;
+  }
+
   getRoutes(reqUrl: string | undefined): RouteResult {
     if (reqUrl == null) {
       return { kind: ResultKind.BAD };
     }
-    const maybeFile = path.join(this.staticFolder, reqUrl);
+    const url = this.trimBaseurl(reqUrl);
+    if (url == null) {
+      return { kind: ResultKind.NOT_FOUND };
+    }
+    const maybeFile = path.join(this.staticFolder, url);
     if (fs.existsSync(maybeFile)) {
       if (fs.lstatSync(maybeFile).isDirectory()) {
         if (fs.existsSync(path.join(maybeFile, 'index.html'))) {
@@ -51,17 +78,27 @@ export class DevServerRouter {
       }
       return this.returnStaticFile(maybeFile);
     }
-    if (path.extname(reqUrl) === '') {
+    if (path.extname(url) === '') {
       return this.returnStaticFile(path.join(this.staticFolder, 'index.html'));
     }
     return { kind: ResultKind.NOT_FOUND };
   }
 }
 
-export function startDevServer({ port }: { port: number }) {
-  const router = new DevServerRouter(buildOutputFolder);
+export function startDevServer({
+  port,
+  baseUrl,
+}: {
+  port: number;
+  baseUrl?: string;
+}) {
+  const router = new DevServerRouter({
+    staticFolder: buildOutputFolder,
+    baseUrl,
+  });
   const server = http.createServer((req, res) => {
     const routeResult = router.getRoutes(req.url);
+    console.log(req.url, routeResult);
     switch (routeResult.kind) {
       case ResultKind.BAD:
         res.writeHead(400);
@@ -81,6 +118,7 @@ export function startDevServer({ port }: { port: number }) {
     }
   });
   server.listen(port);
-  console.log(green(`dev server start@ http://localhost:${port}/`));
+  const hostLink = `http://localhost:${port}/${baseUrl ?? ''}/`;
+  console.log(green(`dev server start@${hostLink}`));
   return socket(server);
 }

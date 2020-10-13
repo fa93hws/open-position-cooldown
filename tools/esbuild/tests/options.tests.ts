@@ -2,12 +2,14 @@ import * as path from 'path';
 import { getProdOption, getDevOption } from '../options';
 
 describe('options', () => {
+  process.env.BASE_URL = 'open-position-cooldown';
   it('produces the esbuild option in prod mode', () => {
     const prodOption = getProdOption({ outdir: 'target' });
     expect(prodOption).toEqual({
       bundle: true,
       define: {
         'process.env.NODE_ENV': '"production"',
+        'process.env.BASE_URL': '"open-position-cooldown"',
       },
       entryPoints: [
         path.resolve(__dirname, '..', '..', '..', 'src', 'index.tsx'),
@@ -29,6 +31,7 @@ describe('options', () => {
       bundle: true,
       define: {
         'process.env.NODE_ENV': '"development"',
+        'process.env.BASE_URL': '"open-position-cooldown"',
         'process.env.PORT': '9999',
       },
       entryPoints: [

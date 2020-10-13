@@ -4,11 +4,21 @@ import { BuildOptions } from 'esbuild';
 import { BUILD_MODE } from './utils';
 import { srcFolder } from '../paths';
 
+export function getBaseUrl(): string {
+  if (process.env.BASE_URL == null) {
+    throw new Error('BASE_URL is not set');
+  }
+  return process.env.BASE_URL;
+}
+
 function getSharedOption({ outdir }: { outdir: string }): BuildOptions {
   return {
     outdir,
     loader: {
       '.svg': 'text',
+    },
+    define: {
+      'process.env.BASE_URL': `"${getBaseUrl()}"`,
     },
     platform: 'browser',
     bundle: true,
@@ -17,10 +27,12 @@ function getSharedOption({ outdir }: { outdir: string }): BuildOptions {
 }
 
 export function getProdOption(params: { outdir: string }) {
+  const sharedOption = getSharedOption(params);
   return {
-    ...getSharedOption(params),
+    ...sharedOption,
     entryPoints: [path.join(srcFolder, 'index.tsx')],
     define: {
+      ...sharedOption.define,
       'process.env.NODE_ENV': `"${BUILD_MODE.PROD}"`,
     },
     minify: true,
@@ -42,10 +54,12 @@ export function getPortNumber(): number {
 }
 
 export function getDevOption(params: { outdir: string }) {
+  const sharedOption = getSharedOption(params);
   return {
-    ...getSharedOption(params),
+    ...sharedOption,
     entryPoints: [path.join(srcFolder, 'index.dev.tsx')],
     define: {
+      ...sharedOption.define,
       'process.env.NODE_ENV': `"${BUILD_MODE.DEV}"`,
       'process.env.PORT': getPortNumber().toString(),
     },
