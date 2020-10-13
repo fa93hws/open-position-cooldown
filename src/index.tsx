@@ -7,7 +7,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { Header } from './header/header';
 import { Pages } from './pages/pages';
 import { Footer } from './footer/footer';
-import { theme } from './theme';
+import { theme } from './theme/theme';
 import './global.css';
 
 const App = () => (
@@ -15,7 +15,7 @@ const App = () => (
     <BrowserRouter basename={process.env.BASE_URL}>
       <Flex flexDirection="column" height="100%">
         <Header />
-        <Box flex="1" overflowY="auto" p={[3, 4]}>
+        <Box flex="1" overflowY="auto">
           <Pages />
         </Box>
         <Footer />

@@ -5,25 +5,22 @@ exports[`Footer renders it 1`] = `
   class="css-tyqq70"
 >
   <a
-    class="css-1b61pal"
+    class="css-14bkk3g"
     href="https://weibo.com/hinanawi"
-    style="fill:white"
     target="__blank"
   >
     <i />
   </a>
   <a
-    class="css-1b61pal"
+    class="css-14bkk3g"
     href="https://github.com/fa93hws/"
-    style="fill:white"
     target="__blank"
   >
     <i />
   </a>
   <a
-    class="css-1b61pal"
+    class="css-14bkk3g"
     href="https://github.com/fa93hws/open-position-cooldown"
-    style="fill:white"
     target="__blank"
   >
     <i />

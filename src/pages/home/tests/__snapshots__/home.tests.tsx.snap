@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HomePage renders this 1`] = `
+<div
+  class="css-tldez"
+>
+  <button>
+    <i>
+      icon!
+    </i>
+  </button>
+</div>
+`;

@@ -5,9 +5,8 @@ exports[`Header renders this 1`] = `
   class="css-ftolpb"
 >
   <a
-    class="css-1b61pal"
+    class="css-14bkk3g"
     href="/"
-    style="fill:white"
   >
     <i />
   </a>
@@ -17,9 +16,8 @@ exports[`Header renders this 1`] = `
     买股冷静期
   </h2>
   <a
-    class="css-1b61pal"
+    class="css-14bkk3g"
     href="/about"
-    style="fill:white"
   >
     <i />
   </a>

@@ -1,9 +1,11 @@
 import * as React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 
-import { HomePage } from './home/home';
+import { createHomePage } from './home/home';
 import { AboutPage } from './about/about';
 import { pagePath } from '../routes';
+
+const HomePage = createHomePage();
 
 export const Pages = () => (
   <Switch>
