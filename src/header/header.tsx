@@ -25,6 +25,7 @@ export const Header = () => (
     bg="primary"
     justifyContent="space-between"
     alignItems="center"
+    as="header"
   >
     <IconLink Icon={Home} to={pagePath.home} />
     <Heading fontWeight="heading" fontSize={[2, 3]} variant="h1">

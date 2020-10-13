@@ -21,6 +21,7 @@ export const Footer = () => (
     justifyContent="space-around"
     alignItems="center"
     fontSize="0px"
+    as="footer"
   >
     <IconLink Icon={Weibo} href="https://weibo.com/hinanawi" />
     <IconLink Icon={Github} href="https://github.com/fa93hws/" />

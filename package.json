@@ -49,6 +49,7 @@
     "lodash": "^4.17.20",
     "mime": "^2.4.6",
     "prettier": "^2.1.2",
+    "rimraf": "^3.0.2",
     "socket.io": "^2.3.0",
     "socket.io-client": "^2.3.1",
     "ts-jest": "^26.4.1",
@@ -60,7 +61,9 @@
     "format": "prettier --check \"{config,src,tools}/**/*.ts{,x}\"",
     "lint": "eslint \"{config,src,tools}/**/*.ts{,x}\"",
     "lint:ts": "tsc --noEmit --project ./tsconfig.check.json",
+    "prebuild": "rimraf target",
     "build": "BASE_URL=open-position-cooldown node bin/build-page.js",
+    "predeev": "rimraf target",
     "dev": "PORT=8080 BASE_URL=open-position-cooldown node bin/serve-page.js"
   },
   "repository": {

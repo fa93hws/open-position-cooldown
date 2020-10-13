@@ -9,5 +9,8 @@ exports[`HomePage renders this 1`] = `
       icon!
     </i>
   </button>
+  <div>
+    sheet!
+  </div>
 </div>
 `;
