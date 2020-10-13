@@ -61,6 +61,7 @@ module.exports = {
     'no-continue': 'off',
     'max-classes-per-file': 'off',
     'no-restricted-syntax': 'off',
+    'no-case-declarations': 'off',
 
     'react/display-name': 'off',
   },

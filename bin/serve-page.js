@@ -1,2 +1,2 @@
 require('./register-tsnode');
-require('../tools/esbuild/dev-serve.ts').main();
+require('../tools/esbuild/serve-hot.ts').main();
