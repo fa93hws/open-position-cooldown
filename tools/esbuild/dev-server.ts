@@ -98,7 +98,6 @@ export function startDevServer({
   });
   const server = http.createServer((req, res) => {
     const routeResult = router.getRoutes(req.url);
-    console.log(req.url, routeResult);
     switch (routeResult.kind) {
       case ResultKind.BAD:
         res.writeHead(400);
