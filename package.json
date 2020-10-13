@@ -60,8 +60,8 @@
     "format": "prettier --check \"{config,src,tools}/**/*.ts{,x}\"",
     "lint": "eslint \"{config,src,tools}/**/*.ts{,x}\"",
     "lint:ts": "tsc --noEmit --project ./tsconfig.check.json",
-    "build": "node bin/build-page.js",
-    "dev": "PORT=8080 node bin/serve-page.js"
+    "build": "BASE_URL=open-position-cooldown node bin/build-page.js",
+    "dev": "PORT=8080 BASE_URL=open-position-cooldown node bin/serve-page.js"
   },
   "repository": {
     "type": "git",

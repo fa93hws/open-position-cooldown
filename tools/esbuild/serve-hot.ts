@@ -5,7 +5,7 @@ import { green, red, yellow } from 'chalk';
 import { debounce } from 'lodash';
 
 import { ensureFolder, generateHtml, copyAssets } from './utils';
-import { getDevOption, getPortNumber } from './options';
+import { getDevOption, getPortNumber, getBaseUrl } from './options';
 import {
   buildArtifactFolder,
   buildAssetsFolder,
@@ -54,7 +54,8 @@ export async function main() {
   });
 
   const port = getPortNumber();
-  const io = startDevServer({ port });
+  const baseUrl = getBaseUrl();
+  const io = startDevServer({ port, baseUrl });
   fs.watch(srcFolder, { recursive: true }, () => {
     debouncedBuild(esbuildService, options, () => {
       console.log(green(`rebuild success@${new Date().toISOString()}`));
