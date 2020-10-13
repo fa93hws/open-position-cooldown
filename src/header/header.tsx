@@ -9,7 +9,7 @@ const IconLink = (props: { Icon: IconType; to: string }) => (
   <Link
     size={['iconSmall', 'iconMedium']}
     p="0px"
-    style={{ fill: 'white' }}
+    sx={{ fill: 'white' }}
     as={ReactRouterLink}
     {...{ to: props.to }}
   >

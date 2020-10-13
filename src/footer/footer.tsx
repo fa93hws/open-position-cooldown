@@ -8,7 +8,7 @@ const IconLink = (props: { Icon: IconType; href: string }) => (
     p="0px"
     href={props.href}
     target="__blank"
-    style={{ fill: 'white' }}
+    sx={{ fill: 'white' }}
   >
     <props.Icon />
   </Link>
