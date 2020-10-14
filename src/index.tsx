@@ -1,27 +1,33 @@
 import 'fontsource-roboto';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { ThemeProvider } from 'emotion-theming';
-import { Flex, Box } from 'rebass';
+import Box from '@material-ui/core/Box';
+import { makeStyles } from '@material-ui/styles';
 import { BrowserRouter } from 'react-router-dom';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
 import { Header } from './header/header';
 import { Pages } from './pages/pages';
-import { theme } from './theme/theme';
 import './global.css';
 
-const App = () => (
-  <ThemeProvider theme={theme}>
+const useStyles = makeStyles({
+  main: {
+    overflowY: 'hidden',
+  },
+});
+
+const App = () => {
+  const styles = useStyles();
+  return (
     <BrowserRouter basename={process.env.BASE_URL}>
       <CssBaseline />
-      <Flex flexDirection="column" height="100%">
+      <Box display="flex" flexDirection="column" height="100%">
         <Header />
-        <Box flex="1" overflowY="auto" as="main">
+        <Box className={styles.main} flex="1" component="main">
           <Pages />
         </Box>
-      </Flex>
+      </Box>
     </BrowserRouter>
-  </ThemeProvider>
-);
+  );
+};
 ReactDOM.render(<App />, document.getElementById('root'));

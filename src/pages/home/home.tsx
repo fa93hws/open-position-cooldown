@@ -1,21 +1,25 @@
 import * as React from 'react';
-import { Box } from 'rebass';
+import Box from '@material-ui/core/Box';
+import { withTheme, WithTheme } from '@material-ui/core/styles';
 
 import { AddButton } from './add-button/add-button';
-// import { createSheet } from './sheet/sheet';
 import { createHomeDrawer } from './drawer/drawer';
 
-export const HomePage = ({
-  IconButton,
-  Sheet,
-}: {
-  IconButton: React.ComponentType;
-  Sheet: React.ComponentType;
-}) => (
-  <Box height="100%" sx={{ position: 'relative' }}>
-    <IconButton />
-    <Sheet />
-  </Box>
+export const HomePage = withTheme(
+  ({
+    IconButton,
+    Sheet,
+  }: WithTheme & {
+    IconButton: React.ComponentType;
+    Sheet: React.ComponentType;
+  }) => (
+    <Box height="100%" position="relative">
+      <Box position="absolute" bottom={16} right={16}>
+        <IconButton />
+      </Box>
+      <Sheet />
+    </Box>
+  ),
 );
 
 export function createHomePage() {
