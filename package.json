@@ -4,6 +4,9 @@
   "description": "dude you need a cool down period before open a new position",
   "main": "index.ts",
   "dependencies": {
+    "@material-ui/core": "^4.11.0",
+    "@material-ui/icons": "^4.9.1",
+    "@material-ui/styles": "^4.10.0",
     "emotion-theming": "^10.0.27",
     "mobx": "^6.0.1",
     "mobx-react": "^7.0.0",
@@ -14,7 +17,6 @@
     "rebass": "^4.0.7"
   },
   "devDependencies": {
-    "@types/classnames": "^2.2.10",
     "@types/enzyme": "^3.10.7",
     "@types/enzyme-adapter-react-16": "^1.0.6",
     "@types/jest": "^26.0.14",
