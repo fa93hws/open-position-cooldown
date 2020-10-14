@@ -14,6 +14,9 @@ const useFooterStyle = makeStyles((theme) => ({
   container: {
     height: sizes[2],
     backgroundColor: theme.palette.primary.main,
+    [theme.breakpoints.up('sm')]: {
+      height: sizes[3],
+    },
   },
   iconWrapper: {
     color: theme.palette.primary.contrastText,
