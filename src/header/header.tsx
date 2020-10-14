@@ -13,6 +13,9 @@ const useHeaderStyles = makeStyles((theme) => ({
     justifyContent: 'space-around',
     alignItems: 'center',
     height: sizes[3],
+    [theme.breakpoints.up('sm')]: {
+      height: sizes[4],
+    },
   },
   iconWrapper: {
     color: theme.palette.primary.contrastText,
