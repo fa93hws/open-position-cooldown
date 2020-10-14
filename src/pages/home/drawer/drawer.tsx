@@ -1,6 +1,5 @@
 import * as React from 'react';
-import Drawer from '@material-ui/core/Drawer';
-import Box from '@material-ui/core/Box';
+import { Drawer, Box } from '@material-ui/core';
 import { observer } from 'mobx-react';
 
 import { DrawerStore } from './drawer-store';

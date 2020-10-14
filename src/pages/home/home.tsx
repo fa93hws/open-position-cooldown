@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Box from '@material-ui/core/Box';
+import { Box } from '@material-ui/core';
 import { withTheme, WithTheme } from '@material-ui/core/styles';
 
 import { AddButton } from './add-button/add-button';

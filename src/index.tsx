@@ -1,10 +1,9 @@
 import 'fontsource-roboto';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import Box from '@material-ui/core/Box';
+import { Box, CssBaseline } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 import { BrowserRouter } from 'react-router-dom';
-import CssBaseline from '@material-ui/core/CssBaseline';
 
 import { Header } from './header/header';
 import { Pages } from './pages/pages';

@@ -1,7 +1,5 @@
 import * as React from 'react';
-import AppBar from '@material-ui/core/AppBar';
-import Typography from '@material-ui/core/Typography';
-import Link from '@material-ui/core/Link';
+import { AppBar, Typography, Link } from '@material-ui/core';
 import { Home, Info } from '@material-ui/icons';
 import { makeStyles, withTheme, WithTheme } from '@material-ui/core/styles';
 import { Link as ReactRouterLink } from 'react-router-dom';
