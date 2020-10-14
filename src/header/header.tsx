@@ -1,36 +1,47 @@
 import * as React from 'react';
-import { Heading, Flex, Link } from 'rebass';
+import AppBar from '@material-ui/core/AppBar';
+import Typography from '@material-ui/core/Typography';
+import Link from '@material-ui/core/Link';
+import { Home, Info } from '@material-ui/icons';
+import { makeStyles, withTheme, WithTheme } from '@material-ui/core/styles';
 import { Link as ReactRouterLink } from 'react-router-dom';
 
 import { pagePath } from '../routes';
-import { Home, About, IconType } from '../resources/icons';
+import { sizes } from '../styles/styles';
 
-const IconLink = (props: { Icon: IconType; to: string }) => (
-  <Link
-    size={['iconSmall', 'iconMedium']}
-    p="0px"
-    sx={{ fill: 'white' }}
-    as={ReactRouterLink}
-    {...{ to: props.to }}
-  >
-    <props.Icon />
-  </Link>
-);
+const useHeaderStyles = makeStyles((theme) => ({
+  container: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    height: sizes[3],
+  },
+  iconWrapper: {
+    color: theme.palette.primary.contrastText,
+  },
+}));
 
-export const Header = () => (
-  <Flex
-    height={['50px', '70px']}
-    px={[4, 5]}
-    color="white"
-    bg="primary"
-    justifyContent="space-between"
-    alignItems="center"
-    as="header"
-  >
-    <IconLink Icon={Home} to={pagePath.home} />
-    <Heading fontWeight="heading" fontSize={[2, 3]} variant="h1">
-      买股冷静期
-    </Heading>
-    <IconLink Icon={About} to={pagePath.about} />
-  </Flex>
-);
+export const Header = withTheme((props: WithTheme) => {
+  const styles = useHeaderStyles(props.theme);
+  return (
+    <AppBar position="static" className={styles.container}>
+      <Link
+        className={styles.iconWrapper}
+        component={ReactRouterLink}
+        to={pagePath.home}
+      >
+        <Home fontSize="large" />
+      </Link>
+      <Typography variant="h4" component="h1">
+        买股冷静期
+      </Typography>
+      <Link
+        className={styles.iconWrapper}
+        component={ReactRouterLink}
+        to={pagePath.about}
+      >
+        <Info fontSize="large" />
+      </Link>
+    </AppBar>
+  );
+});
