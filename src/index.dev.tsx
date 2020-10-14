@@ -12,4 +12,4 @@ io.on('browserReload', () => {
   document.location.reload();
 });
 
-import './index.tsx'; // eslint-disable-line import/first
+import('./index');
