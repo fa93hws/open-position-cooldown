@@ -27,6 +27,7 @@ describe('options', () => {
       minify: true,
       outdir: 'target',
       platform: 'browser',
+      sourcemap: true,
       write: false,
     });
   });
