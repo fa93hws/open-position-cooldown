@@ -1,7 +1,6 @@
 import * as React from 'react';
-import Box from '@material-ui/core/Box';
+import { Box, Link } from '@material-ui/core';
 import { makeStyles, withTheme, WithTheme } from '@material-ui/core/styles';
-import Link from '@material-ui/core/Link';
 import { GitHub, Code } from '@material-ui/icons';
 
 import { Weibo } from '../../../resources/icons';
