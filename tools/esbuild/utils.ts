@@ -18,7 +18,6 @@ export function hashOutputs(outputFiles: readonly OutputFile[]): OutputFile[] {
   return outputFiles.map((file) => {
     let filePath: string;
     if (['.js', '.css'].includes(path.extname(file.path))) {
-      console.log(file.path);
       const md5sum = crypto.createHash('md5');
       const filename = md5sum.update(file.contents).digest('hex').slice(0, 16);
       filePath = path.join(
