@@ -3,7 +3,7 @@ import { Box, Link } from '@material-ui/core';
 import { makeStyles, withTheme, WithTheme } from '@material-ui/core/styles';
 import { GitHub, Code } from '@material-ui/icons';
 
-import { Weibo } from '../../../resources/icons';
+import { Weibo } from './icons';
 import { sizes } from '../../../styles/styles';
 
 const iconSize = {
