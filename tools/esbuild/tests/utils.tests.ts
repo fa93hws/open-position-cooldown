@@ -1,4 +1,3 @@
-import { EOL } from 'os';
 import * as path from 'path';
 import { TextEncoder } from 'util';
 
