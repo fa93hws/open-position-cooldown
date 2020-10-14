@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HomeDrawer renders a closed drawer 1`] = `null`;
+
+exports[`HomeDrawer renders an open drawer 1`] = `null`;

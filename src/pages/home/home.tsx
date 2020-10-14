@@ -2,7 +2,8 @@ import * as React from 'react';
 import { Box } from 'rebass';
 
 import { AddButton } from './add-button/add-button';
-import { createSheet } from './sheet/sheet';
+// import { createSheet } from './sheet/sheet';
+import { createHomeDrawer } from './drawer/drawer';
 
 export const HomePage = ({
   IconButton,
@@ -18,7 +19,7 @@ export const HomePage = ({
 );
 
 export function createHomePage() {
-  const { Component, open } = createSheet();
-  const AddButtonImpl = () => <AddButton onClick={open} />;
+  const { Component, showDrawer } = createHomeDrawer();
+  const AddButtonImpl = () => <AddButton onClick={showDrawer} />;
   return () => <HomePage IconButton={AddButtonImpl} Sheet={Component} />;
 }
