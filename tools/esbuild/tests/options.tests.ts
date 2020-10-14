@@ -21,6 +21,8 @@ describe('options', () => {
       ],
       loader: {
         '.svg': 'text',
+        '.woff2': 'file',
+        '.woff': 'file',
       },
       minify: true,
       outdir: 'target',
@@ -45,6 +47,8 @@ describe('options', () => {
       ],
       loader: {
         '.svg': 'text',
+        '.woff2': 'file',
+        '.woff': 'file',
       },
       sourcemap: true,
       outdir: 'target',
