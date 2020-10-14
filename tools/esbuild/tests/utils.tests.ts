@@ -1,6 +1,7 @@
+import * as path from 'path';
 import { TextEncoder } from 'util';
 
-import { hashOutputs } from '../utils';
+import { hashOutputs, generateHtml } from '../utils';
 
 describe('hashOutputs', () => {
   const enc = new TextEncoder();
@@ -44,5 +45,34 @@ describe('hashOutputs', () => {
     ];
     const hashedOutput = hashOutputs(outputs);
     expect(hashedOutput).toEqual(outputs);
+  });
+});
+
+describe('generateHtml', () => {
+  it('injects files into template', () => {
+    const outdir = path.join(__dirname, 'fixtures');
+    const templatePath = path.join(outdir, 'baz.ejs');
+    const files = [
+      path.join(outdir, 'foo', 'a.js'),
+      path.join(outdir, 'b.css'),
+      path.join(outdir, 'c.js'),
+      path.join(outdir, 'bar', 'd.css'),
+    ];
+
+    const existsSync = () => true;
+    const writeFileSync = jest.fn();
+
+    generateHtml({
+      templatePath,
+      files,
+      outdir,
+      existsSync,
+      writeFileSync,
+    });
+
+    expect(writeFileSync.mock.calls[0][1]).toMatchSnapshot();
+    expect(writeFileSync.mock.calls[0][0]).toEqual(
+      path.join(outdir, 'index.html'),
+    );
   });
 });

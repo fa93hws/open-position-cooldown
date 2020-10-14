@@ -7,3 +7,4 @@ target
 .prettierignore
 public
 *.svg
+*.ejs
