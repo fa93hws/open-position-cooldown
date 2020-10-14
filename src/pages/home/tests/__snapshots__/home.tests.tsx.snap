@@ -2,13 +2,17 @@
 
 exports[`HomePage renders this 1`] = `
 <div
-  class="css-tldez"
+  class="MuiBox-root MuiBox-root-1"
 >
-  <button>
-    <i>
-      icon!
-    </i>
-  </button>
+  <div
+    class="MuiBox-root MuiBox-root-2"
+  >
+    <button>
+      <i>
+        icon!
+      </i>
+    </button>
+  </div>
   <div>
     sheet!
   </div>
