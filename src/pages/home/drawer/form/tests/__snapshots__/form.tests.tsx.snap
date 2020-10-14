@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Form renders as follow 1`] = `
+<form
+  class="MuiBox-root MuiBox-root-1"
+>
+  <div
+    class="MuiBox-root MuiBox-root-2"
+  >
+    <div
+      class="MuiBox-root MuiBox-root-3"
+    >
+      <div>
+        NameInput
+      </div>
+    </div>
+    <div
+      class="MuiBox-root MuiBox-root-4"
+    >
+      <div>
+        CodeInput
+      </div>
+    </div>
+    <div
+      class="MuiBox-root MuiBox-root-5"
+    >
+      <div>
+        PriceInput
+      </div>
+    </div>
+    <div
+      class="MuiBox-root MuiBox-root-6"
+    >
+      <div>
+        MarketInput
+      </div>
+    </div>
+  </div>
+  <button
+    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-fullWidth"
+    tabindex="0"
+    type="submit"
+  >
+    <span
+      class="MuiButton-label"
+    >
+      买！买！买！
+    </span>
+  </button>
+</form>
+`;
