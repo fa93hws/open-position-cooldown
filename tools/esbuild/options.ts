@@ -16,6 +16,8 @@ function getSharedOption({ outdir }: { outdir: string }): BuildOptions {
     outdir,
     loader: {
       '.svg': 'text',
+      '.woff2': 'file',
+      '.woff': 'file',
     },
     define: {
       'process.env.BASE_URL': `"${getBaseUrl()}"`,

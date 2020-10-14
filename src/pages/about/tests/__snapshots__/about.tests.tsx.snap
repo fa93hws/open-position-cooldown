@@ -1,38 +1,42 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AboutPage renders it 1`] = `
-<article
-  class="css-b6tmei"
+<div
+  class="MuiBox-root MuiBox-root-1"
 >
-  <h2
-    class="css-121t47l"
+  <article
+    class="MuiBox-root MuiBox-root-2"
   >
-    APP的目的:
-  </h2>
-  <p
-    class="css-14ksygj"
-  >
-    离婚居然要冷静期，买股票居然不用？真是不可思议。
-  </p>
-  <p
-    class="css-14ksygj"
-  >
-    买股票前先想想好吧，不猜涨跌，只应对。
-  </p>
+    <h1
+      class="MuiTypography-root MuiTypography-h4 MuiTypography-gutterBottom"
+    >
+      APP的目的:
+    </h1>
+    <p
+      class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom"
+    >
+      离婚居然要冷静期，买股票居然不用？真是不可思议。
+    </p>
+    <p
+      class="MuiTypography-root MuiTypography-body1"
+    >
+      买股票前先想想好吧，不猜涨跌，只应对。
+    </p>
+  </article>
   <div
-    class="MuiBox-root MuiBox-root-5 makeStyles-container-1"
+    class="MuiBox-root MuiBox-root-6 makeStyles-container-3"
   >
     <div
-      class="MuiContainer-root makeStyles-linksContainer-2 MuiContainer-maxWidthLg"
+      class="MuiBox-root MuiBox-root-7"
     >
       <a
-        class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
+        class="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-iconWrapper-4 MuiTypography-colorPrimary"
         href="https://github.com/fa93hws/"
         target="__blank"
       >
         <svg
           aria-hidden="true"
-          class="MuiSvgIcon-root makeStyles-icon-3"
+          class="MuiSvgIcon-root makeStyles-icon-5"
           focusable="false"
           style="padding:4px"
           viewBox="0 0 24 24"
@@ -43,24 +47,20 @@ exports[`AboutPage renders it 1`] = `
         </svg>
       </a>
       <a
-        class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
+        class="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-iconWrapper-4 MuiTypography-colorPrimary"
         href="https://www.weibo.com/hinanawi/"
         target="__blank"
       >
-        <div
-          class="MuiBox-root MuiBox-root-6 makeStyles-customIconWrapper-4"
-        >
-          <i />
-        </div>
+        <i />
       </a>
       <a
-        class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
+        class="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-iconWrapper-4 MuiTypography-colorPrimary"
         href="https://github.com/fa93hws/open-position-cooldown"
         target="__blank"
       >
         <svg
           aria-hidden="true"
-          class="MuiSvgIcon-root makeStyles-icon-3"
+          class="MuiSvgIcon-root makeStyles-icon-5"
           focusable="false"
           viewBox="0 0 24 24"
         >
@@ -71,5 +71,5 @@ exports[`AboutPage renders it 1`] = `
       </a>
     </div>
   </div>
-</article>
+</div>
 `;

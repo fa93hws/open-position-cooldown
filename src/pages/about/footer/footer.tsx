@@ -1,6 +1,5 @@
 import * as React from 'react';
 import Box from '@material-ui/core/Box';
-import Container from '@material-ui/core/Container';
 import { makeStyles, withTheme, WithTheme } from '@material-ui/core/styles';
 import Link from '@material-ui/core/Link';
 import { GitHub, Code } from '@material-ui/icons';
@@ -16,44 +15,46 @@ const useFooterStyle = makeStyles((theme) => ({
   container: {
     height: sizes[2],
     backgroundColor: theme.palette.primary.main,
-    display: 'flex',
-    alignItems: 'center',
   },
-  linksContainer: {
-    display: 'flex',
-    justifyContent: 'space-around',
-  },
-  icon: {
+  iconWrapper: {
     color: theme.palette.primary.contrastText,
-    ...iconSize,
-  },
-  customIconWrapper: {
     fill: theme.palette.primary.contrastText,
     ...iconSize,
+  },
+  icon: {
+    height: '100%',
+    width: '100%',
   },
 }));
 
 export const Footer = withTheme((props: WithTheme) => {
   const styles = useFooterStyle(props.theme);
   return (
-    <Box className={styles.container}>
-      <Container className={styles.linksContainer}>
-        <Link href="https://github.com/fa93hws/" target="__blank">
+    <Box className={styles.container} display="flex" alignItems="center">
+      <Box display="flex" justifyContent="space-around" flex="1">
+        <Link
+          href="https://github.com/fa93hws/"
+          target="__blank"
+          className={styles.iconWrapper}
+        >
           {/* github icon is a bit larger than the others, add padding to reduce the size */}
           <GitHub className={styles.icon} style={{ padding: '4px' }} />
         </Link>
-        <Link href="https://www.weibo.com/hinanawi/" target="__blank">
-          <Box className={styles.customIconWrapper}>
-            <Weibo />
-          </Box>
+        <Link
+          href="https://www.weibo.com/hinanawi/"
+          target="__blank"
+          className={styles.iconWrapper}
+        >
+          <Weibo />
         </Link>
         <Link
           href="https://github.com/fa93hws/open-position-cooldown"
           target="__blank"
+          className={styles.iconWrapper}
         >
           <Code className={styles.icon} />
         </Link>
-      </Container>
+      </Box>
     </Box>
   );
 });
