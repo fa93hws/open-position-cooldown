@@ -22,7 +22,7 @@ const useStyles = makeStyles({
   },
 });
 
-const App = () => {
+export const App = () => {
   const styles = useStyles();
   return (
     <ThemeProvider theme={theme}>

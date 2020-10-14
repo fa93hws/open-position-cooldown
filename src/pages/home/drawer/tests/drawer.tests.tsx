@@ -1,5 +1,7 @@
 import * as React from 'react';
-import { HomeDrawer } from '../drawer';
+import { shallow } from 'enzyme';
+
+import { createHomeDrawer, HomeDrawer } from '../drawer';
 
 describe('HomeDrawer', () => {
   const Form = () => <div>form</div>;
@@ -13,5 +15,10 @@ describe('HomeDrawer', () => {
     expect(
       <HomeDrawer open={false} onClose={jest.fn()} Form={Form} />,
     ).toMatchRenderedSnapshot();
+  });
+
+  it('can be mounted', () => {
+    const { Component } = createHomeDrawer();
+    expect(() => shallow(<Component />)).not.toThrow();
   });
 });

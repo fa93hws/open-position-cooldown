@@ -1,6 +1,7 @@
 import * as React from 'react';
+import { shallow } from 'enzyme';
 
-import { Form } from '../form';
+import { createForm, Form } from '../form';
 
 describe('Form', () => {
   const NameInput = () => <div>NameInput</div>;
@@ -17,5 +18,10 @@ describe('Form', () => {
         MarketInput={MarketInput}
       />,
     ).toMatchRenderedSnapshot();
+  });
+
+  it('can be mounted', () => {
+    const Component = createForm();
+    expect(() => shallow(<Component />)).not.toThrow();
   });
 });

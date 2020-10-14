@@ -7,6 +7,7 @@ module.exports = {
   moduleNameMapper: {
     '^.+\\.css$': 'identity-obj-proxy',
     '^.+\\.svg$': 'jest-svg-transformer',
+    'fontsource-roboto': 'identity-obj-proxy',
   },
   snapshotSerializers: ['enzyme-to-json/serializer', 'jest-serializer-html'],
   globals: {

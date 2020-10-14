@@ -1,6 +1,7 @@
 import * as React from 'react';
+import { shallow } from 'enzyme';
 
-import { HomePage } from '../home';
+import { createHomePage, HomePage } from '../home';
 
 describe('HomePage', () => {
   it('renders this', () => {
@@ -13,5 +14,10 @@ describe('HomePage', () => {
     expect(
       <HomePage IconButton={IconButton} Sheet={Sheet} />,
     ).toMatchRenderedSnapshot();
+  });
+
+  it('is able to be mounted', () => {
+    const Component = createHomePage();
+    expect(() => shallow(<Component />)).not.toThrow();
   });
 });
