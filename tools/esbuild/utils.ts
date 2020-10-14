@@ -16,12 +16,17 @@ export function ensureFolder(target: string): void {
 
 export function hashOutputs(outputFiles: readonly OutputFile[]): OutputFile[] {
   return outputFiles.map((file) => {
-    const md5sum = crypto.createHash('md5');
-    const filename = md5sum.update(file.contents).digest('hex').slice(0, 16);
-    const filePath = path.join(
-      path.dirname(file.path),
-      filename + path.extname(file.path),
-    );
+    let filePath: string;
+    if (['.js', '.css'].includes(path.extname(file.path))) {
+      const md5sum = crypto.createHash('md5');
+      const filename = md5sum.update(file.contents).digest('hex').slice(0, 16);
+      filePath = path.join(
+        path.dirname(file.path),
+        filename + path.extname(file.path),
+      );
+    } else {
+      filePath = file.path;
+    }
     return {
       path: filePath,
       contents: file.contents,
