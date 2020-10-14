@@ -2,8 +2,12 @@ import 'fontsource-roboto';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { Box, CssBaseline } from '@material-ui/core';
-import { makeStyles, ThemeProvider } from '@material-ui/styles';
-import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
+import {
+  createMuiTheme,
+  responsiveFontSizes,
+  makeStyles,
+  ThemeProvider,
+} from '@material-ui/core/styles';
 import { BrowserRouter } from 'react-router-dom';
 
 import { Header } from './header/header';
