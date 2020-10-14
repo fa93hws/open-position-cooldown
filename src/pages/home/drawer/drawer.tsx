@@ -4,8 +4,9 @@ import { makeStyles, withTheme, WithTheme } from '@material-ui/core/styles';
 import { HighlightOff } from '@material-ui/icons';
 import { observer } from 'mobx-react';
 
+import { createForm } from './form/form';
 import { DrawerStore } from './drawer-store';
-import { sizes } from '../../../styles/styles';
+import { sizes, designWidth } from '../../../styles/styles';
 
 const useStyles = makeStyles((theme) => ({
   headContainer: {
@@ -27,12 +28,18 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export const HomeDrawer = withTheme(
-  (props: WithTheme & { open: boolean; onClose(): void }) => {
+type HomeDrawerProps = WithTheme & {
+  open: boolean;
+  onClose(): void;
+  Form: React.ComponentType;
+};
+
+export const HomeDrawer = React.memo(
+  withTheme((props: HomeDrawerProps) => {
     const styles = useStyles();
     return (
       <Drawer anchor="bottom" open={props.open}>
-        <Box height="100vh" width="100vw">
+        <Box height="100vh" width="100vw" display="flex" flexDirection="column">
           <AppBar className={styles.headContainer} position="static">
             {/* placeholder to balance the layout */}
             <IconButton className={styles.placeholderIconWrapper}>
@@ -45,18 +52,22 @@ export const HomeDrawer = withTheme(
               <HighlightOff fontSize="large" />
             </IconButton>
           </AppBar>
+          <Box maxWidth={designWidth} flex={1}>
+            <props.Form />
+          </Box>
         </Box>
       </Drawer>
     );
-  },
+  }),
 );
 
 export function createHomeDrawer() {
   const store = new DrawerStore();
   const handleClose = () => store.setOpen(false);
   const showDrawer = () => store.setOpen(true);
+  const Form = createForm();
   const Component = observer(() => (
-    <HomeDrawer open={store.open} onClose={handleClose} />
+    <HomeDrawer open={store.open} onClose={handleClose} Form={Form} />
   ));
   return {
     Component,

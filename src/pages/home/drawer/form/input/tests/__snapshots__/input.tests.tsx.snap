@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input renders with value 1`] = `
+<div
+  class="MuiFormControl-root MuiTextField-root MuiFormControl-fullWidth"
+>
+  <label
+    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-marginDense MuiInputLabel-outlined MuiFormLabel-filled"
+    data-shrink="true"
+  >
+    label
+  </label>
+  <div
+    class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-marginDense MuiOutlinedInput-marginDense"
+  >
+    <input
+      aria-invalid="false"
+      class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMarginDense MuiOutlinedInput-inputMarginDense"
+      type="text"
+      value="hello world"
+    />
+    <fieldset
+      aria-hidden="true"
+      class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+    >
+      <legend
+        class="PrivateNotchedOutline-legendLabelled-3 PrivateNotchedOutline-legendNotched-4"
+      >
+        <span>
+          label
+        </span>
+      </legend>
+    </fieldset>
+  </div>
+</div>
+`;
+
+exports[`Input renders with value with error 1`] = `
+<div
+  class="MuiFormControl-root MuiTextField-root MuiFormControl-fullWidth"
+>
+  <label
+    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-marginDense MuiInputLabel-outlined Mui-error Mui-error MuiFormLabel-filled"
+    data-shrink="true"
+  >
+    label
+  </label>
+  <div
+    class="MuiInputBase-root MuiOutlinedInput-root Mui-error Mui-error MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-marginDense MuiOutlinedInput-marginDense"
+  >
+    <input
+      aria-invalid="true"
+      class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMarginDense MuiOutlinedInput-inputMarginDense"
+      type="text"
+      value="hello world"
+    />
+    <fieldset
+      aria-hidden="true"
+      class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+    >
+      <legend
+        class="PrivateNotchedOutline-legendLabelled-3 PrivateNotchedOutline-legendNotched-4"
+      >
+        <span>
+          label
+        </span>
+      </legend>
+    </fieldset>
+  </div>
+</div>
+`;
