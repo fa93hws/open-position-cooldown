@@ -25,6 +25,7 @@ function getSharedOption({ outdir }: { outdir: string }): BuildOptions {
     platform: 'browser',
     bundle: true,
     write: false,
+    sourcemap: true,
   };
 }
 
@@ -65,6 +66,5 @@ export function getDevOption(params: { outdir: string }) {
       'process.env.NODE_ENV': `"${BUILD_MODE.DEV}"`,
       'process.env.PORT': getPortNumber().toString(),
     },
-    sourcemap: true,
   };
 }
