@@ -49,4 +49,8 @@ export class ReasonStore {
   setRemoveVisibility(val: boolean) {
     this.shouldShowRemove = val;
   }
+
+  startValidate() {
+    this.reasons.forEach(({ store }) => store.startValidate());
+  }
 }

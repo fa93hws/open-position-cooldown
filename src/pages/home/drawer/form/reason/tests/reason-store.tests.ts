@@ -49,4 +49,16 @@ describe('ReasonStore', () => {
     store.reasons[0].store.hasError = true;
     expect(store.reasonErrors).toEqual([true, false]);
   });
+
+  it('let all input stores to start validate', () => {
+    const store = new ReasonStore();
+    store.addReason();
+    store.addReason();
+    store.addReason();
+    store.startValidate();
+    const shouldValidates = store.reasons.map(
+      (reason) => reason.store.shouldValidate,
+    );
+    expect(shouldValidates).toEqual([true, true, true]);
+  });
 });

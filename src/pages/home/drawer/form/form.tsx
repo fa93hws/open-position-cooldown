@@ -4,6 +4,7 @@ import { makeStyles, withTheme, WithTheme } from '@material-ui/core/styles';
 
 import { designWidth } from '../../../../styles/styles';
 import { createInput, ExposedInputProps } from './input/input';
+import { createPriceExplain } from './price/price';
 import { createReasonSection } from './reason/reason';
 import { nonEmpty, mustBeNumber } from './validator';
 
@@ -13,6 +14,7 @@ type FormProps = {
   CodeInput: React.ComponentType<ExposedInputProps>;
   PriceInput: React.ComponentType<ExposedInputProps>;
   MarketInput: React.ComponentType<ExposedInputProps>;
+  PriceExplainComponent: React.ComponentType;
   Reason: React.ComponentType;
 };
 
@@ -58,6 +60,10 @@ export const Form = React.memo(
           <Box mt={1}>
             <props.Reason />
           </Box>
+          <Divider />
+          <Box mt={1}>
+            <props.PriceExplainComponent />
+          </Box>
         </Box>
         <Button fullWidth variant="contained" color="primary" type="submit">
           买！买！买！
@@ -72,14 +78,17 @@ export function createForm() {
   const [CodeInput, codeInputStore] = createInput([nonEmpty]);
   const [PriceInput, priceInputStore] = createInput([nonEmpty, mustBeNumber]);
   const [MarketInput, marketInputStore] = createInput([nonEmpty]);
+  const [PriceExplainComponent, priceExplainStore] = createPriceExplain();
+  const [ReasonComponent, reasonStore] = createReasonSection();
+
   const onSubmit = () => {
     nameInputStore.startValidate();
     codeInputStore.startValidate();
     priceInputStore.startValidate();
     marketInputStore.startValidate();
+    priceExplainStore.startValidate();
+    reasonStore.startValidate();
   };
-
-  const [ReasonComponent] = createReasonSection();
   return React.memo(() => (
     <Form
       onSubmit={onSubmit}
@@ -87,6 +96,7 @@ export function createForm() {
       CodeInput={CodeInput}
       PriceInput={PriceInput}
       MarketInput={MarketInput}
+      PriceExplainComponent={PriceExplainComponent}
       Reason={ReasonComponent}
     />
   ));
