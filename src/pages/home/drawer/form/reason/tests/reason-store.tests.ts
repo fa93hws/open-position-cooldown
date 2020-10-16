@@ -1,0 +1,52 @@
+import { ReasonStore } from '../reason-store';
+
+describe('ReasonStore', () => {
+  it('sets the following default value', () => {
+    const store = new ReasonStore();
+    expect(store.reasons).toEqual([]);
+  });
+
+  it('adds a new reason with empty string', () => {
+    const store = new ReasonStore();
+    store.addReason();
+    store.addReason();
+    expect(store.reasons.length).toEqual(2);
+  });
+
+  it('removes the reason at given index', () => {
+    const store = new ReasonStore();
+    store.addReason();
+    store.addReason();
+    store.addReason();
+    const firstReason = store.reasons[0];
+    const thirdReason = store.reasons[2];
+    store.removeReason(1);
+    expect(store.reasons).toEqual([firstReason, thirdReason]);
+  });
+
+  it('get all input components in sequence', () => {
+    const store = new ReasonStore();
+    store.addReason();
+    store.addReason();
+    const FirsrComponent = store.reasons[0].Component;
+    const SecondComponent = store.reasons[1].Component;
+    expect(store.ReasonInputs).toEqual([FirsrComponent, SecondComponent]);
+  });
+
+  it('get all input value in sequence', () => {
+    const store = new ReasonStore();
+    store.addReason();
+    store.addReason();
+    const firstValue = store.reasons[0].store.value;
+    const secondValue = store.reasons[1].store.value;
+    expect(store.reasonStrings).toEqual([firstValue, secondValue]);
+  });
+
+  it('get all input hasError in sequence', () => {
+    const store = new ReasonStore();
+    store.addReason();
+    store.addReason();
+    store.reasons[0].store.hasError = true;
+    expect(store.reasonErrors).toEqual([true, false]);
+  });
+});

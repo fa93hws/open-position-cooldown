@@ -2,37 +2,47 @@
 
 exports[`Form renders as follow 1`] = `
 <form
-  class="MuiBox-root MuiBox-root-1"
+  class="MuiBox-root MuiBox-root-2"
 >
   <div
-    class="MuiBox-root MuiBox-root-2"
+    class="MuiBox-root MuiBox-root-3 makeStyles-container-1"
   >
     <div
-      class="MuiBox-root MuiBox-root-3"
+      class="MuiBox-root MuiBox-root-4"
     >
       <div>
         NameInput
       </div>
     </div>
     <div
-      class="MuiBox-root MuiBox-root-4"
+      class="MuiBox-root MuiBox-root-5"
     >
       <div>
         CodeInput
       </div>
     </div>
     <div
-      class="MuiBox-root MuiBox-root-5"
+      class="MuiBox-root MuiBox-root-6"
     >
       <div>
         PriceInput
       </div>
     </div>
     <div
-      class="MuiBox-root MuiBox-root-6"
+      class="MuiBox-root MuiBox-root-7"
     >
       <div>
         MarketInput
+      </div>
+    </div>
+    <hr
+      class="MuiDivider-root"
+    />
+    <div
+      class="MuiBox-root MuiBox-root-8"
+    >
+      <div>
+        Reason
       </div>
     </div>
   </div>
