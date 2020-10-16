@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Price renders the following 1`] = `
+<div
+  class="MuiBox-root MuiBox-root-1"
+>
+  <h4
+    class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom"
+  >
+    为什么当前价格可以买入？
+  </h4>
+  <div
+    class="MuiFormControl-root MuiTextField-root MuiFormControl-fullWidth"
+  >
+    <div
+      class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-multiline MuiOutlinedInput-multiline MuiInputBase-marginDense MuiOutlinedInput-marginDense"
+    >
+      <textarea
+        aria-invalid="false"
+        class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMultiline MuiOutlinedInput-inputMultiline MuiInputBase-inputMarginDense MuiOutlinedInput-inputMarginDense"
+        placeholder="可换行"
+        rows="1"
+      />
+      <textarea
+        aria-hidden="true"
+        class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMultiline MuiOutlinedInput-inputMultiline MuiInputBase-inputMarginDense MuiOutlinedInput-inputMarginDense"
+        readonly=""
+        style="visibility:hidden;position:absolute;overflow:hidden;height:0;top:0;left:0;transform:translateZ(0)"
+        tabindex="-1"
+      />
+      <fieldset
+        aria-hidden="true"
+        class="PrivateNotchedOutline-root-2 MuiOutlinedInput-notchedOutline"
+        style="padding-left:8px"
+      >
+        <legend
+          class="PrivateNotchedOutline-legend-3"
+          style="width:0.01px"
+        >
+          <span>
+            ​
+          </span>
+        </legend>
+      </fieldset>
+    </div>
+  </div>
+</div>
+`;
