@@ -6,7 +6,7 @@ import { observer } from 'mobx-react';
 
 import { createForm } from './form/form';
 import { DrawerStore } from './drawer-store';
-import { sizes, designWidth } from '../../../styles/styles';
+import { sizes } from '../../../styles/styles';
 
 const useStyles = makeStyles((theme) => ({
   headContainer: {
@@ -39,7 +39,7 @@ export const HomeDrawer = React.memo(
     const styles = useStyles();
     return (
       <Drawer anchor="bottom" open={props.open}>
-        <Box height="100vh" width="100vw" display="flex" flexDirection="column">
+        <Box height="100vh" width="100%" display="flex" flexDirection="column">
           <AppBar className={styles.headContainer} position="static">
             {/* placeholder to balance the layout */}
             <IconButton className={styles.placeholderIconWrapper}>
@@ -52,7 +52,7 @@ export const HomeDrawer = React.memo(
               <HighlightOff fontSize="large" />
             </IconButton>
           </AppBar>
-          <Box maxWidth={designWidth} flex={1}>
+          <Box flex={1}>
             <props.Form />
           </Box>
         </Box>

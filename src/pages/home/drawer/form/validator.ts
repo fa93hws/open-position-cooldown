@@ -1,5 +1,8 @@
 export function nonEmpty(val: string) {
-  return val.length > 0;
+  if (val.length === 0) {
+    return false;
+  }
+  return /(?![\r\n])./.test(val);
 }
 
 export function mustBeNumber(val: string) {

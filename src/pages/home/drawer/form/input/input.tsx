@@ -5,7 +5,9 @@ import { observer } from 'mobx-react';
 import { InputStore } from './input-store';
 
 export type ExposedInputProps = {
-  label: string;
+  label?: string;
+  multiline?: boolean;
+  placeholder?: string;
 };
 
 type InputProps = ExposedInputProps & {
@@ -26,6 +28,8 @@ export const Input = React.memo((props: InputProps) => {
       onBlur={props.onBlur}
       value={props.value}
       error={props.error}
+      multiline={props.multiline}
+      placeholder={props.placeholder}
       fullWidth
       color="primary"
       type="text"
@@ -47,6 +51,8 @@ export function createInput(validators: readonly ((val: string) => boolean)[]) {
       onChange={onChange}
       onBlur={onBlur}
       label={props.label}
+      multiline={props.multiline}
+      placeholder={props.placeholder}
     />
   ));
   return [Component, store] as const;
