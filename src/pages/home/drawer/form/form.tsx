@@ -2,19 +2,15 @@ import * as React from 'react';
 import { Button, Box, Divider } from '@material-ui/core';
 import { makeStyles, withTheme, WithTheme } from '@material-ui/core/styles';
 
-import { designWidth } from '../../../../styles/styles';
-import { createInput, ExposedInputProps } from './input/input';
+import { createBasicInfo } from './basic-info/basic-info';
 import { createPriceExplain } from './price/price';
 import { createReasonSection } from './reason/reason';
-import { nonEmpty, mustBeNumber } from './validator';
+import { designWidth } from '../../../../styles/styles';
 
 type FormProps = {
   onSubmit(): void;
-  NameInput: React.ComponentType<ExposedInputProps>;
-  CodeInput: React.ComponentType<ExposedInputProps>;
-  PriceInput: React.ComponentType<ExposedInputProps>;
-  MarketInput: React.ComponentType<ExposedInputProps>;
-  PriceExplainComponent: React.ComponentType;
+  BasicInfo: React.ComponentType;
+  PriceExplain: React.ComponentType;
   Reason: React.ComponentType;
 };
 
@@ -44,25 +40,14 @@ export const Form = React.memo(
         height="100%"
       >
         <Box padding={2} flex={1} className={styles.container}>
-          <Box marginBottom={1}>
-            <props.NameInput label="股票名" />
-          </Box>
-          <Box marginBottom={1}>
-            <props.CodeInput label="代码" />
-          </Box>
-          <Box marginBottom={1}>
-            <props.PriceInput label="价格" />
-          </Box>
-          <Box marginBottom={2}>
-            <props.MarketInput label="市场" />
-          </Box>
+          <props.BasicInfo />
           <Divider />
           <Box mt={1}>
             <props.Reason />
           </Box>
           <Divider />
           <Box mt={1}>
-            <props.PriceExplainComponent />
+            <props.PriceExplain />
           </Box>
         </Box>
         <Button fullWidth variant="contained" color="primary" type="submit">
@@ -74,29 +59,20 @@ export const Form = React.memo(
 );
 
 export function createForm() {
-  const [NameInput, nameInputStore] = createInput([nonEmpty]);
-  const [CodeInput, codeInputStore] = createInput([nonEmpty]);
-  const [PriceInput, priceInputStore] = createInput([nonEmpty, mustBeNumber]);
-  const [MarketInput, marketInputStore] = createInput([nonEmpty]);
+  const [BasicInfoComponent, basicInfoStore] = createBasicInfo();
   const [PriceExplainComponent, priceExplainStore] = createPriceExplain();
   const [ReasonComponent, reasonStore] = createReasonSection();
 
   const onSubmit = () => {
-    nameInputStore.startValidate();
-    codeInputStore.startValidate();
-    priceInputStore.startValidate();
-    marketInputStore.startValidate();
+    basicInfoStore.startValidate();
     priceExplainStore.startValidate();
     reasonStore.startValidate();
   };
   return React.memo(() => (
     <Form
       onSubmit={onSubmit}
-      NameInput={NameInput}
-      CodeInput={CodeInput}
-      PriceInput={PriceInput}
-      MarketInput={MarketInput}
-      PriceExplainComponent={PriceExplainComponent}
+      BasicInfo={BasicInfoComponent}
+      PriceExplain={PriceExplainComponent}
       Reason={ReasonComponent}
     />
   ));

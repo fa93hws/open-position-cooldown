@@ -7,39 +7,14 @@ exports[`Form renders as follow 1`] = `
   <div
     class="MuiBox-root MuiBox-root-3 makeStyles-container-1"
   >
-    <div
-      class="MuiBox-root MuiBox-root-4"
-    >
-      <div>
-        NameInput
-      </div>
-    </div>
-    <div
-      class="MuiBox-root MuiBox-root-5"
-    >
-      <div>
-        CodeInput
-      </div>
-    </div>
-    <div
-      class="MuiBox-root MuiBox-root-6"
-    >
-      <div>
-        PriceInput
-      </div>
-    </div>
-    <div
-      class="MuiBox-root MuiBox-root-7"
-    >
-      <div>
-        MarketInput
-      </div>
+    <div>
+      BasicInfo
     </div>
     <hr
       class="MuiDivider-root"
     />
     <div
-      class="MuiBox-root MuiBox-root-8"
+      class="MuiBox-root MuiBox-root-4"
     >
       <div>
         Reason
@@ -49,7 +24,7 @@ exports[`Form renders as follow 1`] = `
       class="MuiDivider-root"
     />
     <div
-      class="MuiBox-root MuiBox-root-9"
+      class="MuiBox-root MuiBox-root-5"
     >
       <div>
         PriceExplain
