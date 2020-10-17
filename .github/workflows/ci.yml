@@ -33,7 +33,7 @@ jobs:
       - name: Run typecheck
         run: npm run lint:ts
       - name: Run unit test
-        run: npm run test -- --coverage
+        run: npm run test -- --coverage --maxWorkers=4
       - name: Report test coverage to codecov
         uses: codecov/codecov-action@v1
         with:

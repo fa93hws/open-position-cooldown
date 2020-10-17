@@ -1,3 +1,7 @@
+/**
+ * @jest-environment jsdom
+ */
+
 describe('App', () => {
   beforeEach(() => {
     delete process.env.NODE_ENV;
