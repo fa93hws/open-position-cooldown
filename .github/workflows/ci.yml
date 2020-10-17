@@ -43,7 +43,7 @@ jobs:
       - name: Run Esbuild
         run: npm run build
       - name: copy 404.md
-        run: cp -f 404.md target/404.md
+        run: cp -f target/index.html target/404.html
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@3.6.2
         if: ${{ github.event_name == 'release' }}
