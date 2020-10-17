@@ -2,10 +2,15 @@ import type { ComponentType } from 'react';
 import { makeObservable, observable, action, computed } from 'mobx';
 
 import { ExposedInputProps } from '@ui/text-input/input';
+import { InputStore } from '@ui/text-input/input-store';
 import { createLine } from './line/line';
 import { LineStore } from './line/line-store';
 
 export class StrategyStore {
+  private readonly shitPriceStore: InputStore;
+
+  private readonly currentPriceStore: InputStore;
+
   strategies: {
     Component: ComponentType<ExposedInputProps>;
     store: LineStore;
@@ -13,7 +18,15 @@ export class StrategyStore {
 
   shouldShowRemove = false;
 
-  constructor() {
+  constructor({
+    shitPriceStore,
+    currentPriceStore,
+  }: {
+    shitPriceStore: InputStore;
+    currentPriceStore: InputStore;
+  }) {
+    this.shitPriceStore = shitPriceStore;
+    this.currentPriceStore = currentPriceStore;
     makeObservable(this, {
       strategies: observable.deep,
       shouldShowRemove: observable.ref,
@@ -24,6 +37,14 @@ export class StrategyStore {
       strategyErrors: computed,
       setRemoveVisibility: action,
     });
+  }
+
+  get initialQuantity(): number {
+    return parseInt(this.currentPriceStore.value, 10);
+  }
+
+  get shitPrice(): number {
+    return parseFloat(this.shitPriceStore.value);
   }
 
   get StrategyLines(): ComponentType<ExposedInputProps>[] {

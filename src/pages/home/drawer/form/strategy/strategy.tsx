@@ -76,7 +76,7 @@ export const Strategy = React.memo(
             当前价格买入
           </Typography>
           <Box width={80} mx={1}>
-            <props.ShitPriceInput inputClasses={inputStyles} />
+            <props.CurrentQuantityInput inputClasses={inputStyles} />
           </Box>
           <Typography variant="body1" component="span">
             股
@@ -110,7 +110,15 @@ export const Strategy = React.memo(
 );
 
 export function createStrategyPanel(): [React.ComponentType, StrategyStore] {
-  const store = new StrategyStore();
+  const [CurrentQuantityInput, currentPriceStore] = createInput([
+    nonEmpty,
+    mustBeNumber,
+  ]);
+  const [ShitPriceInput, shitPriceStore] = createInput([
+    nonEmpty,
+    mustBeNumber,
+  ]);
+  const store = new StrategyStore({ currentPriceStore, shitPriceStore });
   store.addStrategy();
   const onAddClick = () => store.addStrategy();
   const onSwitchChange = (val: boolean) => store.setRemoveVisibility(val);
@@ -122,9 +130,6 @@ export function createStrategyPanel(): [React.ComponentType, StrategyStore] {
       onAddClick={onAddClick}
     />
   ));
-
-  const [CurrentQuantityInput] = createInput([nonEmpty, mustBeNumber]);
-  const [ShitPriceInput] = createInput([nonEmpty, mustBeNumber]);
   const onRemoveClick = (idx: number) => store.removeStrategy(idx);
 
   const Component = observer(() => (

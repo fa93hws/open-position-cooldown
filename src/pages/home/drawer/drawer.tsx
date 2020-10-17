@@ -4,6 +4,7 @@ import { makeStyles, withTheme, WithTheme } from '@material-ui/core/styles';
 import { HighlightOff } from '@material-ui/icons';
 import { observer } from 'mobx-react';
 
+import type { IntentionService } from '@services/intention/intention';
 import { sizes } from '@styles/styles';
 import { createForm } from './form/form';
 import { DrawerStore } from './drawer-store';
@@ -61,11 +62,12 @@ export const HomeDrawer = React.memo(
   }),
 );
 
-export function createHomeDrawer() {
-  const store = new DrawerStore();
+export function createHomeDrawer(intentionService: IntentionService) {
+  const store = new DrawerStore(intentionService);
   const handleClose = () => store.setOpen(false);
   const showDrawer = () => store.setOpen(true);
-  const Form = createForm();
+
+  const Form = createForm(store.submitIntention);
   const Component = observer(() => (
     <HomeDrawer open={store.open} onClose={handleClose} Form={Form} />
   ));

@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Box } from '@material-ui/core';
 import { withTheme, WithTheme } from '@material-ui/core/styles';
 
+import { IntentionService } from '@services/intention/intention';
 import { AddButton } from './add-button/add-button';
 import { createHomeDrawer } from './drawer/drawer';
 
@@ -23,7 +24,8 @@ export const HomePage = withTheme(
 );
 
 export function createHomePage() {
-  const { Component, showDrawer } = createHomeDrawer();
+  const intentionService = new IntentionService();
+  const { Component, showDrawer } = createHomeDrawer(intentionService);
   const AddButtonImpl = () => <AddButton onClick={showDrawer} />;
   return () => <HomePage IconButton={AddButtonImpl} Sheet={Component} />;
 }

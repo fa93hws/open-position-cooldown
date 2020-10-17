@@ -1,20 +1,23 @@
+import { InputStore } from '@ui/text-input/input-store';
 import { StrategyStore } from '../strategy-store';
 
 describe('ReasonStore', () => {
+  const shitPriceStore = new InputStore([]);
+  const currentPriceStore = new InputStore([]);
   it('sets the following default value', () => {
-    const store = new StrategyStore();
+    const store = new StrategyStore({ shitPriceStore, currentPriceStore });
     expect(store.strategies).toEqual([]);
   });
 
   it('adds a new reason with empty string', () => {
-    const store = new StrategyStore();
+    const store = new StrategyStore({ shitPriceStore, currentPriceStore });
     store.addStrategy();
     store.addStrategy();
     expect(store.strategies.length).toEqual(2);
   });
 
   it('removes the reason at given index', () => {
-    const store = new StrategyStore();
+    const store = new StrategyStore({ shitPriceStore, currentPriceStore });
     store.addStrategy();
     store.addStrategy();
     store.addStrategy();
@@ -25,7 +28,7 @@ describe('ReasonStore', () => {
   });
 
   it('get all input components in sequence', () => {
-    const store = new StrategyStore();
+    const store = new StrategyStore({ shitPriceStore, currentPriceStore });
     store.addStrategy();
     store.addStrategy();
     const FirsrComponent = store.strategies[0].Component;
@@ -34,7 +37,7 @@ describe('ReasonStore', () => {
   });
 
   it('get all input value in sequence', () => {
-    const store = new StrategyStore();
+    const store = new StrategyStore({ shitPriceStore, currentPriceStore });
     const store0 = store.addStrategy();
     store0.priceStore.setValue('1');
     store0.quantityStore.setValue('11');
@@ -48,7 +51,7 @@ describe('ReasonStore', () => {
   });
 
   it('get all input hasError in sequence', () => {
-    const store = new StrategyStore();
+    const store = new StrategyStore({ shitPriceStore, currentPriceStore });
     const store0 = store.addStrategy();
     store0.priceStore.hasError = true;
     store.addStrategy();
@@ -56,7 +59,7 @@ describe('ReasonStore', () => {
   });
 
   it('let all input stores to start validate', () => {
-    const store = new StrategyStore();
+    const store = new StrategyStore({ shitPriceStore, currentPriceStore });
     const store0 = store.addStrategy();
     const store1 = store.addStrategy();
     store.startValidate();

@@ -3,10 +3,12 @@ import { Button, Box, Divider } from '@material-ui/core';
 import { makeStyles, withTheme, WithTheme } from '@material-ui/core/styles';
 
 import { designWidth } from '@styles/styles';
+import type { IntentionSchema } from '@services/intention/intention';
 import { createBasicInfo } from './basic-info/basic-info';
 import { createPriceExplain } from './price/price';
 import { createReasonSection } from './reason/reason';
 import { createStrategyPanel } from './strategy/strategy';
+import { FormStore } from './form-store';
 
 type FormProps = {
   onSubmit(): void;
@@ -64,17 +66,22 @@ export const Form = React.memo(
   }),
 );
 
-export function createForm() {
+export function createForm(
+  submitIntention: (intention: IntentionSchema) => Promise<void>,
+): React.ComponentType {
   const [BasicInfoComponent, basicInfoStore] = createBasicInfo();
-  const [PriceExplainComponent, priceExplainStore] = createPriceExplain();
   const [ReasonComponent, reasonStore] = createReasonSection();
-  const [StrategyPanel] = createStrategyPanel();
+  const [PriceExplainComponent, priceExplainStore] = createPriceExplain();
+  const [StrategyPanel, strategyStore] = createStrategyPanel();
+  const formStore = new FormStore(
+    basicInfoStore,
+    reasonStore,
+    priceExplainStore,
+    strategyStore,
+    submitIntention,
+  );
 
-  const onSubmit = () => {
-    basicInfoStore.startValidate();
-    priceExplainStore.startValidate();
-    reasonStore.startValidate();
-  };
+  const onSubmit = () => formStore.submit();
   return React.memo(() => (
     <Form
       onSubmit={onSubmit}
