@@ -2,68 +2,23 @@
 
 exports[`ReasonSection renders the section with two input 1`] = `
 <div
-  class="MuiBox-root MuiBox-root-12"
+  class="MuiBox-root MuiBox-root-4"
 >
   <div
-    class="MuiBox-root MuiBox-root-13"
+    class="MuiBox-root MuiBox-root-5"
   >
     <h4
       class="MuiTypography-root MuiTypography-h6"
     >
       持有逻辑(至少3条)
     </h4>
-    <span
-      class="MuiSwitch-root makeStyles-root-4 MuiSwitch-sizeSmall makeStyles-sizeSmall-3"
+    <div
+      class="MuiBox-root MuiBox-root-6"
     >
-      <span
-        aria-disabled="false"
-        class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-8 MuiSwitch-switchBase makeStyles-switchBase-5 MuiSwitch-colorPrimary"
-      >
-        <span
-          class="MuiIconButton-label"
-        >
-          <input
-            class="PrivateSwitchBase-input-11 MuiSwitch-input"
-            id="switch"
-            type="checkbox"
-          />
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root MuiSvgIcon-colorSecondary"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
-            />
-          </svg>
-        </span>
-      </span>
-      <span
-        class="MuiSwitch-track"
-      />
-    </span>
-    <button
-      class="MuiButtonBase-root MuiIconButton-root makeStyles-iconButton-1 MuiIconButton-colorPrimary"
-      id="add-reason"
-      tabindex="0"
-      type="button"
-    >
-      <span
-        class="MuiIconButton-label"
-      >
-        <svg
-          aria-hidden="true"
-          class="MuiSvgIcon-root"
-          focusable="false"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"
-          />
-        </svg>
-      </span>
-    </button>
+      <div>
+        ListControl
+      </div>
+    </div>
   </div>
   <ul
     class="MuiList-root MuiList-padding"
@@ -88,69 +43,23 @@ exports[`ReasonSection renders the section with two input 1`] = `
 
 exports[`ReasonSection renders the section with two input and remove icon 1`] = `
 <div
-  class="MuiBox-root MuiBox-root-14"
+  class="MuiBox-root MuiBox-root-8"
 >
   <div
-    class="MuiBox-root MuiBox-root-15"
+    class="MuiBox-root MuiBox-root-9"
   >
     <h4
       class="MuiTypography-root MuiTypography-h6"
     >
       持有逻辑(至少3条)
     </h4>
-    <span
-      class="MuiSwitch-root makeStyles-root-4 MuiSwitch-sizeSmall makeStyles-sizeSmall-3"
+    <div
+      class="MuiBox-root MuiBox-root-10"
     >
-      <span
-        aria-disabled="false"
-        class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-8 MuiSwitch-switchBase makeStyles-switchBase-5 MuiSwitch-colorPrimary PrivateSwitchBase-checked-9 Mui-checked"
-      >
-        <span
-          class="MuiIconButton-label"
-        >
-          <input
-            checked=""
-            class="PrivateSwitchBase-input-11 MuiSwitch-input"
-            id="switch"
-            type="checkbox"
-          />
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
-            />
-          </svg>
-        </span>
-      </span>
-      <span
-        class="MuiSwitch-track"
-      />
-    </span>
-    <button
-      class="MuiButtonBase-root MuiIconButton-root makeStyles-iconButton-1 MuiIconButton-colorPrimary"
-      id="add-reason"
-      tabindex="0"
-      type="button"
-    >
-      <span
-        class="MuiIconButton-label"
-      >
-        <svg
-          aria-hidden="true"
-          class="MuiSvgIcon-root"
-          focusable="false"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"
-          />
-        </svg>
-      </span>
-    </button>
+      <div>
+        ListControl
+      </div>
+    </div>
   </div>
   <ul
     class="MuiList-root MuiList-padding"
@@ -162,7 +71,7 @@ exports[`ReasonSection renders the section with two input and remove icon 1`] = 
         input 1
       </div>
       <button
-        class="MuiButtonBase-root MuiIconButton-root makeStyles-iconButton-1 MuiIconButton-colorSecondary"
+        class="MuiButtonBase-root MuiIconButton-root makeStyles-iconButton-7 MuiIconButton-colorSecondary"
         id="remove-0"
         tabindex="0"
         type="button"
@@ -190,7 +99,7 @@ exports[`ReasonSection renders the section with two input and remove icon 1`] = 
         input 2
       </div>
       <button
-        class="MuiButtonBase-root MuiIconButton-root makeStyles-iconButton-1 MuiIconButton-colorSecondary"
+        class="MuiButtonBase-root MuiIconButton-root makeStyles-iconButton-7 MuiIconButton-colorSecondary"
         id="remove-1"
         tabindex="0"
         type="button"
@@ -217,68 +126,23 @@ exports[`ReasonSection renders the section with two input and remove icon 1`] = 
 
 exports[`ReasonSection renders the section without any inputs 1`] = `
 <div
-  class="MuiBox-root MuiBox-root-6"
+  class="MuiBox-root MuiBox-root-1"
 >
   <div
-    class="MuiBox-root MuiBox-root-7"
+    class="MuiBox-root MuiBox-root-2"
   >
     <h4
       class="MuiTypography-root MuiTypography-h6"
     >
       持有逻辑(至少3条)
     </h4>
-    <span
-      class="MuiSwitch-root makeStyles-root-4 MuiSwitch-sizeSmall makeStyles-sizeSmall-3"
+    <div
+      class="MuiBox-root MuiBox-root-3"
     >
-      <span
-        aria-disabled="false"
-        class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-8 MuiSwitch-switchBase makeStyles-switchBase-5 MuiSwitch-colorPrimary"
-      >
-        <span
-          class="MuiIconButton-label"
-        >
-          <input
-            class="PrivateSwitchBase-input-11 MuiSwitch-input"
-            id="switch"
-            type="checkbox"
-          />
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root MuiSvgIcon-colorSecondary"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
-            />
-          </svg>
-        </span>
-      </span>
-      <span
-        class="MuiSwitch-track"
-      />
-    </span>
-    <button
-      class="MuiButtonBase-root MuiIconButton-root makeStyles-iconButton-1 MuiIconButton-colorPrimary"
-      id="add-reason"
-      tabindex="0"
-      type="button"
-    >
-      <span
-        class="MuiIconButton-label"
-      >
-        <svg
-          aria-hidden="true"
-          class="MuiSvgIcon-root"
-          focusable="false"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"
-          />
-        </svg>
-      </span>
-    </button>
+      <div>
+        ListControl
+      </div>
+    </div>
   </div>
   <ul
     class="MuiList-root MuiList-padding"

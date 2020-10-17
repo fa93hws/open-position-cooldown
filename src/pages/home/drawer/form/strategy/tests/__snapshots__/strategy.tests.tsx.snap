@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Strategy renders the folowing 1`] = `
+<div
+  class="MuiBox-root MuiBox-root-1"
+>
+  <div
+    class="MuiBox-root MuiBox-root-2"
+  >
+    <h4
+      class="MuiTypography-root MuiTypography-h6"
+    >
+      建仓策略
+    </h4>
+    <div
+      class="MuiBox-root MuiBox-root-3"
+    >
+      <div>
+        ListControlImpl
+      </div>
+    </div>
+  </div>
+</div>
+`;
