@@ -38,7 +38,7 @@ async function doBuild(
     files: outputFiles.map((f) => f.path),
     outdir: buildOutputFolder,
   });
-  copyAssets(publicAssetsFolder, buildAssetsFolder);
+  copyAssets({ from: publicAssetsFolder, to: buildAssetsFolder });
   afterBuild();
 }
 
