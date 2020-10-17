@@ -9,7 +9,9 @@
     "skipLibCheck": true,
     "paths": {
       "@styles/*": ["./src/styles/*"],
-      "@ui/*": ["./src/ui/*"]
+      "@ui/*": ["./src/ui/*"],
+      "@utils/*": ["./src/utils/*"],
+      "@services/*": ["./src/services/*"]
     }
   }
 }

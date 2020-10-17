@@ -32,7 +32,7 @@ exports[`Strategy renders the strategy panel with two lines 1`] = `
       class="MuiBox-root MuiBox-root-14"
     >
       <div>
-        ShitPriceInput
+        CurrentPriceInput
       </div>
     </div>
     <span
@@ -115,7 +115,7 @@ exports[`Strategy renders the strategy panel with two lines and remove icon butt
       class="MuiBox-root MuiBox-root-22"
     >
       <div>
-        ShitPriceInput
+        CurrentPriceInput
       </div>
     </div>
     <span
@@ -240,7 +240,7 @@ exports[`Strategy renders the strategy panel without lines 1`] = `
       class="MuiBox-root MuiBox-root-7"
     >
       <div>
-        ShitPriceInput
+        CurrentPriceInput
       </div>
     </div>
     <span

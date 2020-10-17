@@ -11,6 +11,8 @@ module.exports = {
     'fontsource-roboto': 'identity-obj-proxy',
     '@styles/(.*)$': '<rootDir>/src/styles/$1',
     '@ui/(.*)$': '<rootDir>/src/ui/$1',
+    '@services/(.*)': '<rootDir>/src/services/$1',
+    '@utils/(.*)': '<rootDir>/src/utils/$1',
   },
   snapshotSerializers: ['enzyme-to-json/serializer', 'jest-serializer-html'],
   globals: {

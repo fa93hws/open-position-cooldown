@@ -29,6 +29,10 @@ export class BasicInfoStore {
     return this.priceStore.value;
   }
 
+  get priceAsNum() {
+    return parseFloat(this.price);
+  }
+
   get code() {
     return this.codeStore.value;
   }

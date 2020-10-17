@@ -21,7 +21,7 @@ describe('Form', () => {
   });
 
   it('can be mounted', () => {
-    const Component = createForm();
+    const Component = createForm(jest.fn());
     expect(() => shallow(<Component />)).not.toThrow();
   });
 });
