@@ -6,12 +6,14 @@ import { designWidth } from '@styles/styles';
 import { createBasicInfo } from './basic-info/basic-info';
 import { createPriceExplain } from './price/price';
 import { createReasonSection } from './reason/reason';
+import { createStrategyPanel } from './strategy/strategy';
 
 type FormProps = {
   onSubmit(): void;
   BasicInfo: React.ComponentType;
   PriceExplain: React.ComponentType;
   Reason: React.ComponentType;
+  StrategyPanel: React.ComponentType;
 };
 
 const useStyles = makeStyles((theme) => ({
@@ -42,12 +44,16 @@ export const Form = React.memo(
         <Box padding={2} flex={1} className={styles.container}>
           <props.BasicInfo />
           <Divider />
-          <Box mt={1}>
+          <Box mt={1} mb={1}>
             <props.Reason />
           </Box>
           <Divider />
-          <Box mt={1}>
+          <Box mt={1} mb={2}>
             <props.PriceExplain />
+          </Box>
+          <Divider />
+          <Box mt={1}>
+            <props.StrategyPanel />
           </Box>
         </Box>
         <Button fullWidth variant="contained" color="primary" type="submit">
@@ -62,6 +68,7 @@ export function createForm() {
   const [BasicInfoComponent, basicInfoStore] = createBasicInfo();
   const [PriceExplainComponent, priceExplainStore] = createPriceExplain();
   const [ReasonComponent, reasonStore] = createReasonSection();
+  const StrategyPanel = createStrategyPanel();
 
   const onSubmit = () => {
     basicInfoStore.startValidate();
@@ -74,6 +81,7 @@ export function createForm() {
       BasicInfo={BasicInfoComponent}
       PriceExplain={PriceExplainComponent}
       Reason={ReasonComponent}
+      StrategyPanel={StrategyPanel}
     />
   ));
 }

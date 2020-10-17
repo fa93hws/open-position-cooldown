@@ -30,6 +30,16 @@ exports[`Form renders as follow 1`] = `
         PriceExplain
       </div>
     </div>
+    <hr
+      class="MuiDivider-root"
+    />
+    <div
+      class="MuiBox-root MuiBox-root-6"
+    >
+      <div>
+        StrategyPanel
+      </div>
+    </div>
   </div>
   <button
     class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-fullWidth"

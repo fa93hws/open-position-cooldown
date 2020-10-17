@@ -7,6 +7,7 @@ describe('Form', () => {
   const BasicInfo = () => <div>BasicInfo</div>;
   const PriceExplain = () => <div>PriceExplain</div>;
   const Reason = () => <div>Reason</div>;
+  const StrategyPanel = () => <div>StrategyPanel</div>;
   it('renders as follow', () => {
     expect(
       <Form
@@ -14,6 +15,7 @@ describe('Form', () => {
         BasicInfo={BasicInfo}
         PriceExplain={PriceExplain}
         Reason={Reason}
+        StrategyPanel={StrategyPanel}
       />,
     ).toMatchRenderedSnapshot();
   });

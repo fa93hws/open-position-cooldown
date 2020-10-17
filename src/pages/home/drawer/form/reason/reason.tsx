@@ -1,18 +1,11 @@
 import * as React from 'react';
-import {
-  Box,
-  Typography,
-  IconButton,
-  Switch,
-  List,
-  ListItem,
-} from '@material-ui/core';
-import { AddBox, Delete } from '@material-ui/icons';
+import { Box, Typography, IconButton, List, ListItem } from '@material-ui/core';
 import { makeStyles, withTheme, WithTheme } from '@material-ui/core/styles';
 import { observer } from 'mobx-react';
 import IndeterminateCheckBoxIcon from '@material-ui/icons/IndeterminateCheckBox';
 
 import type { ExposedInputProps } from '@ui/text-input/input';
+import { ListControl } from '../list-control/list-control';
 import { ReasonStore } from './reason-store';
 
 type ReasonInputItemProps = WithTheme & {
@@ -26,9 +19,6 @@ const useStyles = makeStyles((theme) => ({
   iconButton: {
     padding: 0,
     marginLeft: theme.spacing(1),
-  },
-  reasonList: {
-    padding: 0,
   },
 }));
 
@@ -57,75 +47,38 @@ const ReasonInputItem = React.memo(
   }),
 );
 
-type ReasonSectionProps = WithTheme & {
+type ReasonSectionProps = {
   readonly ReasonsInput: React.ComponentType<ExposedInputProps>[];
-  onAddClick(): void;
+  ListControlImpl: React.ComponentType;
   shouldShowRemove: boolean;
-  onSwitchChange(val: boolean): void;
   onRemoveClick(idx: number): void;
 };
 
-const useSwitchStyles = makeStyles({
-  sizeSmall: {
-    '& $switchBase': {
-      padding: 0,
-    },
-  },
-  root: {
-    marginLeft: 'auto',
-  },
-  switchBase: {},
-});
-
-export const ReasonSection = React.memo(
-  withTheme((props: ReasonSectionProps) => {
-    const styles = useStyles(props.theme);
-    const switchStyles = useSwitchStyles();
-    const UncheckIcon = <Delete color="secondary" />;
-    const CheckedIcon = <Delete />;
-    const onSwitchChange = (ev: React.ChangeEvent<HTMLInputElement>) => {
-      props.onSwitchChange(ev.target.checked);
-    };
-    return (
-      <Box>
-        <Box display="flex" alignItems="center">
-          <Typography variant="h6" component="h4">
-            持有逻辑(至少3条)
-          </Typography>
-          <Switch
-            id="switch"
-            size="small"
-            color="primary"
-            checked={props.shouldShowRemove}
-            checkedIcon={CheckedIcon}
-            icon={UncheckIcon}
-            classes={switchStyles}
-            onChange={onSwitchChange}
-          />
-          <IconButton
-            id="add-reason"
-            color="primary"
-            className={styles.iconButton}
-            onClick={props.onAddClick}
-          >
-            <AddBox />
-          </IconButton>
+export const ReasonSection = React.memo((props: ReasonSectionProps) => {
+  return (
+    <Box>
+      <Box display="flex" alignItems="center">
+        <Typography variant="h6" component="h4">
+          持有逻辑(至少3条)
+        </Typography>
+        <Box ml="auto">
+          <props.ListControlImpl />
         </Box>
-        <List>
-          {props.ReasonsInput.map((ReasonInput, idx) => (
-            <ReasonInputItem
-              ReasonInput={ReasonInput}
-              shouldShowRemove={props.shouldShowRemove}
-              onRemoveClick={props.onRemoveClick}
-              key={idx}
-              idx={idx}
-            />
-          ))}
-        </List>
       </Box>
-    );
-  }),
-);
+      <List>
+        {props.ReasonsInput.map((ReasonInput, idx) => (
+          <ReasonInputItem
+            ReasonInput={ReasonInput}
+            shouldShowRemove={props.shouldShowRemove}
+            onRemoveClick={props.onRemoveClick}
+            key={idx}
+            idx={idx}
+          />
+        ))}
+      </List>
+    </Box>
+  );
+});
 
 export function createReasonSection(): [React.ComponentType, ReasonStore] {
   const store = new ReasonStore();
@@ -135,14 +88,20 @@ export function createReasonSection(): [React.ComponentType, ReasonStore] {
   const onAddClick = () => store.addReason();
   const onRemoveClick = (idx: number) => store.removeReason(idx);
   const onSwitchChange = (val: boolean) => store.setRemoveVisibility(val);
+  const ListControlImpl = observer(() => (
+    <ListControl
+      removeChecked={store.shouldShowRemove}
+      onRemoveChange={onSwitchChange}
+      onAddClick={onAddClick}
+    />
+  ));
 
   const Component = observer(() => (
     <ReasonSection
       ReasonsInput={store.ReasonInputs}
-      onAddClick={onAddClick}
       shouldShowRemove={store.shouldShowRemove}
-      onSwitchChange={onSwitchChange}
       onRemoveClick={onRemoveClick}
+      ListControlImpl={ListControlImpl}
     />
   ));
   return [Component, store];

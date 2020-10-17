@@ -1,0 +1,116 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ListControl renders the list control when the switch is false 1`] = `
+Array [
+  <span
+    class="MuiSwitch-root MuiSwitch-sizeSmall makeStyles-sizeSmall-1"
+  >
+    <span
+      aria-disabled="false"
+      class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-4 MuiSwitch-switchBase makeStyles-switchBase-2 MuiSwitch-colorPrimary"
+    >
+      <span
+        class="MuiIconButton-label"
+      >
+        <input
+          class="PrivateSwitchBase-input-7 MuiSwitch-input"
+          id="switch"
+          type="checkbox"
+        />
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-colorSecondary"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+          />
+        </svg>
+      </span>
+    </span>
+    <span
+      class="MuiSwitch-track"
+    />
+  </span>,
+  <button
+    class="MuiButtonBase-root MuiIconButton-root makeStyles-root-3 MuiIconButton-colorPrimary"
+    id="add-reason"
+    tabindex="0"
+    type="button"
+  >
+    <span
+      class="MuiIconButton-label"
+    >
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"
+        />
+      </svg>
+    </span>
+  </button>,
+]
+`;
+
+exports[`ListControl renders the list control when the switch is true 1`] = `
+Array [
+  <span
+    class="MuiSwitch-root MuiSwitch-sizeSmall makeStyles-sizeSmall-1"
+  >
+    <span
+      aria-disabled="false"
+      class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-4 MuiSwitch-switchBase makeStyles-switchBase-2 MuiSwitch-colorPrimary PrivateSwitchBase-checked-5 Mui-checked"
+    >
+      <span
+        class="MuiIconButton-label"
+      >
+        <input
+          checked=""
+          class="PrivateSwitchBase-input-7 MuiSwitch-input"
+          id="switch"
+          type="checkbox"
+        />
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+          />
+        </svg>
+      </span>
+    </span>
+    <span
+      class="MuiSwitch-track"
+    />
+  </span>,
+  <button
+    class="MuiButtonBase-root MuiIconButton-root makeStyles-root-3 MuiIconButton-colorPrimary"
+    id="add-reason"
+    tabindex="0"
+    type="button"
+  >
+    <span
+      class="MuiIconButton-label"
+    >
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"
+        />
+      </svg>
+    </span>
+  </button>,
+]
+`;

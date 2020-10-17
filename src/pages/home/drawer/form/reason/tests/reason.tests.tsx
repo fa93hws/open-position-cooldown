@@ -4,13 +4,13 @@ import { mount } from 'enzyme';
 import { createReasonSection, ReasonSection } from '../reason';
 
 describe('ReasonSection', () => {
+  const ListControlImpl = () => <div>ListControl</div>;
   it('renders the section without any inputs', () => {
     expect(
       <ReasonSection
         ReasonsInput={[]}
-        onAddClick={jest.fn()}
+        ListControlImpl={ListControlImpl}
         shouldShowRemove={false}
-        onSwitchChange={jest.fn()}
         onRemoveClick={jest.fn()}
       />,
     ).toMatchRenderedSnapshot();
@@ -20,9 +20,8 @@ describe('ReasonSection', () => {
     expect(
       <ReasonSection
         ReasonsInput={[() => <div>input 1</div>, () => <div>input 2</div>]}
-        onAddClick={jest.fn()}
+        ListControlImpl={ListControlImpl}
         shouldShowRemove={false}
-        onSwitchChange={jest.fn()}
         onRemoveClick={jest.fn()}
       />,
     ).toMatchRenderedSnapshot();
@@ -32,9 +31,8 @@ describe('ReasonSection', () => {
     expect(
       <ReasonSection
         ReasonsInput={[() => <div>input 1</div>, () => <div>input 2</div>]}
-        onAddClick={jest.fn()}
+        ListControlImpl={ListControlImpl}
         shouldShowRemove
-        onSwitchChange={jest.fn()}
         onRemoveClick={jest.fn()}
       />,
     ).toMatchRenderedSnapshot();
@@ -45,25 +43,9 @@ describe('ReasonSection', () => {
     expect(store.reasons.length).toEqual(3);
   });
 
-  it('can display remove icon by switch', () => {
-    const [Component, store] = createReasonSection();
-    const element = mount(<Component />);
-    element
-      .find('input#switch')
-      .simulate('change', { target: { checked: true } });
-    expect(store.shouldShowRemove).toEqual(true);
-  });
-
-  it('adds an input when add is clicked', () => {
-    const [Component, store] = createReasonSection();
-    const element = mount(<Component />);
-    element.find('button#add-reason').simulate('click');
-    expect(store.reasons.length).toEqual(4);
-  });
-
   it('remove the input at idx when remove is clicked', () => {
     const [Component, store] = createReasonSection();
-    store.shouldShowRemove = true;
+    store.setRemoveVisibility(true);
     const reasons = [...store.reasons];
     const element = mount(<Component />);
     element.find('button#remove-1').simulate('click');
