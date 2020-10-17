@@ -1,4 +1,4 @@
-import { InputStore } from '../input/input-store';
+import { InputStore } from '@ui/text-input/input-store';
 
 export class BasicInfoStore {
   private readonly nameStore: InputStore;

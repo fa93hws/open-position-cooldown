@@ -1,4 +1,4 @@
-import { nonEmpty, mustBeNumber } from '../validator';
+import { nonEmpty, mustBeNumber } from '@ui/text-input/validator';
 
 describe('nonEmpty', () => {
   it('is valid to have any string', () => {

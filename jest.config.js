@@ -9,6 +9,7 @@ module.exports = {
     '^.+\\.svg$': 'jest-svg-transformer',
     'fontsource-roboto': 'identity-obj-proxy',
     '@styles/(.*)$': '<rootDir>/src/styles/$1',
+    '@ui/(.*)$': '<rootDir>/src/ui/$1',
   },
   snapshotSerializers: ['enzyme-to-json/serializer', 'jest-serializer-html'],
   globals: {
