@@ -79,4 +79,11 @@ export class StrategyStore {
   startValidate() {
     this.strategies.forEach(({ store }) => store.startValidate());
   }
+
+  reset() {
+    this.shitPriceStore.reset();
+    this.currentPriceStore.reset();
+    this.strategies = [];
+    this.addStrategy();
+  }
 }

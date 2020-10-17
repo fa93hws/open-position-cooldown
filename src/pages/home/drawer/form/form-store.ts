@@ -69,6 +69,7 @@ export class FormStore {
     switch (result) {
       case ValidateResult.NO_ERROR:
         await this.submitIntention(this.toIntention());
+        this.reset();
         return alert('submitted!'); // eslint-disable-line
       case ValidateResult.BASIC_INFO_ERROR:
         return alert('基本信息错误'); // eslint-disable-line
@@ -81,5 +82,12 @@ export class FormStore {
       default:
         throw new UnreachableException(result);
     }
+  }
+
+  private reset() {
+    this.basicInfoStore.reset();
+    this.reasonStore.reset();
+    this.priceExplainStore.reset();
+    this.strategyStore.reset();
   }
 }

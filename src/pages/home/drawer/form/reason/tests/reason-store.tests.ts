@@ -61,4 +61,10 @@ describe('ReasonStore', () => {
     );
     expect(shouldValidates).toEqual([true, true, true]);
   });
+
+  it('resets the input', () => {
+    const store = new ReasonStore();
+    store.reset();
+    expect(store.reasons.length).toEqual(3);
+  });
 });

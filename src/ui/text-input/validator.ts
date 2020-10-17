@@ -6,5 +6,5 @@ export function nonEmpty(val: string) {
 }
 
 export function mustBeNumber(val: string) {
-  return /^-?[0-9\\.]+$/.test(val);
+  return val.length > 0 && /^-?[0-9\\.]+$/.test(val);
 }

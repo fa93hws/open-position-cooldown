@@ -53,4 +53,11 @@ export class ReasonStore {
   startValidate() {
     this.reasons.forEach(({ store }) => store.startValidate());
   }
+
+  reset() {
+    this.reasons = [];
+    this.addReason();
+    this.addReason();
+    this.addReason();
+  }
 }

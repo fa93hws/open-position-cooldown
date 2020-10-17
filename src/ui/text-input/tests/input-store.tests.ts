@@ -14,6 +14,19 @@ describe('InputStore', () => {
     expect(store.value).toEqual('aa');
   });
 
+  it('resets the value to default', () => {
+    const store = new InputStore([jest.fn()]);
+    store.setValue('aa');
+    store.shouldValidate = true;
+    store.hasError = true;
+    store.reset();
+    expect(store).toMatchObject({
+      value: '',
+      hasError: false,
+      shouldValidate: false,
+    });
+  });
+
   it('will not try validating before startValidate is called', () => {
     const store = new InputStore([jest.fn().mockReturnValue(false)]);
     store.setValue('aa');
