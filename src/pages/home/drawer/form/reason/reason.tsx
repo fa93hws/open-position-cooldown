@@ -82,6 +82,7 @@ export const ReasonSection = React.memo((props: ReasonSectionProps) => {
 
 export function createReasonSection(): [React.ComponentType, ReasonStore] {
   const store = new ReasonStore();
+  // TODO move them to store
   store.addReason();
   store.addReason();
   store.addReason();

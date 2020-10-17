@@ -71,4 +71,10 @@ describe('ReasonStore', () => {
     ];
     expect(shouldValidates).toEqual([true, true, true, true]);
   });
+
+  it('resets all stores', () => {
+    const store = new StrategyStore({ shitPriceStore, currentPriceStore });
+    store.reset();
+    expect(store.strategyErrors.length).toEqual(1);
+  });
 });

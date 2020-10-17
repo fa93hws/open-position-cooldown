@@ -107,6 +107,13 @@ describe('FormStore', () => {
     expect(alert).toHaveBeenCalledWith('建仓策略错误');
   });
 
+  it('will not reset if not submit', async () => {
+    const { strategy1, formStore } = createStores(submitIntention);
+    strategy1.quantityStore.setValue('error');
+    await formStore.submit(jest.fn());
+    expect(strategy1.quantityStore.value).toEqual('error');
+  });
+
   it('alerts price error', async () => {
     const { strategy1, priceExplainStore, formStore } = createStores(
       submitIntention,
@@ -145,5 +152,21 @@ describe('FormStore', () => {
     await formStore.submit(alert);
     expect(submitIntention).not.toBeCalled();
     expect(alert).toHaveBeenCalledWith('基本信息错误');
+  });
+
+  it('resets the form after submit', async () => {
+    const {
+      basicInfo,
+      reasonStore,
+      priceExplainStore,
+      strategyStore,
+      formStore,
+    } = createStores(submitIntention);
+    await formStore.submit(alert);
+    expect(submitIntention).toBeCalled();
+    expect(basicInfo.name).toEqual('');
+    expect(reasonStore.reasonStrings).toEqual(['', '', '']);
+    expect(priceExplainStore.value).toEqual('');
+    expect(strategyStore.strategies.length).toEqual(1);
   });
 });

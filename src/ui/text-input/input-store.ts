@@ -25,6 +25,12 @@ export class InputStore {
     this.hasError = this.validators.some((validator) => !validator(this.value));
   }
 
+  reset() {
+    this.setValue('');
+    this.shouldValidate = false;
+    this.hasError = false;
+  }
+
   startValidate() {
     this.shouldValidate = true;
     this.setValue(this.value);

@@ -119,6 +119,7 @@ export function createStrategyPanel(): [React.ComponentType, StrategyStore] {
     mustBeNumber,
   ]);
   const store = new StrategyStore({ currentPriceStore, shitPriceStore });
+  // TODO add to store
   store.addStrategy();
   const onAddClick = () => store.addStrategy();
   const onSwitchChange = (val: boolean) => store.setRemoveVisibility(val);

@@ -48,4 +48,15 @@ describe('BasicInfoStore', () => {
     expect(stores.marketStore.shouldValidate).toEqual(true);
     expect(stores.priceStore.shouldValidate).toEqual(true);
   });
+
+  it('start resets all substores', () => {
+    const stores = createStores();
+    const basicInfoStore = new BasicInfoStore(stores);
+    basicInfoStore.startValidate();
+    basicInfoStore.reset();
+    expect(stores.codeStore.shouldValidate).toEqual(false);
+    expect(stores.nameStore.shouldValidate).toEqual(false);
+    expect(stores.marketStore.shouldValidate).toEqual(false);
+    expect(stores.priceStore.shouldValidate).toEqual(false);
+  });
 });

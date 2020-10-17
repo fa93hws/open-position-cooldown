@@ -56,4 +56,11 @@ export class BasicInfoStore {
     this.codeStore.startValidate();
     this.marketStore.startValidate();
   }
+
+  reset() {
+    this.nameStore.reset();
+    this.priceStore.reset();
+    this.codeStore.reset();
+    this.marketStore.reset();
+  }
 }
