@@ -68,7 +68,7 @@ export function createForm() {
   const [BasicInfoComponent, basicInfoStore] = createBasicInfo();
   const [PriceExplainComponent, priceExplainStore] = createPriceExplain();
   const [ReasonComponent, reasonStore] = createReasonSection();
-  const StrategyPanel = createStrategyPanel();
+  const [StrategyPanel] = createStrategyPanel();
 
   const onSubmit = () => {
     basicInfoStore.startValidate();
