@@ -51,6 +51,7 @@ module.exports = {
     'import/no-default-export': 'error',
     'import/prefer-default-export': 'off',
     'import/no-extraneous-dependencies': 'off',
+    'import/no-unresolved': 'off',
 
     'jest/no-test-callback': 'off',
 

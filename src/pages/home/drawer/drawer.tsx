@@ -4,9 +4,9 @@ import { makeStyles, withTheme, WithTheme } from '@material-ui/core/styles';
 import { HighlightOff } from '@material-ui/icons';
 import { observer } from 'mobx-react';
 
+import { sizes } from '@styles/styles';
 import { createForm } from './form/form';
 import { DrawerStore } from './drawer-store';
-import { sizes } from '../../../styles/styles';
 
 const useStyles = makeStyles((theme) => ({
   headContainer: {

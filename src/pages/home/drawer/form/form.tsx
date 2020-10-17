@@ -2,10 +2,10 @@ import * as React from 'react';
 import { Button, Box, Divider } from '@material-ui/core';
 import { makeStyles, withTheme, WithTheme } from '@material-ui/core/styles';
 
+import { designWidth } from '@styles/styles';
 import { createBasicInfo } from './basic-info/basic-info';
 import { createPriceExplain } from './price/price';
 import { createReasonSection } from './reason/reason';
-import { designWidth } from '../../../../styles/styles';
 
 type FormProps = {
   onSubmit(): void;
