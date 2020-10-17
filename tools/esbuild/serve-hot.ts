@@ -1,65 +1,44 @@
-import * as path from 'path';
 import * as fs from 'fs';
-import { startService, Service, BuildOptions } from 'esbuild';
-import { green, red, yellow } from 'chalk';
+import * as path from 'path';
+import { startService } from 'esbuild';
 import { debounce } from 'lodash';
 
-import { ensureFolder, generateHtml, copyAssets } from './utils';
+import { ensureFolder } from './utils';
 import { getDevOption, getPortNumber, getBaseUrl } from './options';
-import {
-  buildArtifactFolder,
-  buildAssetsFolder,
-  buildOutputFolder,
-  publicAssetsFolder,
-  publicFolder,
-  srcFolder,
-} from '../paths';
-import { startDevServer } from './dev-server';
+import { getBuildArtifactFolder, srcFolder } from '../paths';
+import { startDevServer as _startDevServer } from './dev-server';
+import { doBuild as _doBuild } from './do-build';
 
-async function doBuild(
-  service: Service,
-  options: BuildOptions,
-  afterBuild: () => void,
-) {
-  console.log(green(`build start@${new Date().toISOString()}`));
-  const { warnings, outputFiles } = await service.build(options);
-  if (warnings.length > 0) {
-    console.warn(yellow(warnings));
-  }
-  if (outputFiles == null || outputFiles.length === 0) {
-    console.error(red('no output files are generated'));
-    process.exit(1);
-  }
-  outputFiles.forEach((file) => {
-    fs.writeFileSync(file.path, file.contents);
-  });
-  generateHtml({
-    templatePath: path.join(publicFolder, 'index.ejs'),
-    files: outputFiles.map((f) => f.path),
-    outdir: buildOutputFolder,
-  });
-  copyAssets({ from: publicAssetsFolder, to: buildAssetsFolder });
-  afterBuild();
-}
-
-export async function main() {
+export async function main({
+  startDevServer = _startDevServer,
+  doBuild = _doBuild,
+}: {
+  startDevServer?: typeof _startDevServer;
+  doBuild?: typeof _doBuild;
+} = {}) {
   const esbuildService = await startService();
+  const buildOutputFolder = path.join(__dirname, '..', '..', 'target');
+  const buildArtifactFolder = getBuildArtifactFolder(buildOutputFolder);
   ensureFolder(buildArtifactFolder);
   const options = getDevOption({
     outdir: buildArtifactFolder,
   });
-  const debouncedBuild = debounce(doBuild, 100);
-  debouncedBuild(esbuildService, options, () => {
-    console.log(green(`build success@${new Date().toISOString()}`));
-  });
+  const esbuild = () => esbuildService.build(options);
+  await doBuild({ esbuild, hashFile: false, buildOutputFolder });
 
+  const debouncedBuild = debounce(doBuild, 100);
   const port = getPortNumber();
   const baseUrl = getBaseUrl();
-  const io = startDevServer({ port, baseUrl });
-  fs.watch(srcFolder, { recursive: true }, () => {
-    debouncedBuild(esbuildService, options, () => {
-      console.log(green(`rebuild success@${new Date().toISOString()}`));
-      io.emit('browserReload');
-    });
+  const io = startDevServer({ port, baseUrl, buildOutputFolder });
+
+  function afterBuild() {
+    io.emit('browserReload');
+  }
+  const watcher = fs.watch(srcFolder, { recursive: true }, () =>
+    debouncedBuild({ esbuild, hashFile: false, afterBuild, buildOutputFolder }),
+  );
+  watcher.once('close', () => {
+    esbuildService.stop();
   });
+  return watcher;
 }

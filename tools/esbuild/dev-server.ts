@@ -1,12 +1,11 @@
 import * as http from 'http';
 import * as mime from 'mime';
-import * as socket from 'socket.io';
+import * as _socket from 'socket.io';
 import * as path from 'path';
 import * as fs from 'fs';
 import { green } from 'chalk';
 
 import { UnreachableException } from '../../src/utils/unreachable-exception';
-import { buildOutputFolder } from '../paths';
 
 export const enum ResultKind {
   BAD = 'BAD_REQUEST',
@@ -88,9 +87,15 @@ export class DevServerRouter {
 export function startDevServer({
   port,
   baseUrl,
+  socket = _socket,
+  mute = false,
+  buildOutputFolder,
 }: {
   port: number;
   baseUrl?: string;
+  socket?: typeof _socket;
+  mute?: boolean;
+  buildOutputFolder: string;
 }) {
   const router = new DevServerRouter({
     staticFolder: buildOutputFolder,
@@ -118,6 +123,6 @@ export function startDevServer({
   });
   server.listen(port);
   const hostLink = `http://localhost:${port}/${baseUrl ?? ''}/`;
-  console.log(green(`dev server start@${hostLink}`));
+  mute || console.log(green(`dev server start@${hostLink}`));
   return socket(server);
 }

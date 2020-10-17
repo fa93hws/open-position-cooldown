@@ -1,6 +1,6 @@
 import * as path from 'path';
 
-import { DevServerRouter, ResultKind } from '../dev-server';
+import { DevServerRouter, ResultKind, startDevServer } from '../dev-server';
 
 describe('DevServerRouter', () => {
   const staticFolder = path.join(__dirname, 'fixtures');
@@ -66,5 +66,19 @@ describe('DevServerRouter', () => {
         file: path.join(staticFolder, 'bar', 'bar.js'),
       });
     });
+  });
+});
+
+describe('startDevServer', () => {
+  it('can starts the server', () => {
+    expect(() => {
+      const server = startDevServer({
+        port: 1234,
+        socket: ((arg: any) => arg) as any,
+        mute: true,
+        buildOutputFolder: '',
+      });
+      server.close();
+    }).not.toThrow();
   });
 });
