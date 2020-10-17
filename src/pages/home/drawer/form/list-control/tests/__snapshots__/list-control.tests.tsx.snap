@@ -35,7 +35,6 @@ Array [
   </span>,
   <button
     class="MuiButtonBase-root MuiIconButton-root makeStyles-root-3 MuiIconButton-colorPrimary"
-    id="add-reason"
     tabindex="0"
     type="button"
   >
@@ -93,7 +92,6 @@ Array [
   </span>,
   <button
     class="MuiButtonBase-root MuiIconButton-root makeStyles-root-3 MuiIconButton-colorPrimary"
-    id="add-reason"
     tabindex="0"
     type="button"
   >

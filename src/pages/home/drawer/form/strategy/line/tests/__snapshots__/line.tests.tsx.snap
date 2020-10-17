@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Line renders the following 1`] = `
+<div
+  class="MuiBox-root MuiBox-root-3"
+>
+  <span
+    class="MuiTypography-root MuiTypography-body1"
+  >
+    跌至
+  </span>
+  <div
+    class="MuiBox-root MuiBox-root-4"
+  >
+    <div>
+      PriceInput
+    </div>
+  </div>
+  <span
+    class="MuiTypography-root MuiTypography-body1"
+  >
+    买入
+  </span>
+  <div
+    class="MuiBox-root MuiBox-root-5"
+  >
+    <div>
+      QuantityInput
+    </div>
+  </div>
+  <span
+    class="MuiTypography-root MuiTypography-body1"
+  >
+    股
+  </span>
+</div>
+`;

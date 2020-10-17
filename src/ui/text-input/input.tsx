@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { TextField } from '@material-ui/core';
+import { TextField, OutlinedInputClassKey } from '@material-ui/core';
 import { observer } from 'mobx-react';
 
 import { InputStore } from './input-store';
@@ -8,6 +8,7 @@ export type ExposedInputProps = {
   label?: string;
   multiline?: boolean;
   placeholder?: string;
+  inputClasses?: Partial<Record<OutlinedInputClassKey, string>>;
 };
 
 type InputProps = ExposedInputProps & {
@@ -30,6 +31,9 @@ export const Input = React.memo((props: InputProps) => {
       error={props.error}
       multiline={props.multiline}
       placeholder={props.placeholder}
+      InputProps={{
+        classes: props.inputClasses,
+      }}
       fullWidth
       color="primary"
       type="text"
@@ -53,6 +57,7 @@ export function createInput(validators: readonly ((val: string) => boolean)[]) {
       label={props.label}
       multiline={props.multiline}
       placeholder={props.placeholder}
+      inputClasses={props.inputClasses}
     />
   ));
   return [Component, store] as const;
