@@ -42,17 +42,25 @@ exports[`Strategy renders the strategy panel with two lines 1`] = `
     </span>
   </div>
   <ul
-    class="MuiList-root MuiList-padding"
+    class="MuiList-root MuiList-dense"
   >
-    <div>
-      strategy 1
-    </div>
-    <div>
-      strategy 2
-    </div>
+    <li
+      class="MuiListItem-root MuiListItem-dense"
+    >
+      <div>
+        strategy 1
+      </div>
+    </li>
+    <li
+      class="MuiListItem-root MuiListItem-dense"
+    >
+      <div>
+        strategy 2
+      </div>
+    </li>
   </ul>
   <div
-    class="MuiBox-root MuiBox-root-15"
+    class="MuiBox-root MuiBox-root-16"
   >
     <span
       class="MuiTypography-root MuiTypography-body1"
@@ -60,7 +68,132 @@ exports[`Strategy renders the strategy panel with two lines 1`] = `
       跌至
     </span>
     <div
-      class="MuiBox-root MuiBox-root-16"
+      class="MuiBox-root MuiBox-root-17"
+    >
+      <div>
+        ShitPriceInput
+      </div>
+    </div>
+    <span
+      class="MuiTypography-root MuiTypography-body1 MuiTypography-colorSecondary"
+    >
+      妈的! 加不起！
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Strategy renders the strategy panel with two lines and remove icon button 1`] = `
+<div
+  class="MuiBox-root MuiBox-root-18"
+>
+  <div
+    class="MuiBox-root MuiBox-root-19"
+  >
+    <h4
+      class="MuiTypography-root MuiTypography-h6"
+    >
+      建仓策略
+    </h4>
+    <div
+      class="MuiBox-root MuiBox-root-20"
+    >
+      <div>
+        ListControlImpl
+      </div>
+    </div>
+  </div>
+  <div
+    class="MuiBox-root MuiBox-root-21"
+  >
+    <span
+      class="MuiTypography-root MuiTypography-body1"
+    >
+      当前价格买入
+    </span>
+    <div
+      class="MuiBox-root MuiBox-root-22"
+    >
+      <div>
+        ShitPriceInput
+      </div>
+    </div>
+    <span
+      class="MuiTypography-root MuiTypography-body1"
+    >
+      股
+    </span>
+  </div>
+  <ul
+    class="MuiList-root MuiList-dense"
+  >
+    <li
+      class="MuiListItem-root MuiListItem-dense"
+    >
+      <div>
+        strategy 1
+      </div>
+      <button
+        class="MuiButtonBase-root MuiIconButton-root makeStyles-iconButton-15 MuiIconButton-colorSecondary"
+        id="remove-0"
+        tabindex="0"
+        type="button"
+      >
+        <span
+          class="MuiIconButton-label"
+        >
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10H7v-2h10v2z"
+            />
+          </svg>
+        </span>
+      </button>
+    </li>
+    <li
+      class="MuiListItem-root MuiListItem-dense"
+    >
+      <div>
+        strategy 2
+      </div>
+      <button
+        class="MuiButtonBase-root MuiIconButton-root makeStyles-iconButton-15 MuiIconButton-colorSecondary"
+        id="remove-1"
+        tabindex="0"
+        type="button"
+      >
+        <span
+          class="MuiIconButton-label"
+        >
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10H7v-2h10v2z"
+            />
+          </svg>
+        </span>
+      </button>
+    </li>
+  </ul>
+  <div
+    class="MuiBox-root MuiBox-root-23"
+  >
+    <span
+      class="MuiTypography-root MuiTypography-body1"
+    >
+      跌至
+    </span>
+    <div
+      class="MuiBox-root MuiBox-root-24"
     >
       <div>
         ShitPriceInput
@@ -117,7 +250,7 @@ exports[`Strategy renders the strategy panel without lines 1`] = `
     </span>
   </div>
   <ul
-    class="MuiList-root MuiList-padding"
+    class="MuiList-root MuiList-dense"
   />
   <div
     class="MuiBox-root MuiBox-root-8"

@@ -3,9 +3,9 @@ import { makeObservable, computed } from 'mobx';
 import { InputStore } from '@ui/text-input/input-store';
 
 export class LineStore {
-  private readonly priceStore: InputStore;
+  readonly priceStore: InputStore;
 
-  private readonly quantityStore: InputStore;
+  readonly quantityStore: InputStore;
 
   constructor({
     priceStore,
@@ -19,6 +19,7 @@ export class LineStore {
     makeObservable(this, {
       price: computed,
       quantity: computed,
+      hasError: computed,
     });
   }
 
@@ -28,5 +29,14 @@ export class LineStore {
 
   get quantity() {
     return parseInt(this.quantityStore.value, 10);
+  }
+
+  get hasError() {
+    return this.priceStore.hasError || this.quantityStore.hasError;
+  }
+
+  startValidate() {
+    this.priceStore.startValidate();
+    this.quantityStore.startValidate();
   }
 }

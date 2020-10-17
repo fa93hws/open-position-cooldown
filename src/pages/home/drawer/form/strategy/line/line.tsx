@@ -25,7 +25,7 @@ export const Line = React.memo(
   withTheme((props: LineProps) => {
     const inputStyles = useInputStyles(props.theme);
     return (
-      <Box display="flex" alignItems="center">
+      <Box display="flex">
         <Typography variant="body1" component="span">
           跌至
         </Typography>
