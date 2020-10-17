@@ -4,8 +4,8 @@ import { Home, Info } from '@material-ui/icons';
 import { makeStyles, withTheme, WithTheme } from '@material-ui/core/styles';
 import { Link as ReactRouterLink } from 'react-router-dom';
 
+import { sizes } from '@styles/styles';
 import { pagePath } from '../routes';
-import { sizes } from '../styles/styles';
 
 const useHeaderStyles = makeStyles((theme) => ({
   container: {

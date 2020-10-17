@@ -3,7 +3,7 @@ import { Button } from '@material-ui/core';
 import { makeStyles, withTheme, WithTheme } from '@material-ui/core/styles';
 import { Add } from '@material-ui/icons';
 
-import { sizes } from '../../../styles/styles';
+import { sizes } from '@styles/styles';
 
 const useStyles = makeStyles((theme) => ({
   button: {

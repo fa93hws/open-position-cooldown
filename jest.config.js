@@ -8,6 +8,7 @@ module.exports = {
     '^.+\\.css$': 'identity-obj-proxy',
     '^.+\\.svg$': 'jest-svg-transformer',
     'fontsource-roboto': 'identity-obj-proxy',
+    '@styles/(.*)$': '<rootDir>/src/styles/$1',
   },
   snapshotSerializers: ['enzyme-to-json/serializer', 'jest-serializer-html'],
   globals: {

@@ -6,6 +6,9 @@
     "target": "ES2019",
     "jsx": "react",
     "baseUrl": "./",
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "paths": {
+      "@styles/*": ["./src/styles/*"]
+    }
   }
 }
