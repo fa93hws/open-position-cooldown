@@ -21,6 +21,8 @@ export class ReasonStore {
       removeReason: action,
       ReasonInputs: computed,
       setRemoveVisibility: action,
+      reset: action,
+      hasError: computed,
     });
   }
 
@@ -32,8 +34,11 @@ export class ReasonStore {
     return this.reasons.map((reason) => reason.store.value);
   }
 
-  get reasonErrors(): boolean[] {
-    return this.reasons.map((reason) => reason.store.hasError);
+  get hasError(): boolean {
+    return (
+      this.reasons.length < 3 ||
+      this.reasons.some((reason) => reason.store.hasError)
+    );
   }
 
   addReason(): InputStore {

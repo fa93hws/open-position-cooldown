@@ -8,7 +8,7 @@ exports[`ReasonSection renders the section with two input 1`] = `
     class="MuiBox-root MuiBox-root-5"
   >
     <h4
-      class="MuiTypography-root MuiTypography-h6"
+      class="MuiTypography-root MuiTypography-h6 MuiTypography-colorTextPrimary"
     >
       持有逻辑(至少3条)
     </h4>
@@ -49,7 +49,7 @@ exports[`ReasonSection renders the section with two input and remove icon 1`] = 
     class="MuiBox-root MuiBox-root-9"
   >
     <h4
-      class="MuiTypography-root MuiTypography-h6"
+      class="MuiTypography-root MuiTypography-h6 MuiTypography-colorTextPrimary"
     >
       持有逻辑(至少3条)
     </h4>
@@ -132,7 +132,7 @@ exports[`ReasonSection renders the section without any inputs 1`] = `
     class="MuiBox-root MuiBox-root-2"
   >
     <h4
-      class="MuiTypography-root MuiTypography-h6"
+      class="MuiTypography-root MuiTypography-h6 MuiTypography-colorTextPrimary"
     >
       持有逻辑(至少3条)
     </h4>

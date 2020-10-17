@@ -12,6 +12,7 @@ describe('ReasonSection', () => {
         ListControlImpl={ListControlImpl}
         shouldShowRemove={false}
         onRemoveClick={jest.fn()}
+        hasError={false}
       />,
     ).toMatchRenderedSnapshot();
   });
@@ -23,6 +24,7 @@ describe('ReasonSection', () => {
         ListControlImpl={ListControlImpl}
         shouldShowRemove={false}
         onRemoveClick={jest.fn()}
+        hasError={false}
       />,
     ).toMatchRenderedSnapshot();
   });
@@ -34,6 +36,7 @@ describe('ReasonSection', () => {
         ListControlImpl={ListControlImpl}
         shouldShowRemove
         onRemoveClick={jest.fn()}
+        hasError={false}
       />,
     ).toMatchRenderedSnapshot();
   });

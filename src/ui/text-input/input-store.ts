@@ -14,6 +14,7 @@ export class InputStore {
       value: observable.ref,
       setValue: action,
       hasError: observable.ref,
+      reset: action,
     });
   }
 
