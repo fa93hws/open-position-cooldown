@@ -1,8 +1,29 @@
+const listen = jest.fn();
+const on = jest.fn();
+const libraryMock = jest.mock('socket.io-client', () => ({
+  default: (url: string) => {
+    listen(url);
+    return { on };
+  },
+}));
+
+// eslint-disable-next-line import/first
+import { start } from '../index.dev';
+
 describe('index.dev.tsx', () => {
+  beforeEach(() => {
+    on.mockRestore();
+    listen.mockRestore();
+  });
+
   it('can not be imported in production environment', () => {
-    process.env.NODE_ENV = 'production';
-    // eslint-disable-next-line global-require
-    expect(() => require('../index.dev.tsx')).toThrow();
-    delete process.env.NODE_ENV;
+    expect(() => start({ importPage: false, env: 'production' })).toThrow();
+  });
+
+  it('can be imported in development environment', () => {
+    start({ importPage: false, env: 'development', port: '7664' });
+    expect(listen).toBeCalledWith('http://localhost:7664');
+    expect(on).toBeCalledWith('browserReload', expect.any(Function));
+    libraryMock.restoreAllMocks();
   });
 });
