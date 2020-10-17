@@ -1,9 +1,9 @@
 import type { ComponentType } from 'react';
 import { makeObservable, observable, action, computed } from 'mobx';
 
-import { nonEmpty } from '../validator';
-import { InputStore } from '../input/input-store';
-import { createInput, ExposedInputProps } from '../input/input';
+import { nonEmpty } from '@ui/text-input/validator';
+import { InputStore } from '@ui/text-input/input-store';
+import { createInput, ExposedInputProps } from '@ui/text-input/input';
 
 export class ReasonStore {
   reasons: {

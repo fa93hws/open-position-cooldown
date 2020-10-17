@@ -12,7 +12,7 @@ import { makeStyles, withTheme, WithTheme } from '@material-ui/core/styles';
 import { observer } from 'mobx-react';
 import IndeterminateCheckBoxIcon from '@material-ui/icons/IndeterminateCheckBox';
 
-import type { ExposedInputProps } from '../input/input';
+import type { ExposedInputProps } from '@ui/text-input/input';
 import { ReasonStore } from './reason-store';
 
 type ReasonInputItemProps = WithTheme & {

@@ -1,5 +1,5 @@
+import { InputStore } from '@ui/text-input/input-store';
 import { BasicInfoStore } from '../basic-info-store';
-import { InputStore } from '../../input/input-store';
 
 describe('BasicInfoStore', () => {
   function createStores() {

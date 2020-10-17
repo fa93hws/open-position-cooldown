@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { Typography, Box } from '@material-ui/core';
 
-import type { InputStore } from '../input/input-store';
-import { createInput, ExposedInputProps } from '../input/input';
-import { nonEmpty } from '../validator';
+import type { InputStore } from '@ui/text-input/input-store';
+import { createInput, ExposedInputProps } from '@ui/text-input/input';
+import { nonEmpty } from '@ui/text-input/validator';
 
 type PriceProps = {
   InputComponent: React.ComponentType<ExposedInputProps>;

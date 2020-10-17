@@ -2,9 +2,9 @@ import * as React from 'react';
 import { observer } from 'mobx-react';
 import { Box } from '@material-ui/core';
 
+import { createInput } from '@ui/text-input/input';
+import { nonEmpty, mustBeNumber } from '@ui/text-input/validator';
 import { BasicInfoStore } from './basic-info-store';
-import { createInput } from '../input/input';
-import { nonEmpty, mustBeNumber } from '../validator';
 
 export function createBasicInfo(): [React.ComponentType, BasicInfoStore] {
   const [NameInput, nameStore] = createInput([nonEmpty]);
