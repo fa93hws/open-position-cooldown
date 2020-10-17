@@ -8,8 +8,7 @@
     "baseUrl": "./",
     "skipLibCheck": true,
     "paths": {
-      "@styles/*": ["./src/styles/*"],
-      "@pages/*": ["./src/pages/*"]
+      "@styles/*": ["./src/styles/*"]
     }
   }
 }
