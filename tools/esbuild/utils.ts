@@ -77,13 +77,21 @@ export function generateHtml({
   writeFileSync(path.join(outdir, 'index.html'), htmlOutputContent);
 }
 
-export function copyAssets(from: string, to: string) {
+export function copyAssets({
+  from,
+  to,
+  copyFileSync = fs.copyFileSync,
+}: {
+  from: string;
+  to: string;
+  copyFileSync?: typeof fs.copyFileSync;
+}) {
   assertExists({ filePath: from, name: 'from' });
   ensureFolder(to);
   fs.readdirSync(from, { withFileTypes: true })
     .filter((dirent) => dirent.isFile())
     .map((dirent) => dirent.name)
     .forEach((file) =>
-      fs.copyFileSync(path.join(from, file), path.join(to, file)),
+      copyFileSync(path.join(from, file), path.join(to, file)),
     );
 }

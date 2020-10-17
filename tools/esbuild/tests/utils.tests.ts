@@ -1,7 +1,8 @@
 import * as path from 'path';
+import * as rimraf from 'rimraf';
 import { TextEncoder } from 'util';
 
-import { hashOutputs, generateHtml } from '../utils';
+import { hashOutputs, generateHtml, copyAssets } from '../utils';
 
 describe('hashOutputs', () => {
   const enc = new TextEncoder();
@@ -73,6 +74,29 @@ describe('generateHtml', () => {
     expect(writeFileSync.mock.calls[0][1]).toMatchSnapshot();
     expect(writeFileSync.mock.calls[0][0]).toEqual(
       path.join(outdir, 'index.html'),
+    );
+  });
+});
+
+describe('copyAssets', () => {
+  const targetFolder = path.join(__dirname, 'fixtures', 'target');
+  beforeEach(() => {
+    rimraf.sync(targetFolder);
+  });
+  afterEach(() => {
+    rimraf.sync(targetFolder);
+  });
+  it('copy the files in the directory only', () => {
+    const copyFileSync = jest.fn();
+    const from = path.join(__dirname, 'fixtures', 'bar');
+    copyAssets({
+      from,
+      to: targetFolder,
+      copyFileSync,
+    });
+    expect(copyFileSync).toBeCalledWith(
+      path.join(from, 'bar.js'),
+      path.join(targetFolder, 'bar.js'),
     );
   });
 });
