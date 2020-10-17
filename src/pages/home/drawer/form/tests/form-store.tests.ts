@@ -21,6 +21,7 @@ describe('FormStore', () => {
     const reasonStore = new ReasonStore();
     const reason1 = reasonStore.addReason();
     const reason2 = reasonStore.addReason();
+    const reason3 = reasonStore.addReason();
     const priceExplainStore = new InputStore([validator]);
     const shitPriceStore = new InputStore([validator]);
     const currentPriceStore = new InputStore([validator]);
@@ -43,6 +44,7 @@ describe('FormStore', () => {
     priceStore.setValue('15');
     reason1.setValue('reason1');
     reason2.setValue('reason2');
+    reason3.setValue('reason3');
     priceExplainStore.setValue('priceExplain');
     currentPriceStore.setValue('300');
     strategy1.priceStore.setValue('13');
@@ -63,7 +65,6 @@ describe('FormStore', () => {
       shitPriceStore,
       currentPriceStore,
       strategy1,
-      strategy2,
       strategyStore,
       formStore,
     };
@@ -86,7 +87,7 @@ describe('FormStore', () => {
         code: 'code',
         market: 'market',
       },
-      reasons: ['reason1', 'reason2'],
+      reasons: ['reason1', 'reason2', 'reason3'],
       priceExplain: 'priceExplain',
       strategy: {
         initial: { price: 15, quantity: 300 },

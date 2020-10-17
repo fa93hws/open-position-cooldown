@@ -42,12 +42,21 @@ describe('ReasonStore', () => {
     expect(store.reasonStrings).toEqual([firstValue, secondValue]);
   });
 
-  it('get all input hasError in sequence', () => {
+  it('has error if one of the reason contains error', () => {
     const store = new ReasonStore();
     store.addReason();
     store.addReason();
+    store.addReason();
+    store.addReason();
     store.reasons[0].store.hasError = true;
-    expect(store.reasonErrors).toEqual([true, false]);
+    expect(store.hasError).toEqual(true);
+  });
+
+  it('has error if there is only two reasons', () => {
+    const store = new ReasonStore();
+    store.addReason();
+    store.addReason();
+    expect(store.hasError).toEqual(true);
   });
 
   it('let all input stores to start validate', () => {

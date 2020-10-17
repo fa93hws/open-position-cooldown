@@ -52,13 +52,15 @@ type ReasonSectionProps = {
   ListControlImpl: React.ComponentType;
   shouldShowRemove: boolean;
   onRemoveClick(idx: number): void;
+  hasError: boolean;
 };
 
 export const ReasonSection = React.memo((props: ReasonSectionProps) => {
+  const titleColor = props.hasError ? 'secondary' : 'textPrimary';
   return (
     <Box>
       <Box display="flex" alignItems="center">
-        <Typography variant="h6" component="h4">
+        <Typography variant="h6" component="h4" color={titleColor}>
           持有逻辑(至少3条)
         </Typography>
         <Box ml="auto">
@@ -82,10 +84,7 @@ export const ReasonSection = React.memo((props: ReasonSectionProps) => {
 
 export function createReasonSection(): [React.ComponentType, ReasonStore] {
   const store = new ReasonStore();
-  // TODO move them to store
-  store.addReason();
-  store.addReason();
-  store.addReason();
+  store.reset();
   const onAddClick = () => store.addReason();
   const onRemoveClick = (idx: number) => store.removeReason(idx);
   const onSwitchChange = (val: boolean) => store.setRemoveVisibility(val);
@@ -103,6 +102,7 @@ export function createReasonSection(): [React.ComponentType, ReasonStore] {
       shouldShowRemove={store.shouldShowRemove}
       onRemoveClick={onRemoveClick}
       ListControlImpl={ListControlImpl}
+      hasError={store.hasError}
     />
   ));
   return [Component, store];

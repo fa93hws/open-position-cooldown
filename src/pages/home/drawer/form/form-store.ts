@@ -32,13 +32,13 @@ export class FormStore {
     if (this.basicInfoStore.hasError) {
       return ValidateResult.BASIC_INFO_ERROR;
     }
-    if (this.reasonStore.reasonErrors.includes(true)) {
+    if (this.reasonStore.hasError) {
       return ValidateResult.REASON_ERROR;
     }
     if (this.priceExplainStore.hasError) {
       return ValidateResult.PRICE_EXPLAIN_ERROR;
     }
-    if (this.strategyStore.strategyErrors.includes(true)) {
+    if (this.strategyStore.hasError) {
       return ValidateResult.STRATEGY_ERROR;
     }
     return ValidateResult.NO_ERROR;

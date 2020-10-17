@@ -50,12 +50,23 @@ describe('ReasonStore', () => {
     ]);
   });
 
-  it('get all input hasError in sequence', () => {
+  it('has error if one of the strategy has', () => {
     const store = new StrategyStore({ shitPriceStore, currentPriceStore });
     const store0 = store.addStrategy();
     store0.priceStore.hasError = true;
     store.addStrategy();
-    expect(store.strategyErrors).toEqual([true, false]);
+    expect(store.hasError).toEqual(true);
+  });
+
+  it('has error if shit price has', () => {
+    const shitPriceStore1 = new InputStore([]);
+    const store = new StrategyStore({
+      shitPriceStore: shitPriceStore1,
+      currentPriceStore,
+    });
+    store.addStrategy();
+    shitPriceStore1.hasError = true;
+    expect(store.hasError).toEqual(true);
   });
 
   it('let all input stores to start validate', () => {
@@ -74,7 +85,8 @@ describe('ReasonStore', () => {
 
   it('resets all stores', () => {
     const store = new StrategyStore({ shitPriceStore, currentPriceStore });
+    store.addStrategy();
     store.reset();
-    expect(store.strategyErrors.length).toEqual(1);
+    expect(store.strategyPlan.length).toEqual(1);
   });
 });

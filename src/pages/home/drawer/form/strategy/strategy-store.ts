@@ -34,8 +34,9 @@ export class StrategyStore {
       removeStrategy: action,
       StrategyLines: computed,
       strategyPlan: computed,
-      strategyErrors: computed,
+      hasError: computed,
       setRemoveVisibility: action,
+      reset: action,
     });
   }
 
@@ -58,8 +59,12 @@ export class StrategyStore {
     }));
   }
 
-  get strategyErrors() {
-    return this.strategies.map(({ store }) => store.hasError);
+  get hasError() {
+    return (
+      this.shitPriceStore.hasError ||
+      this.currentPriceStore.hasError ||
+      this.strategies.some(({ store }) => store.hasError)
+    );
   }
 
   addStrategy() {
