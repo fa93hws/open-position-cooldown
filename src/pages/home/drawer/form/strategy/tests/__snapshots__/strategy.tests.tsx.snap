@@ -1,11 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Strategy renders the folowing 1`] = `
+exports[`Strategy renders the strategy panel with two lines 1`] = `
 <div
-  class="MuiBox-root MuiBox-root-1"
+  class="MuiBox-root MuiBox-root-10"
 >
   <div
-    class="MuiBox-root MuiBox-root-2"
+    class="MuiBox-root MuiBox-root-11"
   >
     <h4
       class="MuiTypography-root MuiTypography-h6"
@@ -13,12 +13,132 @@ exports[`Strategy renders the folowing 1`] = `
       建仓策略
     </h4>
     <div
-      class="MuiBox-root MuiBox-root-3"
+      class="MuiBox-root MuiBox-root-12"
     >
       <div>
         ListControlImpl
       </div>
     </div>
+  </div>
+  <div
+    class="MuiBox-root MuiBox-root-13"
+  >
+    <span
+      class="MuiTypography-root MuiTypography-body1"
+    >
+      当前价格买入
+    </span>
+    <div
+      class="MuiBox-root MuiBox-root-14"
+    >
+      <div>
+        ShitPriceInput
+      </div>
+    </div>
+    <span
+      class="MuiTypography-root MuiTypography-body1"
+    >
+      股
+    </span>
+  </div>
+  <ul
+    class="MuiList-root MuiList-padding"
+  >
+    <div>
+      strategy 1
+    </div>
+    <div>
+      strategy 2
+    </div>
+  </ul>
+  <div
+    class="MuiBox-root MuiBox-root-15"
+  >
+    <span
+      class="MuiTypography-root MuiTypography-body1"
+    >
+      跌至
+    </span>
+    <div
+      class="MuiBox-root MuiBox-root-16"
+    >
+      <div>
+        ShitPriceInput
+      </div>
+    </div>
+    <span
+      class="MuiTypography-root MuiTypography-body1 MuiTypography-colorSecondary"
+    >
+      妈的! 加不起！
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Strategy renders the strategy panel without lines 1`] = `
+<div
+  class="MuiBox-root MuiBox-root-3"
+>
+  <div
+    class="MuiBox-root MuiBox-root-4"
+  >
+    <h4
+      class="MuiTypography-root MuiTypography-h6"
+    >
+      建仓策略
+    </h4>
+    <div
+      class="MuiBox-root MuiBox-root-5"
+    >
+      <div>
+        ListControlImpl
+      </div>
+    </div>
+  </div>
+  <div
+    class="MuiBox-root MuiBox-root-6"
+  >
+    <span
+      class="MuiTypography-root MuiTypography-body1"
+    >
+      当前价格买入
+    </span>
+    <div
+      class="MuiBox-root MuiBox-root-7"
+    >
+      <div>
+        ShitPriceInput
+      </div>
+    </div>
+    <span
+      class="MuiTypography-root MuiTypography-body1"
+    >
+      股
+    </span>
+  </div>
+  <ul
+    class="MuiList-root MuiList-padding"
+  />
+  <div
+    class="MuiBox-root MuiBox-root-8"
+  >
+    <span
+      class="MuiTypography-root MuiTypography-body1"
+    >
+      跌至
+    </span>
+    <div
+      class="MuiBox-root MuiBox-root-9"
+    >
+      <div>
+        ShitPriceInput
+      </div>
+    </div>
+    <span
+      class="MuiTypography-root MuiTypography-body1 MuiTypography-colorSecondary"
+    >
+      妈的! 加不起！
+    </span>
   </div>
 </div>
 `;

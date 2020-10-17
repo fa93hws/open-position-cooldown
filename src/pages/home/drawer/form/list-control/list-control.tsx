@@ -45,7 +45,6 @@ export const ListControl = React.memo((props: ListControlProps) => {
         onChange={onRemoveChange}
       />
       <IconButton
-        id="add-reason"
         color="primary"
         classes={iconButtonStyles}
         onClick={props.onAddClick}
