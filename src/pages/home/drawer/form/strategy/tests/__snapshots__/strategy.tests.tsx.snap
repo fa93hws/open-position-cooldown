@@ -10,7 +10,7 @@ exports[`Strategy renders the strategy panel with two lines 1`] = `
     <h4
       class="MuiTypography-root MuiTypography-h6"
     >
-      建仓策略
+      之后暴跌怎么办
     </h4>
     <div
       class="MuiBox-root MuiBox-root-12"
@@ -75,9 +75,14 @@ exports[`Strategy renders the strategy panel with two lines 1`] = `
       </div>
     </div>
     <span
+      class="MuiTypography-root MuiTypography-body1"
+    >
+      以下时:  
+    </span>
+    <span
       class="MuiTypography-root MuiTypography-body1 MuiTypography-colorSecondary"
     >
-      妈的! 加不起！
+      没辙了
     </span>
   </div>
 </div>
@@ -93,7 +98,7 @@ exports[`Strategy renders the strategy panel with two lines and remove icon butt
     <h4
       class="MuiTypography-root MuiTypography-h6"
     >
-      建仓策略
+      之后暴跌怎么办
     </h4>
     <div
       class="MuiBox-root MuiBox-root-20"
@@ -200,9 +205,14 @@ exports[`Strategy renders the strategy panel with two lines and remove icon butt
       </div>
     </div>
     <span
+      class="MuiTypography-root MuiTypography-body1"
+    >
+      以下时:  
+    </span>
+    <span
       class="MuiTypography-root MuiTypography-body1 MuiTypography-colorSecondary"
     >
-      妈的! 加不起！
+      没辙了
     </span>
   </div>
 </div>
@@ -218,7 +228,7 @@ exports[`Strategy renders the strategy panel without lines 1`] = `
     <h4
       class="MuiTypography-root MuiTypography-h6"
     >
-      建仓策略
+      之后暴跌怎么办
     </h4>
     <div
       class="MuiBox-root MuiBox-root-5"
@@ -268,9 +278,14 @@ exports[`Strategy renders the strategy panel without lines 1`] = `
       </div>
     </div>
     <span
+      class="MuiTypography-root MuiTypography-body1"
+    >
+      以下时:  
+    </span>
+    <span
       class="MuiTypography-root MuiTypography-body1 MuiTypography-colorSecondary"
     >
-      妈的! 加不起！
+      没辙了
     </span>
   </div>
 </div>
