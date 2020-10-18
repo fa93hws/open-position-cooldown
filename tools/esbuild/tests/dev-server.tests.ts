@@ -1,6 +1,12 @@
 import * as path from 'path';
+import { ServerResponse } from 'http';
 
-import { DevServerRouter, ResultKind, startDevServer } from '../dev-server';
+import {
+  DevServerRouter,
+  ResultKind,
+  startDevServer,
+  handleRouteResult,
+} from '../dev-server';
 
 describe('DevServerRouter', () => {
   const staticFolder = path.join(__dirname, 'fixtures');
@@ -80,5 +86,48 @@ describe('startDevServer', () => {
       });
       server.close();
     }).not.toThrow();
+  });
+});
+
+describe('handleRouteResult', () => {
+  const writeHead = jest.fn();
+  const setHeader = jest.fn();
+  const end = jest.fn();
+  const res: ServerResponse = { writeHead, setHeader, end } as any;
+  beforeEach(() => {
+    writeHead.mockRestore();
+    setHeader.mockRestore();
+    end.mockRestore();
+  });
+
+  it('write 400 to status on bad request', () => {
+    handleRouteResult({ kind: ResultKind.BAD }, res);
+    expect(writeHead).toBeCalledWith(400);
+    expect(end).toHaveBeenCalled();
+  });
+
+  it('write 404 to status on not found request', () => {
+    handleRouteResult({ kind: ResultKind.NOT_FOUND }, res);
+    expect(writeHead).toBeCalledWith(404);
+    expect(end).toHaveBeenCalled();
+  });
+
+  it('returns file content', () => {
+    handleRouteResult(
+      {
+        kind: ResultKind.STATIC_FILE,
+        file: path.join(__dirname, 'fixtures', 'foo', 'index.html'),
+      },
+      res,
+    );
+    expect(writeHead).toBeCalledWith(200);
+    expect(setHeader).toHaveBeenCalledWith('Content-Type', 'text/html');
+    expect(end).toHaveBeenCalled();
+  });
+
+  it('returns 500 on unknown kind', () => {
+    handleRouteResult({ kind: 'who am i' as any }, res, true);
+    expect(writeHead).toBeCalledWith(500);
+    expect(end).toHaveBeenCalled();
   });
 });

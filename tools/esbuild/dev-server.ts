@@ -84,6 +84,30 @@ export class DevServerRouter {
   }
 }
 
+export function handleRouteResult(
+  routeResult: RouteResult,
+  res: http.ServerResponse,
+  mute = false,
+) {
+  switch (routeResult.kind) {
+    case ResultKind.BAD:
+      res.writeHead(400);
+      return res.end('url is null?');
+    case ResultKind.NOT_FOUND:
+      res.writeHead(404);
+      return res.end('resource does not exist');
+    case ResultKind.STATIC_FILE:
+      const mimeType = mime.getType(routeResult.file);
+      mimeType && res.setHeader('Content-Type', mimeType);
+      res.writeHead(200);
+      return res.end(fs.readFileSync(routeResult.file));
+    default:
+      mute || console.error(new UnreachableException(routeResult));
+      res.writeHead(500);
+      return res.end('internal error');
+  }
+}
+
 export function startDevServer({
   port,
   baseUrl,
@@ -103,23 +127,7 @@ export function startDevServer({
   });
   const server = http.createServer((req, res) => {
     const routeResult = router.getRoutes(req.url);
-    switch (routeResult.kind) {
-      case ResultKind.BAD:
-        res.writeHead(400);
-        return res.end('url is null?');
-      case ResultKind.NOT_FOUND:
-        res.writeHead(404);
-        return res.end(`can not find ${req.url}`);
-      case ResultKind.STATIC_FILE:
-        const mimeType = mime.getType(routeResult.file);
-        mimeType && res.setHeader('Content-Type', mimeType);
-        res.writeHead(200);
-        return res.end(fs.readFileSync(routeResult.file));
-      default:
-        console.error(new UnreachableException(routeResult));
-        res.writeHead(500);
-        return res.end('internal error');
-    }
+    handleRouteResult(routeResult, res);
   });
   server.listen(port);
   const hostLink = `http://localhost:${port}/${baseUrl ?? ''}/`;
