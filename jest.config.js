@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
   preset: 'ts-jest',
   testMatch: ['**/tests/**/*.tests.ts{,x}'],
@@ -16,6 +18,7 @@ module.exports = {
   snapshotSerializers: ['enzyme-to-json/serializer', 'jest-serializer-html'],
   globals: {
     'ts-jest': {
+      tsconfig: path.resolve(__dirname, 'tsconfig.test.json'),
       isolatedModules: true,
       diagnostics: {
         ignoreCodes: [151001],
