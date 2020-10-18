@@ -1,11 +1,9 @@
 const listen = jest.fn();
 const on = jest.fn();
-const libraryMock = jest.mock('socket.io-client', () => ({
-  default: (url: string) => {
-    listen(url);
-    return { on };
-  },
-}));
+const libraryMock = jest.mock('socket.io-client', () => (url: string) => {
+  listen(url);
+  return { on };
+});
 
 // eslint-disable-next-line import/first
 import { start } from '../index.dev';

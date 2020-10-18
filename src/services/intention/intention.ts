@@ -3,6 +3,8 @@ export type IntentionSchema = {
     name: string;
     code: string;
     market: string;
+    // yyyy-MM-dd
+    date: string;
   };
   // reason for holding the position
   reasons: string[];

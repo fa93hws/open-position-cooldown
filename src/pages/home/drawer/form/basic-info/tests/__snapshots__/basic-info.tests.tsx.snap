@@ -146,5 +146,44 @@ Array [
       </div>
     </div>
   </div>,
+  <div
+    class="MuiBox-root MuiBox-root-9"
+  >
+    <span
+      class="MuiTypography-root MuiTypography-body1"
+    >
+      日期:
+    </span>
+    <div
+      class="MuiFormControl-root MuiTextField-root"
+      format="yyyy-MM-dd"
+    >
+      <div
+        class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl MuiInputBase-marginDense MuiOutlinedInput-marginDense"
+      >
+        <input
+          aria-invalid="false"
+          class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMarginDense MuiOutlinedInput-inputMarginDense"
+          readonly=""
+          type="text"
+          value="2020-10-18"
+        />
+        <fieldset
+          aria-hidden="true"
+          class="PrivateNotchedOutline-root-2 MuiOutlinedInput-notchedOutline"
+          style="padding-left:8px"
+        >
+          <legend
+            class="PrivateNotchedOutline-legend-3"
+            style="width:0.01px"
+          >
+            <span>
+              ​
+            </span>
+          </legend>
+        </fieldset>
+      </div>
+    </div>
+  </div>,
 ]
 `;

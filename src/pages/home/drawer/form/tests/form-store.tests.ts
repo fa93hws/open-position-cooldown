@@ -1,6 +1,7 @@
 import { IntentionSchema } from '@services/intention/intention';
 import { InputStore } from '@ui/text-input/input-store';
 import { BasicInfoStore } from '../basic-info/basic-info-store';
+import { DatePickerStore } from '../basic-info/date-picker/date-picker-store';
 import { FormStore } from '../form-store';
 import { ReasonStore } from '../reason/reason-store';
 import { StrategyStore } from '../strategy/strategy-store';
@@ -12,11 +13,13 @@ describe('FormStore', () => {
     const priceStore = new InputStore([validator]);
     const marketStore = new InputStore([validator]);
     const codeStore = new InputStore([validator]);
+    const datePickerStore = new DatePickerStore(new Date('1999-02-04'));
     const basicInfo = new BasicInfoStore({
       nameStore,
       priceStore,
       marketStore,
       codeStore,
+      datePickerStore,
     });
     const reasonStore = new ReasonStore();
     const reason1 = reasonStore.addReason();
@@ -86,6 +89,7 @@ describe('FormStore', () => {
         name: 'name',
         code: 'code',
         market: 'market',
+        date: '1999-02-04',
       },
       reasons: ['reason1', 'reason2', 'reason3'],
       priceExplain: 'priceExplain',

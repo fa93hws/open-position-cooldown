@@ -1,4 +1,5 @@
-import socket from 'socket.io-client';
+// module resolution is a bit different in jest, looking for solution
+const socket = require('socket.io-client'); // eslint-disable-line
 
 export function start({
   importPage = true,
