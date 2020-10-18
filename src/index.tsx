@@ -10,12 +10,14 @@ import {
   ThemeProvider,
 } from '@material-ui/core/styles';
 import { BrowserRouter } from 'react-router-dom';
-import DateFnsUtils from '@date-io/date-fns';
 import { MuiPickersUtilsProvider } from '@material-ui/pickers';
 
 import { Header } from './header/header';
 import { Pages } from './pages/pages';
 import './global.css';
+
+// module resolution is a bit different in jest, looking for solution
+const DateFnsUtils = require('@date-io/date-fns'); // eslint-disable-line
 
 const theme = responsiveFontSizes(createMuiTheme());
 
