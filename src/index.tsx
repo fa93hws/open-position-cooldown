@@ -1,4 +1,3 @@
-import 'date-fns';
 import 'fontsource-roboto';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
@@ -10,14 +9,10 @@ import {
   ThemeProvider,
 } from '@material-ui/core/styles';
 import { BrowserRouter } from 'react-router-dom';
-import { MuiPickersUtilsProvider } from '@material-ui/pickers';
 
 import { Header } from './header/header';
 import { Pages } from './pages/pages';
 import './global.css';
-
-// module resolution is a bit different in jest, looking for solution
-const DateFnsUtils = require('@date-io/date-fns'); // eslint-disable-line
 
 const theme = responsiveFontSizes(createMuiTheme());
 
@@ -31,17 +26,15 @@ export const App = () => {
   const styles = useStyles();
   return (
     <ThemeProvider theme={theme}>
-      <MuiPickersUtilsProvider utils={DateFnsUtils}>
-        <BrowserRouter basename={process.env.BASE_URL}>
-          <CssBaseline />
-          <Box display="flex" flexDirection="column" height="100%">
-            <Header />
-            <Box className={styles.main} flex="1" component="main">
-              <Pages />
-            </Box>
+      <BrowserRouter basename={process.env.BASE_URL}>
+        <CssBaseline />
+        <Box display="flex" flexDirection="column" height="100%">
+          <Header />
+          <Box className={styles.main} flex="1" component="main">
+            <Pages />
           </Box>
-        </BrowserRouter>
-      </MuiPickersUtilsProvider>
+        </Box>
+      </BrowserRouter>
     </ThemeProvider>
   );
 };
