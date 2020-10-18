@@ -1,3 +1,4 @@
+import 'date-fns';
 import 'fontsource-roboto';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
@@ -9,6 +10,8 @@ import {
   ThemeProvider,
 } from '@material-ui/core/styles';
 import { BrowserRouter } from 'react-router-dom';
+import DateFnsUtils from '@date-io/date-fns';
+import { MuiPickersUtilsProvider } from '@material-ui/pickers';
 
 import { Header } from './header/header';
 import { Pages } from './pages/pages';
@@ -26,15 +29,17 @@ export const App = () => {
   const styles = useStyles();
   return (
     <ThemeProvider theme={theme}>
-      <BrowserRouter basename={process.env.BASE_URL}>
-        <CssBaseline />
-        <Box display="flex" flexDirection="column" height="100%">
-          <Header />
-          <Box className={styles.main} flex="1" component="main">
-            <Pages />
+      <MuiPickersUtilsProvider utils={DateFnsUtils}>
+        <BrowserRouter basename={process.env.BASE_URL}>
+          <CssBaseline />
+          <Box display="flex" flexDirection="column" height="100%">
+            <Header />
+            <Box className={styles.main} flex="1" component="main">
+              <Pages />
+            </Box>
           </Box>
-        </Box>
-      </BrowserRouter>
+        </BrowserRouter>
+      </MuiPickersUtilsProvider>
     </ThemeProvider>
   );
 };

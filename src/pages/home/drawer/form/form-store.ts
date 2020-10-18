@@ -50,6 +50,7 @@ export class FormStore {
         name: this.basicInfoStore.name,
         code: this.basicInfoStore.code,
         market: this.basicInfoStore.market,
+        date: this.basicInfoStore.date,
       },
       reasons: this.reasonStore.reasonStrings,
       priceExplain: this.priceExplainStore.value,

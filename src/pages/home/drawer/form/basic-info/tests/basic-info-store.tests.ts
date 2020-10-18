@@ -1,5 +1,6 @@
 import { InputStore } from '@ui/text-input/input-store';
 import { BasicInfoStore } from '../basic-info-store';
+import { DatePickerStore } from '../date-picker/date-picker-store';
 
 describe('BasicInfoStore', () => {
   function createStores() {
@@ -8,6 +9,7 @@ describe('BasicInfoStore', () => {
       codeStore: new InputStore([]),
       priceStore: new InputStore([]),
       marketStore: new InputStore([]),
+      datePickerStore: new DatePickerStore(),
     };
   }
 

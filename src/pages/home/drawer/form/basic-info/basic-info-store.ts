@@ -1,4 +1,5 @@
-import { InputStore } from '@ui/text-input/input-store';
+import type { InputStore } from '@ui/text-input/input-store';
+import type { DatePickerStore } from './date-picker/date-picker-store';
 
 export class BasicInfoStore {
   private readonly nameStore: InputStore;
@@ -9,16 +10,20 @@ export class BasicInfoStore {
 
   private readonly marketStore: InputStore;
 
+  private readonly datePickerStore: DatePickerStore;
+
   constructor(params: {
     nameStore: InputStore;
     priceStore: InputStore;
     codeStore: InputStore;
     marketStore: InputStore;
+    datePickerStore: DatePickerStore;
   }) {
     this.nameStore = params.nameStore;
     this.priceStore = params.priceStore;
     this.codeStore = params.codeStore;
     this.marketStore = params.marketStore;
+    this.datePickerStore = params.datePickerStore;
   }
 
   get name() {
@@ -50,6 +55,10 @@ export class BasicInfoStore {
     );
   }
 
+  get date() {
+    return this.datePickerStore.asDateString();
+  }
+
   startValidate() {
     this.nameStore.startValidate();
     this.priceStore.startValidate();
@@ -62,5 +71,6 @@ export class BasicInfoStore {
     this.priceStore.reset();
     this.codeStore.reset();
     this.marketStore.reset();
+    this.datePickerStore.reset();
   }
 }
