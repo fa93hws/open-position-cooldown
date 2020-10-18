@@ -65,7 +65,7 @@ export const Strategy = React.memo(
       <Box>
         <Box display="flex">
           <Typography variant="h6" component="h4">
-            建仓策略
+            之后暴跌怎么办
           </Typography>
           <Box ml="auto">
             <props.ListControlImpl />
@@ -100,8 +100,11 @@ export const Strategy = React.memo(
           <Box width={100} mx={1}>
             <props.ShitPriceInput inputClasses={inputStyles} />
           </Box>
+          <Typography variant="body1" component="span">
+            以下时:&nbsp;&nbsp;
+          </Typography>
           <Typography variant="body1" component="span" color="secondary">
-            妈的! 加不起！
+            没辙了
           </Typography>
         </Box>
       </Box>
