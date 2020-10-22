@@ -166,7 +166,7 @@ Array [
           class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMarginDense MuiOutlinedInput-inputMarginDense"
           readonly=""
           type="text"
-          value="2020-10-18"
+          value="1999-02-04"
         />
         <fieldset
           aria-hidden="true"
