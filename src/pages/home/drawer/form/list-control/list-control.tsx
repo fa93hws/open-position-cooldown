@@ -35,10 +35,10 @@ export const ListControl = React.memo((props: ListControlProps) => {
   return (
     <>
       <Switch
-        id="switch"
         size="small"
         color="primary"
         checked={props.removeChecked}
+        inputProps={{ role: 'switch' }}
         checkedIcon={CheckedIcon}
         icon={UncheckIcon}
         classes={switchStyles}

@@ -140,8 +140,8 @@ exports[`Strategy renders the strategy panel with two lines and remove icon butt
       </div>
       <button
         class="MuiButtonBase-root MuiIconButton-root makeStyles-iconButton-27 MuiIconButton-colorSecondary"
-        id="remove-0"
         tabindex="0"
+        title="remove"
         type="button"
       >
         <span
@@ -171,8 +171,8 @@ exports[`Strategy renders the strategy panel with two lines and remove icon butt
       </div>
       <button
         class="MuiButtonBase-root MuiIconButton-root makeStyles-iconButton-27 MuiIconButton-colorSecondary"
-        id="remove-1"
         tabindex="0"
+        title="remove"
         type="button"
       >
         <span

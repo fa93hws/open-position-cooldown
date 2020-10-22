@@ -1,10 +1,9 @@
+import { cleanup } from '@testing-library/react';
+
 describe('App', () => {
   beforeEach(() => {
     delete process.env.NODE_ENV;
-    const leftoverElement = document.getElementById('root');
-    if (leftoverElement) {
-      leftoverElement.outerHTML = '';
-    }
+    cleanup();
   });
 
   it('is able to be mounted', () => {

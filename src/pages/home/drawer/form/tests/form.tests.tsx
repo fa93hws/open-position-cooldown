@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { shallow } from 'enzyme';
+import { render, cleanup } from '@testing-library/react';
 
 import { createForm, Form } from '../form';
 
@@ -8,6 +8,9 @@ describe('Form', () => {
   const PriceExplain = () => <div>PriceExplain</div>;
   const Reason = () => <div>Reason</div>;
   const StrategyPanel = () => <div>StrategyPanel</div>;
+
+  beforeEach(cleanup);
+
   it('renders as follow', () => {
     expect(
       <Form
@@ -22,6 +25,6 @@ describe('Form', () => {
 
   it('can be mounted', () => {
     const Component = createForm(jest.fn());
-    expect(() => shallow(<Component />)).not.toThrow();
+    expect(() => render(<Component />)).not.toThrow();
   });
 });

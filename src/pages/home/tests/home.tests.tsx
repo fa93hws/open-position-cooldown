@@ -1,9 +1,11 @@
 import * as React from 'react';
-import { shallow } from 'enzyme';
+import { render, cleanup } from '@testing-library/react';
 
 import { createHomePage, HomePage } from '../home';
 
 describe('HomePage', () => {
+  beforeEach(cleanup);
+
   it('renders this', () => {
     const IconButton = () => (
       <button>
@@ -18,6 +20,6 @@ describe('HomePage', () => {
 
   it('is able to be mounted', () => {
     const Component = createHomePage();
-    expect(() => shallow(<Component />)).not.toThrow();
+    expect(() => render(<Component />)).not.toThrow();
   });
 });

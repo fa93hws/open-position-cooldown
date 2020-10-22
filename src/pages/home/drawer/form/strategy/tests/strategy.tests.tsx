@@ -1,9 +1,16 @@
 import * as React from 'react';
-import { shallow, mount } from 'enzyme';
+import {
+  render,
+  cleanup,
+  getAllByTitle,
+  fireEvent,
+} from '@testing-library/react';
 
 import { Strategy, createStrategyPanel } from '../strategy';
 
 describe('Strategy', () => {
+  beforeEach(cleanup);
+
   it('renders the strategy panel without lines', () => {
     const ListControlImpl = () => <div>ListControlImpl</div>;
     const CurrentPriceInput = () => <div>CurrentPriceInput</div>;
@@ -57,7 +64,7 @@ describe('Strategy', () => {
 
   it('is abled to be mounted', () => {
     const [StrategyPanel] = createStrategyPanel();
-    expect(() => shallow(<StrategyPanel />)).not.toThrow();
+    expect(() => render(<StrategyPanel />)).not.toThrow();
   });
 
   it('show one strategy by default', () => {
@@ -71,8 +78,10 @@ describe('Strategy', () => {
     store.addStrategy();
     store.setRemoveVisibility(true);
     const strategies = [...store.strategies];
-    const element = mount(<Component />);
-    element.find('button#remove-1').simulate('click');
+    const { container } = render(<Component />);
+    const removeButtons = getAllByTitle(container, 'remove');
+    expect(removeButtons.length).toEqual(3);
+    fireEvent.click(removeButtons[1]);
     expect(store.strategies).toEqual([strategies[0], strategies[2]]);
   });
 });
