@@ -2,15 +2,15 @@ import type { InputStore } from '@ui/text-input/input-store';
 import type { DatePickerStore } from './date-picker/date-picker-store';
 
 export class BasicInfoStore {
-  private readonly nameStore: InputStore;
+  readonly nameStore: InputStore;
 
-  private readonly priceStore: InputStore;
+  readonly priceStore: InputStore;
 
-  private readonly codeStore: InputStore;
+  readonly codeStore: InputStore;
 
-  private readonly marketStore: InputStore;
+  readonly marketStore: InputStore;
 
-  private readonly datePickerStore: DatePickerStore;
+  readonly datePickerStore: DatePickerStore;
 
   constructor(params: {
     nameStore: InputStore;
