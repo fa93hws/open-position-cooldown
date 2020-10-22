@@ -72,7 +72,7 @@ describe('generateHtml', () => {
       writeFileSync,
     });
 
-    const minifiedHTML = writeFileSync.mock.calls[0][1].split(EOL);
+    const minifiedHTML = writeFileSync.mock.calls[0][1].split('\n');
     expect(minifiedHTML).toEqual([
       `<link rel="stylesheet" href="b.css"/>`,
       `<link rel="stylesheet" href="${path.join('bar', 'd.css')}"/>`,
