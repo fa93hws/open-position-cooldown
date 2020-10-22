@@ -32,6 +32,7 @@
     "@typescript-eslint/eslint-plugin": "^4.4.0",
     "@typescript-eslint/parser": "^4.4.0",
     "chalk": "^4.1.0",
+    "cross-env": "^7.0.2",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.5",
     "enzyme-to-json": "^3.6.1",
@@ -65,9 +66,9 @@
     "lint": "eslint \"{config,src,tools}/**/*.ts{,x}\"",
     "lint:ts": "tsc --noEmit --project ./tsconfig.check.json",
     "prebuild": "rimraf target",
-    "build": "BASE_URL=open-position-cooldown node bin/build-page.js",
+    "build": "cross-env BASE_URL=open-position-cooldown node bin/build-page.js",
     "predeev": "rimraf target",
-    "dev": "PORT=8080 BASE_URL=open-position-cooldown node bin/serve-page.js"
+    "dev": "cross-env PORT=8080 BASE_URL=open-position-cooldown node bin/serve-page.js"
   },
   "repository": {
     "type": "git",
