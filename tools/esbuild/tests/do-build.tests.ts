@@ -71,8 +71,21 @@ describe('doBuild', () => {
         'tools/esbuild/tests/fixtures/build-dummy/entry.ts',
       ],
       sourcesContent: [
-        `export function bar() {${EOL}  return 'bar';${EOL}}${EOL}`,
-        `import { bar } from './bar';${EOL}${EOL}function foo() {${EOL}  const b = bar();${EOL}  return {${EOL}    foo: process.env.NODE_ENV,${EOL}    bar: b,${EOL}  };${EOL}}${EOL}${EOL}foo();${EOL}`,
+        ['export function bar() {', "  return 'bar';", '}', ''].join('\n'),
+        [
+          "import { bar } from './bar';",
+          '',
+          'function foo() {',
+          '  const b = bar();',
+          '  return {',
+          '    foo: process.env.NODE_ENV,',
+          '    bar: b,',
+          '  };',
+          '}',
+          '',
+          'foo();',
+          '',
+        ].join('\n'),
       ],
       mappings:
         'MAAO,aACL,MAAO,MCCT,aACE,KAAM,GAAI,IACV,MAAO,CACL,IAAK,aACL,IAAK,GAIT',
