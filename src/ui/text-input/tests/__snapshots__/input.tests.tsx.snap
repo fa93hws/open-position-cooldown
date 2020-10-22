@@ -56,10 +56,10 @@ exports[`Input renders with value with error 1`] = `
     />
     <fieldset
       aria-hidden="true"
-      class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+      class="PrivateNotchedOutline-root-5 MuiOutlinedInput-notchedOutline"
     >
       <legend
-        class="PrivateNotchedOutline-legendLabelled-3 PrivateNotchedOutline-legendNotched-4"
+        class="PrivateNotchedOutline-legendLabelled-7 PrivateNotchedOutline-legendNotched-8"
       >
         <span>
           label

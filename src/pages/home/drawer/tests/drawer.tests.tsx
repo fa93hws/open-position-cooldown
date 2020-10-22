@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { render } from '@testing-library/react';
 import { shallow } from 'enzyme';
 
 import { IntentionService } from '@services/intention/intention';
@@ -8,14 +9,14 @@ describe('HomeDrawer', () => {
   const Form = () => <div>form</div>;
   it('renders an open drawer', () => {
     expect(
-      <HomeDrawer open onClose={jest.fn()} Form={Form} />,
-    ).toMatchRenderedSnapshot();
+      render(<HomeDrawer open onClose={jest.fn()} Form={Form} />).baseElement,
+    ).toMatchSnapshot();
   });
 
   it('renders a closed drawer', () => {
     expect(
-      <HomeDrawer open={false} onClose={jest.fn()} Form={Form} />,
-    ).toMatchRenderedSnapshot();
+      render(<HomeDrawer open onClose={jest.fn()} Form={Form} />).baseElement,
+    ).toMatchSnapshot();
   });
 
   it('can be mounted', () => {

@@ -20,22 +20,23 @@ exports[`Price renders the following 1`] = `
         class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMultiline MuiOutlinedInput-inputMultiline MuiInputBase-inputMarginDense MuiOutlinedInput-inputMarginDense"
         placeholder="可换行"
         rows="1"
+        style="height: 0px; overflow: hidden;"
       />
       <textarea
         aria-hidden="true"
         class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMultiline MuiOutlinedInput-inputMultiline MuiInputBase-inputMarginDense MuiOutlinedInput-inputMarginDense"
         readonly=""
-        style="visibility:hidden;position:absolute;overflow:hidden;height:0;top:0;left:0;transform:translateZ(0)"
+        style="visibility: hidden; position: absolute; overflow: hidden; height: 0px; top: 0px; left: 0px; transform: translateZ(0); width: 100%;"
         tabindex="-1"
       />
       <fieldset
         aria-hidden="true"
         class="PrivateNotchedOutline-root-2 MuiOutlinedInput-notchedOutline"
-        style="padding-left:8px"
+        style="padding-left: 8px;"
       >
         <legend
           class="PrivateNotchedOutline-legend-3"
-          style="width:0.01px"
+          style="width: 0.01px;"
         >
           <span>
             ​

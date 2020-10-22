@@ -38,7 +38,7 @@ exports[`AboutPage renders it 1`] = `
           aria-hidden="true"
           class="MuiSvgIcon-root makeStyles-icon-5"
           focusable="false"
-          style="padding:4px"
+          style="padding: 4px;"
           viewBox="0 0 24 24"
         >
           <path
