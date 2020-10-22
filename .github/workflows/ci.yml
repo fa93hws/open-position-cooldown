@@ -22,12 +22,6 @@ jobs:
       - uses: actions/checkout@v1
         with:
           lfs: true
-      - name: Find NPM Cache
-        uses: actions/cache@v1
-        with:
-          path: node_modules
-          key: ${{ runner.OS }}-npm-${{ hashFiles('package-lock.json') }}
-          restore-keys: ${{ runner.OS }}-npm-
       - name: Run npm
         run: npm ci
       - name: Run Eslint

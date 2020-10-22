@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ListControl renders the list control when the switch is false 1`] = `
-Array [
+<div>
   <span
     class="MuiSwitch-root MuiSwitch-sizeSmall makeStyles-sizeSmall-1"
   >
@@ -16,6 +16,7 @@ Array [
           class="PrivateSwitchBase-input-7 MuiSwitch-input"
           id="switch"
           type="checkbox"
+          value=""
         />
         <svg
           aria-hidden="true"
@@ -28,11 +29,14 @@ Array [
           />
         </svg>
       </span>
+      <span
+        class="MuiTouchRipple-root"
+      />
     </span>
     <span
       class="MuiSwitch-track"
     />
-  </span>,
+  </span>
   <button
     class="MuiButtonBase-root MuiIconButton-root makeStyles-root-3 MuiIconButton-colorPrimary"
     tabindex="0"
@@ -52,27 +56,31 @@ Array [
         />
       </svg>
     </span>
-  </button>,
-]
+    <span
+      class="MuiTouchRipple-root"
+    />
+  </button>
+</div>
 `;
 
 exports[`ListControl renders the list control when the switch is true 1`] = `
-Array [
+<div>
   <span
-    class="MuiSwitch-root MuiSwitch-sizeSmall makeStyles-sizeSmall-1"
+    class="MuiSwitch-root MuiSwitch-sizeSmall makeStyles-sizeSmall-8"
   >
     <span
       aria-disabled="false"
-      class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-4 MuiSwitch-switchBase makeStyles-switchBase-2 MuiSwitch-colorPrimary PrivateSwitchBase-checked-5 Mui-checked"
+      class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-11 MuiSwitch-switchBase makeStyles-switchBase-9 MuiSwitch-colorPrimary PrivateSwitchBase-checked-12 Mui-checked"
     >
       <span
         class="MuiIconButton-label"
       >
         <input
           checked=""
-          class="PrivateSwitchBase-input-7 MuiSwitch-input"
+          class="PrivateSwitchBase-input-14 MuiSwitch-input"
           id="switch"
           type="checkbox"
+          value=""
         />
         <svg
           aria-hidden="true"
@@ -85,13 +93,16 @@ Array [
           />
         </svg>
       </span>
+      <span
+        class="MuiTouchRipple-root"
+      />
     </span>
     <span
       class="MuiSwitch-track"
     />
-  </span>,
+  </span>
   <button
-    class="MuiButtonBase-root MuiIconButton-root makeStyles-root-3 MuiIconButton-colorPrimary"
+    class="MuiButtonBase-root MuiIconButton-root makeStyles-root-10 MuiIconButton-colorPrimary"
     tabindex="0"
     type="button"
   >
@@ -109,6 +120,9 @@ Array [
         />
       </svg>
     </span>
-  </button>,
-]
+    <span
+      class="MuiTouchRipple-root"
+    />
+  </button>
+</div>
 `;

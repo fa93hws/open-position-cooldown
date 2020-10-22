@@ -20,5 +20,8 @@ exports[`AddButton renders this 1`] = `
       />
     </svg>
   </span>
+  <span
+    class="MuiTouchRipple-root"
+  />
 </button>
 `;

@@ -6,6 +6,10 @@ describe('BasicInfo', () => {
   it('renders the following', () => {
     const [BasicInfo, store] = createBasicInfo();
     store.datePickerStore.setDate(new Date('1999-02-04'));
-    expect(<BasicInfo />).toMatchRenderedSnapshot();
+    expect(
+      <div>
+        <BasicInfo />
+      </div>,
+    ).toMatchRenderedSnapshot();
   });
 });

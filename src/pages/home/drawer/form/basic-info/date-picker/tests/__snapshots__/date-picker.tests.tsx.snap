@@ -18,11 +18,11 @@ exports[`DatePicker renders the following 1`] = `
     <fieldset
       aria-hidden="true"
       class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
-      style="padding-left:8px"
+      style="padding-left: 8px;"
     >
       <legend
         class="PrivateNotchedOutline-legend-2"
-        style="width:0.01px"
+        style="width: 0.01px;"
       >
         <span>
           ​
@@ -30,5 +30,6 @@ exports[`DatePicker renders the following 1`] = `
       </legend>
     </fieldset>
   </div>
+  
 </div>
 `;

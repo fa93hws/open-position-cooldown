@@ -51,6 +51,9 @@ exports[`Form renders as follow 1`] = `
     >
       买！买！买！
     </span>
+    <span
+      class="MuiTouchRipple-root"
+    />
   </button>
 </form>
 `;

@@ -71,7 +71,7 @@ exports[`ReasonSection renders the section with two input and remove icon 1`] = 
         input 1
       </div>
       <button
-        class="MuiButtonBase-root MuiIconButton-root makeStyles-iconButton-7 MuiIconButton-colorSecondary"
+        class="MuiButtonBase-root MuiIconButton-root makeStyles-iconButton-11 MuiIconButton-colorSecondary"
         id="remove-0"
         tabindex="0"
         type="button"
@@ -90,6 +90,9 @@ exports[`ReasonSection renders the section with two input and remove icon 1`] = 
             />
           </svg>
         </span>
+        <span
+          class="MuiTouchRipple-root"
+        />
       </button>
     </li>
     <li
@@ -99,7 +102,7 @@ exports[`ReasonSection renders the section with two input and remove icon 1`] = 
         input 2
       </div>
       <button
-        class="MuiButtonBase-root MuiIconButton-root makeStyles-iconButton-7 MuiIconButton-colorSecondary"
+        class="MuiButtonBase-root MuiIconButton-root makeStyles-iconButton-11 MuiIconButton-colorSecondary"
         id="remove-1"
         tabindex="0"
         type="button"
@@ -118,6 +121,9 @@ exports[`ReasonSection renders the section with two input and remove icon 1`] = 
             />
           </svg>
         </span>
+        <span
+          class="MuiTouchRipple-root"
+        />
       </button>
     </li>
   </ul>
