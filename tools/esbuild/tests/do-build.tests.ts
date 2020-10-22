@@ -62,19 +62,22 @@ describe('doBuild', () => {
         // it comes from esbuild, where \n is used instead of dependent on os
       ].join('\n'),
     );
-    expect(outputs[path.join(buildOutputFolder, 'entry.js.map')]).toEqual(
-      [
-        '{',
-        '  "version": 3,',
-        '  "sources": ["tools/esbuild/tests/fixtures/build-dummy/bar.ts", "tools/esbuild/tests/fixtures/build-dummy/entry.ts"],',
-        `  "sourcesContent": ["export function bar() {\\n  return 'bar';\\n}\\n", "import { bar } from './bar';\\n\\nfunction foo() {\\n  const b = bar();\\n  return {\\n    foo: process.env.NODE_ENV,\\n    bar: b,\\n  };\\n}\\n\\nfoo();\\n"],`,
-        '  "mappings": "MAAO,aACL,MAAO,MCCT,aACE,KAAM,GAAI,IACV,MAAO,CACL,IAAK,aACL,IAAK,GAIT",',
-        '  "names": []',
-        '}',
-        '',
-        // it comes from esbuild, where \n is used instead of dependent on os
-      ].join('\n'),
-    );
+    expect(
+      JSON.parse(outputs[path.join(buildOutputFolder, 'entry.js.map')]),
+    ).toEqual({
+      version: 3,
+      sources: [
+        'tools/esbuild/tests/fixtures/build-dummy/bar.ts',
+        'tools/esbuild/tests/fixtures/build-dummy/entry.ts',
+      ],
+      sourcesContent: [
+        `export function bar() {${EOL}  return 'bar';${EOL}}${EOL}`,
+        `import { bar } from './bar';${EOL}${EOL}function foo() {${EOL}  const b = bar();${EOL}  return {${EOL}    foo: process.env.NODE_ENV,${EOL}    bar: b,${EOL}  };${EOL}}${EOL}${EOL}foo();${EOL}`,
+      ],
+      mappings:
+        'MAAO,aACL,MAAO,MCCT,aACE,KAAM,GAAI,IACV,MAAO,CACL,IAAK,aACL,IAAK,GAIT',
+      names: [],
+    });
     expect(outputs[path.join(buildOutputFolder, 'index.html')]).toEqual(
       [
         '<!DOCTYPE html>',
