@@ -13,7 +13,7 @@ module.exports = {
     '@utils/(.*)': '<rootDir>/src/utils/$1',
   },
   transformIgnorePatterns: ['node_modules/@date-io/'],
-  snapshotSerializers: ['enzyme-to-json/serializer', 'jest-serializer-html'],
+  snapshotSerializers: ['jest-serializer-html'],
   globals: {
     'ts-jest': {
       tsconfig: '<rootDir>/tsconfig.tsnode.json',
