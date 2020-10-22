@@ -76,8 +76,10 @@ describe('generateHtml', () => {
     expect(minifiedHTML).toEqual([
       `<link rel="stylesheet" href="b.css"/>`,
       `<link rel="stylesheet" href="${path.join('bar', 'd.css')}"/>`,
+      '',
       `<script src="${path.join('foo', 'a.js')}"></script>`,
       `<script src="c.js"></script>`,
+      '',
     ]);
     expect(writeFileSync.mock.calls[0][0]).toEqual(
       path.join(outdir, 'index.html'),
