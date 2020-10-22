@@ -1,4 +1,3 @@
-import { EOL } from 'os';
 import * as path from 'path';
 import { buildSync } from 'esbuild';
 import { TextDecoder } from 'util';
@@ -85,6 +84,7 @@ describe('doBuild', () => {
           '',
           'foo();',
           '',
+          // it comes from esbuild, where \n is used instead of dependent on os
         ].join('\n'),
       ],
       mappings:
@@ -108,7 +108,8 @@ describe('doBuild', () => {
         '  </body>',
         '</html>',
         '',
-      ].join(EOL),
+        // it comes from template file, where \n is used instead of dependent on os
+      ].join('\n'),
     );
   });
 });
