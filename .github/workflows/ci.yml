@@ -10,12 +10,13 @@ on:
       - edited
 
 jobs:
-  strategy:
-    matrix:
-      os: [windows-latest, ubuntu-latest]
   ci-test:
     name: CI-Test
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [windows-latest, ubuntu-latest]
 
     steps:
       - uses: actions/checkout@v1
