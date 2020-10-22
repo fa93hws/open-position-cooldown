@@ -5,13 +5,16 @@ const libraryMock = jest.mock('socket.io-client', () => (url: string) => {
   return { on };
 });
 
-// eslint-disable-next-line import/first
+/* eslint-disable import/first */
+import { cleanup } from '@testing-library/react';
+
 import { start } from '../index.dev';
 
 describe('index.dev.tsx', () => {
   beforeEach(() => {
     on.mockRestore();
     listen.mockRestore();
+    cleanup();
   });
 
   it('can not be imported in production environment', () => {

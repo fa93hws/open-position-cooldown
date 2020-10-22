@@ -1,9 +1,11 @@
 import * as React from 'react';
-import { mount } from 'enzyme';
+import { fireEvent, getByRole, render, cleanup } from '@testing-library/react';
 
 import { ListControl } from '../list-control';
 
 describe('ListControl', () => {
+  afterEach(cleanup);
+
   it('renders the list control when the switch is false', () => {
     expect(
       <div>
@@ -35,14 +37,14 @@ describe('ListControl', () => {
         <ListControl
           onAddClick={jest.fn()}
           onRemoveChange={onRemoveChange}
-          removeChecked={true}
+          removeChecked={false}
         />
       </div>
     );
-    const element = mount(jsxElement);
-    element
-      .find('input#switch')
-      .simulate('change', { target: { checked: true } });
-    expect(onRemoveChange).toHaveBeenCalledWith(true);
+    const { container } = render(jsxElement);
+    fireEvent.click(getByRole(container, 'switch'));
+    expect(onRemoveChange).toHaveBeenNthCalledWith(1, true);
+    fireEvent.click(getByRole(container, 'switch'));
+    expect(onRemoveChange).toHaveBeenNthCalledWith(2, true);
   });
 });

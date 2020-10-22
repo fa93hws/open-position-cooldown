@@ -1,9 +1,11 @@
 import * as React from 'react';
-import { shallow } from 'enzyme';
+import { render, cleanup } from '@testing-library/react';
 
 import { createLine, Line } from '../line';
 
 describe('Line', () => {
+  beforeEach(cleanup);
+
   it('renders the following', () => {
     const PriceInput = () => <div>PriceInput</div>;
     const QuantityInput = () => <div>QuantityInput</div>;
@@ -14,6 +16,6 @@ describe('Line', () => {
 
   it('is able to be mounted', () => {
     const [Component] = createLine();
-    expect(() => shallow(<Component />)).not.toThrowError();
+    expect(() => render(<Component />)).not.toThrowError();
   });
 });

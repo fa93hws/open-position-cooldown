@@ -1,10 +1,19 @@
 import * as React from 'react';
-import { shallow } from 'enzyme';
+import { MemoryRouter } from 'react-router-dom';
+import { cleanup, render } from '@testing-library/react';
 
 import { Pages } from '../pages';
 
 describe('Pages', () => {
+  beforeEach(cleanup);
+
   it('is able to be mounted', () => {
-    expect(() => shallow(<Pages />)).not.toThrow();
+    expect(() =>
+      render(
+        <MemoryRouter>
+          <Pages />
+        </MemoryRouter>,
+      ),
+    ).not.toThrow();
   });
 });

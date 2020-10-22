@@ -1,9 +1,16 @@
 import * as React from 'react';
-import { mount } from 'enzyme';
+import {
+  render,
+  cleanup,
+  fireEvent,
+  getByPlaceholderText,
+} from '@testing-library/react';
 
 import { createInput, Input } from '../input';
 
 describe('Input', () => {
+  beforeEach(cleanup);
+
   it('renders with value', () => {
     expect(
       <Input
@@ -30,16 +37,18 @@ describe('Input', () => {
 
   it('is assign the value on change', () => {
     const [Component, store] = createInput([]);
-    const element = mount(<Component label="a" />);
-    element.find('input').simulate('change', { target: { value: '123' } });
+    const { container } = render(<Component placeholder="foo" />);
+    fireEvent.change(getByPlaceholderText(container, 'foo'), {
+      target: { value: '123' },
+    });
     expect(store.value).toEqual('123');
   });
 
   it('starts validating when blurred', () => {
     const [Component, store] = createInput([jest.fn().mockReturnValue(false)]);
-    const element = mount(<Component label="a" />);
+    const { container } = render(<Component placeholder="foo" />);
     expect(store.hasError).toEqual(false);
-    element.find('input').simulate('blur');
+    fireEvent.blur(getByPlaceholderText(container, 'foo'));
     expect(store.hasError).toEqual(true);
   });
 });

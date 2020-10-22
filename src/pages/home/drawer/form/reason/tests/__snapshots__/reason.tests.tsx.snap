@@ -72,8 +72,8 @@ exports[`ReasonSection renders the section with two input and remove icon 1`] = 
       </div>
       <button
         class="MuiButtonBase-root MuiIconButton-root makeStyles-iconButton-11 MuiIconButton-colorSecondary"
-        id="remove-0"
         tabindex="0"
+        title="remove"
         type="button"
       >
         <span
@@ -103,8 +103,8 @@ exports[`ReasonSection renders the section with two input and remove icon 1`] = 
       </div>
       <button
         class="MuiButtonBase-root MuiIconButton-root makeStyles-iconButton-11 MuiIconButton-colorSecondary"
-        id="remove-1"
         tabindex="0"
+        title="remove"
         type="button"
       >
         <span

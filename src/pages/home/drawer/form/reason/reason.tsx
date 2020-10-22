@@ -37,7 +37,7 @@ const ReasonInputItem = React.memo(
             color="secondary"
             className={styles.iconButton}
             onClick={onRemoveClick}
-            id={`remove-${props.idx}`}
+            title="remove"
           >
             <IndeterminateCheckBoxIcon />
           </IconButton>

@@ -1,10 +1,18 @@
 import * as React from 'react';
-import { mount } from 'enzyme';
+import {
+  render,
+  cleanup,
+  fireEvent,
+  getAllByTitle,
+} from '@testing-library/react';
 
 import { createReasonSection, ReasonSection } from '../reason';
 
 describe('ReasonSection', () => {
   const ListControlImpl = () => <div>ListControl</div>;
+
+  beforeEach(cleanup);
+
   it('renders the section without any inputs', () => {
     expect(
       <ReasonSection
@@ -50,8 +58,10 @@ describe('ReasonSection', () => {
     const [Component, store] = createReasonSection();
     store.setRemoveVisibility(true);
     const reasons = [...store.reasons];
-    const element = mount(<Component />);
-    element.find('button#remove-1').simulate('click');
+    const { container } = render(<Component />);
+    const removeButtons = getAllByTitle(container, 'remove');
+    expect(removeButtons.length).toEqual(3);
+    fireEvent.click(removeButtons[1]);
     expect(store.reasons).toEqual([reasons[0], reasons[2]]);
   });
 });

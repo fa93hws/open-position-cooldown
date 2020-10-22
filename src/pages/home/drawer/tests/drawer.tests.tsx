@@ -1,12 +1,14 @@
 import * as React from 'react';
-import { render } from '@testing-library/react';
-import { shallow } from 'enzyme';
+import { render, cleanup } from '@testing-library/react';
 
 import { IntentionService } from '@services/intention/intention';
 import { createHomeDrawer, HomeDrawer } from '../drawer';
 
 describe('HomeDrawer', () => {
   const Form = () => <div>form</div>;
+
+  afterEach(cleanup);
+
   it('renders an open drawer', () => {
     expect(
       render(<HomeDrawer open onClose={jest.fn()} Form={Form} />).baseElement,
@@ -22,6 +24,6 @@ describe('HomeDrawer', () => {
   it('can be mounted', () => {
     const intentionService = new IntentionService();
     const { Component } = createHomeDrawer(intentionService);
-    expect(() => shallow(<Component />)).not.toThrow();
+    expect(() => render(<Component />)).not.toThrow();
   });
 });

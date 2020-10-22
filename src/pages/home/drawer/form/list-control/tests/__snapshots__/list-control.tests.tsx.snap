@@ -14,7 +14,7 @@ exports[`ListControl renders the list control when the switch is false 1`] = `
       >
         <input
           class="PrivateSwitchBase-input-7 MuiSwitch-input"
-          id="switch"
+          role="switch"
           type="checkbox"
           value=""
         />
@@ -78,7 +78,7 @@ exports[`ListControl renders the list control when the switch is true 1`] = `
         <input
           checked=""
           class="PrivateSwitchBase-input-14 MuiSwitch-input"
-          id="switch"
+          role="switch"
           type="checkbox"
           value=""
         />
