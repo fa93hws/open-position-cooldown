@@ -53,14 +53,12 @@ describe('doBuild', () => {
     );
     expect(Object.keys(outputs).length).toEqual(3);
     expect(
-      outputs[path.join(buildOutputFolder, 'b5d1382abb5b967c.js')],
-    ).toEqual(
-      [
-        '(()=>{function r(){return"bar"}function n(){const o=r();return{foo:"production",bar:o}}n();})();',
-        '//# sourceMappingURL=entry.js.map',
-        '',
-      ].join(EOL),
-    );
+      outputs[path.join(buildOutputFolder, 'b5d1382abb5b967c.js')].split(EOL),
+    ).toEqual([
+      '(()=>{function r(){return"bar"}function n(){const o=r();return{foo:"production",bar:o}}n();})();',
+      '//# sourceMappingURL=entry.js.map',
+      '',
+    ]);
     expect(outputs[path.join(buildOutputFolder, 'entry.js.map')]).toEqual(
       [
         '{',
