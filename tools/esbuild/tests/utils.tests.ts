@@ -11,22 +11,22 @@ describe('hashOutputs', () => {
     const contents = enc.encode('123');
     const outputs = [
       {
-        path: 'a/b/c/d.js',
+        path: path.join('a', 'b', 'c', 'd.js'),
         contents,
       },
       {
-        path: 'b/e/d.sss.css',
+        path: path.join('b', 'e', 'd.sss.css'),
         contents,
       },
     ];
     const hashedOutput = hashOutputs(outputs);
     expect(hashedOutput).toEqual([
       {
-        path: 'a/b/c/202cb962ac59075b.js',
+        path: path.join('a', 'b', 'c', '202cb962ac59075b.js'),
         contents,
       },
       {
-        path: 'b/e/202cb962ac59075b.css',
+        path: path.join('b', 'e', '202cb962ac59075b.css'),
         contents,
       },
     ]);
@@ -36,11 +36,11 @@ describe('hashOutputs', () => {
     const contents = enc.encode('123');
     const outputs = [
       {
-        path: 'a/b/c/d.woff',
+        path: path.join('a', 'b', 'c', 'd.woff'),
         contents,
       },
       {
-        path: 'b/e/d.sss.woff2',
+        path: path.join('b', 'e', 'd.sss.woff2'),
         contents,
       },
     ];
@@ -71,7 +71,15 @@ describe('generateHtml', () => {
       writeFileSync,
     });
 
-    expect(writeFileSync.mock.calls[0][1]).toMatchSnapshot();
+    const minifiedHTML = writeFileSync.mock.calls[0][1].split('\n');
+    expect(minifiedHTML).toEqual([
+      `<link rel="stylesheet" href="b.css"/>`,
+      `<link rel="stylesheet" href="${path.join('bar', 'd.css')}"/>`,
+      '',
+      `<script src="${path.join('foo', 'a.js')}"></script>`,
+      `<script src="c.js"></script>`,
+      '',
+    ]);
     expect(writeFileSync.mock.calls[0][0]).toEqual(
       path.join(outdir, 'index.html'),
     );

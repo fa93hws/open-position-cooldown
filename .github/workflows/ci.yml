@@ -12,7 +12,11 @@ on:
 jobs:
   ci-test:
     name: CI-Test
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [windows-latest, ubuntu-latest]
 
     steps:
       - uses: actions/checkout@v1
@@ -36,6 +40,7 @@ jobs:
         run: npm run test -- --coverage --maxWorkers=4
       - name: Report test coverage to codecov
         uses: codecov/codecov-action@v1
+        if: ${{ contains(matrix.os, 'ubuntu') }}
         with:
           token: ${{ secrets.CODE_COV_TOKEN }}
           file: ./coverage/**/*
@@ -43,11 +48,11 @@ jobs:
       - name: Run Esbuild
         run: npm run build
       - name: Add 404 fallback to github page
-        if: ${{ github.event_name == 'release' }}
+        if: ${{ github.event_name == 'release' && contains(matrix.os, 'ubuntu') }}
         run: cp -f target/index.html target/404.html
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@3.6.2
-        if: ${{ github.event_name == 'release' }}
+        if: ${{ github.event_name == 'release' && contains(matrix.os, 'ubuntu') }}
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages
