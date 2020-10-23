@@ -1,3 +1,5 @@
+import { LocalStorageService } from '@services/local-storage/local-storage';
+
 export type IntentionSchema = {
   basicInfo: {
     name: string;
@@ -25,7 +27,9 @@ export type IntentionSchema = {
 };
 
 export class IntentionService {
+  constructor(private readonly localStorageService: LocalStorageService) {}
+
   async addIntention(intention: IntentionSchema) {
-    console.log(intention); // eslint-disable-line
+    this.localStorageService.addToArray('intentions', intention);
   }
 }

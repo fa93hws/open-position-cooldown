@@ -1,8 +1,15 @@
 import { IntentionService } from '../intention';
+import { LocalStorageService } from '../../local-storage/local-storage';
 
 describe('Intention', () => {
-  it('should not throw', () => {
-    const service = new IntentionService();
-    expect(() => service.addIntention({} as any)).not.toThrow();
+  it('write the value to local storage', async () => {
+    const addToArray = jest.fn();
+    const localStorageService = new LocalStorageService();
+    jest
+      .spyOn(localStorageService, 'addToArray')
+      .mockImplementationOnce(addToArray);
+    const service = new IntentionService(localStorageService);
+    await service.addIntention({ a: 'foo' } as any);
+    expect(addToArray).toHaveBeenCalledWith('intentions', { a: 'foo' });
   });
 });
