@@ -4,6 +4,9 @@ exports[`HomePage renders this 1`] = `
 <div
   class="MuiBox-root MuiBox-root-1"
 >
+  <div>
+    Cards!
+  </div>
   <div
     class="MuiBox-root MuiBox-root-2"
   >

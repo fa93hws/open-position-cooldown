@@ -13,8 +13,14 @@ describe('HomePage', () => {
       </button>
     );
     const Sheet = () => <div>sheet!</div>;
+    const Cards = () => <div>Cards!</div>;
     expect(
-      <HomePage IconButton={IconButton} Sheet={Sheet} />,
+      <HomePage
+        IconButton={IconButton}
+        Sheet={Sheet}
+        Cards={Cards}
+        onMount={jest.fn()}
+      />,
     ).toMatchRenderedSnapshot();
   });
 

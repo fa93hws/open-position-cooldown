@@ -23,7 +23,7 @@ describe('HomeDrawer', () => {
 
   it('can be mounted', () => {
     const intentionService = new IntentionService({} as any);
-    const { Component } = createHomeDrawer(intentionService);
+    const { Component } = createHomeDrawer(intentionService, jest.fn());
     expect(() => render(<Component />)).not.toThrow();
   });
 });

@@ -32,4 +32,11 @@ export class IntentionService {
   async addIntention(intention: IntentionSchema) {
     this.localStorageService.addToArray('intentions', intention);
   }
+
+  async fetchIntentions(): Promise<IntentionSchema[]> {
+    const intentions = await this.localStorageService.getItems<
+      IntentionSchema[]
+    >('intentions');
+    return intentions ?? [];
+  }
 }

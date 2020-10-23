@@ -62,8 +62,11 @@ export const HomeDrawer = React.memo(
   }),
 );
 
-export function createHomeDrawer(intentionService: IntentionService) {
-  const store = new DrawerStore(intentionService);
+export function createHomeDrawer(
+  intentionService: IntentionService,
+  afterSubmit: () => void,
+) {
+  const store = new DrawerStore(intentionService, afterSubmit);
   const handleClose = () => store.setOpen(false);
   const showDrawer = () => store.setOpen(true);
 
