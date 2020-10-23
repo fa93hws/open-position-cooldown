@@ -22,7 +22,7 @@ describe('HomeDrawer', () => {
   });
 
   it('can be mounted', () => {
-    const intentionService = new IntentionService();
+    const intentionService = new IntentionService({} as any);
     const { Component } = createHomeDrawer(intentionService);
     expect(() => render(<Component />)).not.toThrow();
   });
