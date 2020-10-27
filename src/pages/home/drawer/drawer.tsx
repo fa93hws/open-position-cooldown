@@ -38,9 +38,10 @@ type HomeDrawerProps = WithTheme & {
 export const HomeDrawer = React.memo(
   withTheme((props: HomeDrawerProps) => {
     const styles = useStyles();
+
     return (
       <Drawer anchor="bottom" open={props.open}>
-        <Box height="100vh" width="100%" display="flex" flexDirection="column">
+        <Box width="100%" display="flex" flexDirection="column">
           <AppBar className={styles.headContainer} position="static">
             {/* placeholder to balance the layout */}
             <IconButton className={styles.placeholderIconWrapper}>

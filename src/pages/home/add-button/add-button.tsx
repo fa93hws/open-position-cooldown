@@ -11,8 +11,8 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: '50%',
     minWidth: 0,
     padding: 0,
-    height: sizes[1],
-    width: sizes[1],
+    height: sizes[2],
+    width: sizes[2],
   },
 }));
 

@@ -5,7 +5,6 @@ import { Box, CssBaseline } from '@material-ui/core';
 import {
   createMuiTheme,
   responsiveFontSizes,
-  makeStyles,
   ThemeProvider,
 } from '@material-ui/core/styles';
 import { BrowserRouter } from 'react-router-dom';
@@ -16,21 +15,28 @@ import './global.css';
 
 const theme = responsiveFontSizes(createMuiTheme());
 
-const useStyles = makeStyles({
-  main: {
-    overflowY: 'hidden',
-  },
-});
-
 export const App = () => {
-  const styles = useStyles();
+  const [height, setHeight] = React.useState(0);
+
+  React.useEffect(() => {
+    setHeight(window.innerHeight);
+    window.addEventListener('resize', () => {
+      setHeight(window.innerHeight);
+    });
+  }, [setHeight]);
+
   return (
     <ThemeProvider theme={theme}>
       <BrowserRouter basename={process.env.BASE_URL}>
         <CssBaseline />
-        <Box display="flex" flexDirection="column" height="100%">
+        <Box
+          overflow="hidden"
+          display="flex"
+          flexDirection="column"
+          height={height}
+        >
           <Header />
-          <Box className={styles.main} flex="1" component="main">
+          <Box overflow="hidden" flex="1" component="main">
             <Pages />
           </Box>
         </Box>
