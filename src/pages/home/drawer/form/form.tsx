@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Button, Box, Divider } from '@material-ui/core';
 import { makeStyles, withTheme, WithTheme } from '@material-ui/core/styles';
 
-import { designWidth } from '@styles/styles';
+import { designWidth, sizes } from '@styles/styles';
 import type { IntentionSchema } from '@services/intention/intention';
 import { createBasicInfo } from './basic-info/basic-info';
 import { createPriceExplain } from './price/price';
@@ -25,6 +25,9 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up('sm')]: {
       width: designWidth[1],
     },
+  },
+  button: {
+    height: sizes[2],
   },
 }));
 
@@ -58,7 +61,13 @@ export const Form = React.memo(
             <props.StrategyPanel />
           </Box>
         </Box>
-        <Button fullWidth variant="contained" color="primary" type="submit">
+        <Button
+          classes={{ root: styles.button }}
+          fullWidth
+          variant="contained"
+          color="primary"
+          type="submit"
+        >
           买！买！买！
         </Button>
       </Box>

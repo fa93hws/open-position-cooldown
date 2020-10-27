@@ -2,10 +2,10 @@
 
 exports[`Form renders as follow 1`] = `
 <form
-  class="MuiBox-root MuiBox-root-2"
+  class="MuiBox-root MuiBox-root-3"
 >
   <div
-    class="MuiBox-root MuiBox-root-3 makeStyles-container-1"
+    class="MuiBox-root MuiBox-root-4 makeStyles-container-1"
   >
     <div>
       BasicInfo
@@ -14,7 +14,7 @@ exports[`Form renders as follow 1`] = `
       class="MuiDivider-root"
     />
     <div
-      class="MuiBox-root MuiBox-root-4"
+      class="MuiBox-root MuiBox-root-5"
     >
       <div>
         Reason
@@ -24,7 +24,7 @@ exports[`Form renders as follow 1`] = `
       class="MuiDivider-root"
     />
     <div
-      class="MuiBox-root MuiBox-root-5"
+      class="MuiBox-root MuiBox-root-6"
     >
       <div>
         PriceExplain
@@ -34,7 +34,7 @@ exports[`Form renders as follow 1`] = `
       class="MuiDivider-root"
     />
     <div
-      class="MuiBox-root MuiBox-root-6"
+      class="MuiBox-root MuiBox-root-7"
     >
       <div>
         StrategyPanel
@@ -42,7 +42,7 @@ exports[`Form renders as follow 1`] = `
     </div>
   </div>
   <button
-    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-fullWidth"
+    class="MuiButtonBase-root MuiButton-root makeStyles-button-2 MuiButton-contained MuiButton-containedPrimary MuiButton-fullWidth"
     tabindex="0"
     type="submit"
   >
