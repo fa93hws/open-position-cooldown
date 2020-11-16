@@ -1,9 +1,11 @@
 const listen = jest.fn();
 const on = jest.fn();
-const libraryMock = jest.mock('socket.io-client', () => (url: string) => {
-  listen(url);
-  return { on };
-});
+const libraryMock = jest.mock('socket.io-client', () => ({
+  io: (url: string) => {
+    listen(url);
+    return { on };
+  },
+}));
 
 /* eslint-disable import/first */
 import { cleanup } from '@testing-library/react';

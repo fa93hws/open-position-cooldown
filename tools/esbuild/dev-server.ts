@@ -1,6 +1,6 @@
 import * as http from 'http';
 import * as mime from 'mime';
-import * as _socket from 'socket.io';
+import { Server } from 'socket.io';
 import * as path from 'path';
 import * as fs from 'fs';
 import { green } from 'chalk';
@@ -111,13 +111,13 @@ export function handleRouteResult(
 export function startDevServer({
   port,
   baseUrl,
-  socket = _socket,
+  SocketServer = Server,
   mute = false,
   buildOutputFolder,
 }: {
   port: number;
   baseUrl?: string;
-  socket?: typeof _socket;
+  SocketServer?: typeof Server;
   mute?: boolean;
   buildOutputFolder: string;
 }) {
@@ -132,5 +132,5 @@ export function startDevServer({
   server.listen(port);
   const hostLink = `http://localhost:${port}/${baseUrl ?? ''}/`;
   mute || console.log(green(`dev server start@${hostLink}`));
-  return socket(server);
+  return new SocketServer(server);
 }

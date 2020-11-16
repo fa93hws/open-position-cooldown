@@ -80,7 +80,11 @@ describe('startDevServer', () => {
     expect(() => {
       const server = startDevServer({
         port: 1234,
-        socket: ((arg: any) => arg) as any,
+        SocketServer: class {
+          constructor(args: any) {
+            return args;
+          }
+        } as any,
         mute: true,
         buildOutputFolder: '',
       });
